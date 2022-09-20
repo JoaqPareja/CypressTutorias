@@ -1,11 +1,8 @@
 
 
-const nameSignUp = 'JoaqTest2655';
-const emailSignUp =  'joaqTest2654@gmail.com';
-const passwordSignUp = 'PasswordTest';
-const inputNameClass = '.login-form > form > :nth-child(3) > #name';
-const test = "test";
-const createAccount = '.login-form > form > .btn';
+import {singUpLogin, inputNameSingUp, nameSignUp, inputEmailSingup, emailSignUp, singUpButton, inputNameClass, passwordSignUp, test 
+,createAccount} from "../support/Consts";
+
 let titleResponse =[];
 
 describe('Register User', () => {
@@ -25,15 +22,16 @@ describe('Register User', () => {
   })
   it('Sing up', ()=>{
         //Click on 'Signup / Login' button
-      cy.get('.navbar-nav > li:nth-child(4)').click() 
+      cy.get(singUpLogin).click() 
     // Verify 'New User Signup!' is visible
     cy.get('body').contains("New User Signup!")  
     //Enter name and email address
-    cy.get('[type="text"]').type(nameSignUp) // name
-    cy.get('.signup-form > form > [type="email"]').type(emailSignUp) //email
+    cy.get(inputNameSingUp).type(nameSignUp) // name
+    cy.get(inputEmailSingup).type(emailSignUp) //email
     //Click 'Signup' button
-    cy.get('.signup-form > form > .btn').click()
+    cy.get(singUpButton).click()
     //Verify that 'ENTER ACCOUNT INFORMATION' is visible
+   // -> Missing
 
   })
   it('Account information', function (){
@@ -43,9 +41,13 @@ describe('Register User', () => {
     .click()
     // Validate name and email previously place it the step before
 
-    // cy.get(inputNameClass)
-    // expect(inputNameClass).to.be.equal(nameSignUp)
-    cy.get(inputNameClass).should('have.text',nameSignUp)
+    //  cy.get(inputNameClass)
+    //  expect(inputNameClass).to.be.equal(nameSignUp)
+    cy.get(inputNameClass)
+    .invoke('val')
+    .should('have.text',nameSignUp)
+
+    // expect(inputNameClass).to.have.value(nameSignUp)
     // inputNameClass.should('have.text',nameSignUp)
 
     cy.get('#password').type(passwordSignUp);
@@ -66,12 +68,17 @@ describe('Register User', () => {
     cy.get('#state').type(test)
     cy.get('#city').type(test) 
     cy.get('#zipcode').type(test)
-
   })
- 
-
   it('Check input mobile number if it requires a number', ()=>{
-  cy.get('#mobile_number').type(test)
+  cy.get('#mobile_number')
+  .type(test)
+  .invoke('val')
+  .should('match', /^[0-9]\d*(\.\d+)?$/) //checking the numbers that contain decimals
+
+  // .invoke('val')
+  // .should(value =>{
+  //   expect(Number.isInteger(+value), 'input should be an integer').to.eq(true)
+  // })
 })
 it("Create account", ()=>{
   cy.get(createAccount).click()
