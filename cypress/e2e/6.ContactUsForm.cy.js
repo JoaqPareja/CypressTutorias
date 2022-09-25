@@ -1,5 +1,5 @@
-import {ContactUs, GetInTouchTitle, emailInputField, emailSignUp, nameinputForm, nameSignUp, test,
-  ChooseFilButton, subjectInputField, messageInputField, submitButton, SuccesFormChangesMsg} 
+import {ContactUs, getInTouchTitle, emailInputField, emailSignUp, nameinputForm, nameSignUp, test,
+  chooseFilButton, subjectInputField, messageInputField, submitButton, succesFormChangesMsg} 
 from "../support/Consts";
   
 
@@ -10,7 +10,7 @@ describe('Register User', () => {
   
     it('Visit page',()=>{
         //Navigate to url 'http://automationexercise.com'
-      cy.visit('http://automationexercise.com')
+        cy.visit('/')
     })
 
 // 3. Verify that home page is visible successfully
@@ -19,9 +19,6 @@ it('Verify that home page is visible successfully', () => {
     // Verify that home page is visible successfully
     cy.CheckElement('body')
     cy.CheckHidden('body')
-    //Check Width and Height is greater and less than
-    cy.getWidth('body')
-    cy.getHeight('body')
   })
 
 it('', ()=>{
@@ -31,9 +28,9 @@ cy.get(ContactUs).click()
 
 // 5. Verify 'GET IN TOUCH' is visible
 
-cy.CheckElement(GetInTouchTitle)
-cy.CheckHidden(GetInTouchTitle)
-cy.get(GetInTouchTitle).should('have.text', 'Get In Touch')
+cy.CheckElement(getInTouchTitle)
+cy.CheckHidden(getInTouchTitle)
+cy.get(getInTouchTitle).should('have.text', 'Get In Touch')
 
 // 6. Enter name, email, subject and message
 
@@ -47,7 +44,7 @@ cy.get(messageInputField).type(test)
 
 // 7. Upload file
 
-cy.get(ChooseFilButton).click()
+cy.get(chooseFilButton).click()
 
 // 8. Click 'Submit' button
 
@@ -56,10 +53,10 @@ cy.get(submitButton).click()
 
 // 9. Click OK button
 
-cy.CheckElement(SuccesFormChangesMsg)
-cy.CheckHidden(SuccesFormChangesMsg)
+cy.CheckElement(succesFormChangesMsg)
+cy.CheckHidden(succesFormChangesMsg)
 
-cy.get(SuccesFormChangesMsg).should('have.text', 'Success! Your details have been submitted successfully.')
+cy.get(succesFormChangesMsg).should('have.text', 'Success! Your details have been submitted successfully.')
 
 
 })

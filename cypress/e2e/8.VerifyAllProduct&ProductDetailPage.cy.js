@@ -3,14 +3,14 @@
 
     // 1. Launch browser
 
-import { productsbutton, listOfItems, viewProductImg, allProducts, productInformationAddToCart, productInformationH2, productInformationP} from '../support/Consts'
+import { productsbutton, listOfItems, viewProductImg, titlePageProducts, productInformationAddToCart, productInformationH2, productInformationP} from '../support/Consts'
     // 2. Navigate to url 'http://automationexercise.com'
    
     describe('Register User', () => {
   
         it('Visit page',()=>{
             //Navigate to url 'http://automationexercise.com'
-          cy.visit('http://automationexercise.com')
+          cy.visit('/')
         })
     
     // 3. Verify that home page is visible successfully
@@ -19,9 +19,6 @@ import { productsbutton, listOfItems, viewProductImg, allProducts, productInform
         // Verify that home page is visible successfully
         cy.CheckElement('body')
         cy.CheckHidden('body')
-        //Check Width and Height is greater and less than
-        cy.getWidth('body')
-        cy.getHeight('body')
       })
     
      it('Verify products', ()=>{
@@ -30,11 +27,13 @@ import { productsbutton, listOfItems, viewProductImg, allProducts, productInform
     cy.get(productsbutton).click()
    
     // 5. Verify user is navigated to ALL PRODUCTS page successfully
-    cy.url().should('include', '/products')
+    cy.url()
+    .should('include', '/products')
+    .should('not.include', '/products/');
     // 6. The products list is visible
     cy.CheckElement(listOfItems)
     cy.CheckHidden(listOfItems)
-    cy.get(allProducts).should('have.text', 'All Products')
+    cy.get(titlePageProducts).should('have.text', 'All Products')
     
     // 7. Click on 'View Product' of first product
     // cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a').click()

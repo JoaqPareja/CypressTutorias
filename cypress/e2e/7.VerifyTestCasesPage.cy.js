@@ -9,7 +9,7 @@ from "../support/Consts";
   
         it('Visit page',()=>{
             //Navigate to url 'http://automationexercise.com'
-          cy.visit('http://automationexercise.com')
+          cy.visit('/')
         })
     
     // 3. Verify that home page is visible successfully

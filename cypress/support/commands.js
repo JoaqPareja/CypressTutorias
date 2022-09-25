@@ -27,7 +27,7 @@ Cypress.Commands.add('getHeight', (label) =>{
     .then(function(oHeight){
         cy.log(oHeight)
         expect(oHeight)
-        .to.be.within(8000, 10000)
+        .to.be.within(2000, 10000)
     });
 })
 

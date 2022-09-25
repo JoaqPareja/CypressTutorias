@@ -1,6 +1,6 @@
 
 
-import {singUpLogin, inputNameSingUp, nameSignUp, inputEmailSingup, emailSignUp, singUpButton,  EmailAlreadyExist
+import {singUpLogin, inputNameSingUp, nameSignUp, inputEmailSingup, emailSignUp, singUpButton,  emailAlreadyExist
   } from "../support/Consts";
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
@@ -9,7 +9,7 @@ import {singUpLogin, inputNameSingUp, nameSignUp, inputEmailSingup, emailSignUp,
   
         it('Visit page',()=>{
             //Navigate to url 'http://automationexercise.com'
-          cy.visit('http://automationexercise.com')
+            cy.visit('/')
         })
     
     // 3. Verify that home page is visible successfully
@@ -18,9 +18,6 @@ import {singUpLogin, inputNameSingUp, nameSignUp, inputEmailSingup, emailSignUp,
         // Verify that home page is visible successfully
         cy.CheckElement('body')
         cy.CheckHidden('body')
-        //Check Width and Height is greater and less than
-        cy.getWidth('body')
-        cy.getHeight('body')
       })
     
       it('Sing up', ()=>{
@@ -35,10 +32,10 @@ import {singUpLogin, inputNameSingUp, nameSignUp, inputEmailSingup, emailSignUp,
     cy.get(singUpButton).click()
 
       // 8. Verify error 'Email Address already exist!' is visible
-    cy.CheckElement(EmailAlreadyExist);
-    cy.CheckHidden(EmailAlreadyExist);
+    cy.CheckElement(emailAlreadyExist);
+    cy.CheckHidden(emailAlreadyExist);
 
-    cy.get('.signup-form > form > p').should('have.text','Email Address already exist!') 
+    cy.get(emailAlreadyExist).should('have.text','Email Address already exist!') 
 
   })
 
