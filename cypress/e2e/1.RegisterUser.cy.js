@@ -1,16 +1,11 @@
-
-
-import {singUpLogin, inputNameSingUp, nameSignUp, inputEmailSingup, emailSignUp, singUpButton, inputName, passwordSignUp, test 
-,mobileNumber, testNumber,createAccount} from "../support/consts";
+import {inputTypes, singUpUser, enterAccountInformation} from '../support/consts'
 
 describe('Register User', () => {
   
   it('Visit page',()=>{
-      //Navigate to url 'http://automationexercise.com'
-    // cy.visit('http://automationexercise.com')
     cy.visit('/')
+    //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
   })
-
   it('Verify that home page is visible successfully', () => {
     // Verify that home page is visible successfully
       //Cambiar esto por una seccion que no sea el body pero si igual de grande
@@ -19,57 +14,67 @@ describe('Register User', () => {
   })
   it('Sing up', ()=>{
         //Click on 'Signup / Login' button
-      cy.get(singUpLogin).click() 
+      cy.get(singUpUser.buttonSingUp).click() 
     // Verify 'New User Signup!' is visible
-
-    //-> Cambiar
-    // CAMBIAR por un selector mas especifico.
-    
-    cy.get('body').contains("New User Signup!")  
-    cy.get(inputNameSingUp).type(nameSignUp) // name
-    cy.get(inputEmailSingup).type(emailSignUp) //email
-    cy.get(singUpButton).click()
+    cy.get(singUpUser.newUserSignUpH2)
+    .contains("New User Signup!")  
+    cy.get(singUpUser.inputNameSingUp)
+    .type(inputTypes.nameSignUp) // name
+    cy.get(singUpUser.inputEmailSingup)
+    .type(inputTypes.emailSignUp) //email
+    cy.get(singUpUser.buttonSingUp)
+    .click()
    
   })
   it('Account information', function (){
-    cy.get('body')
+    cy.get('.clearfix')
     .contains("Mr")
     .click()
     // Validate name and email previously place it the step before
-
-    //  cy.get(inputNameClass)
-    //  expect(inputNameClass).to.be.equal(nameSignUp)
-    cy.get(inputName)
-    .should('have.value',nameSignUp)
-
-    cy.get('#password').type(passwordSignUp);
+    cy.get(enterAccountInformation.inputName)
+    .should('have.value',inputTypes.nameSignUp)
+   
+    cy.get(enterAccountInformation.inputPassword)
+    .type(inputTypes.passwordSignUp);
     //Date of birth
-    cy.get('#days').select('1');
-    cy.get('#months').select('1');
-    cy.get('#years').select('1995');
+    cy.get(enterAccountInformation.selectDateDay)
+    .select('1');
+    cy.get(enterAccountInformation.selectDateMonth)
+    .select('1');
+    cy.get(enterAccountInformation.selectDateYear)
+    .select('1995');
     //Checkboxes
-    cy.get('#newsletter').click();
-    cy.get('#optin').click();
+    cy.get(enterAccountInformation.radioButtonNewsLetter)
+    .click();
+    cy.get(enterAccountInformation.radioButtonReceiveSpecialOffers)
+    .click();
     //Address information
-    cy.get('#first_name').type(test)
-    cy.get('#last_name').type(test)
-    cy.get('#company').type(test)
-    cy.get('#address1').type(test)
-    cy.get('#address2').type(test)
-    cy.get('#country').select('India')
-    cy.get('#state').type(test)
-    cy.get('#city').type(test) 
-    cy.get('#zipcode').type(test)
+
+    cy.get(enterAccountInformation.inputFirstName)
+    .type(inputTypes.test)
+    cy.get(enterAccountInformation.inputLastName)
+    .type(inputTypes.test)
+    cy.get(enterAccountInformation.inputCompany)
+    .type(inputTypes.test)
+    cy.get(enterAccountInformation.inputAddressName1)
+    .type(inputTypes.test)
+    cy.get(enterAccountInformation.inputAddressName2)
+    .type(inputTypes.test)
+    cy.get(enterAccountInformation.inputCountry)
+    .select('India')
+    cy.get(enterAccountInformation.inputState)
+    .type(inputTypes.test)
+    cy.get(enterAccountInformation.inputCity)
+    .type(inputTypes.test) 
+    cy.get(enterAccountInformation.inputZipcode)
+    .type(inputTypes.test)
   })
   it('Check input mobile number if it requires a number', ()=>{
-  cy.get(mobileNumber)
-  .type(testNumber)
+  cy.get(enterAccountInformation.inputMobileNumber)
+  .type(inputTypes.testNumber)
   .should('match', /^[0-9]\d*(\.\d+)?$/) //checking the numbers that contain decimals
-
-
 })
 it("Create account", ()=>{
-  cy.get(createAccount).click()
+  cy.get(enterAccountInformation.buttonCreateAccount).click()
 })
 })
-

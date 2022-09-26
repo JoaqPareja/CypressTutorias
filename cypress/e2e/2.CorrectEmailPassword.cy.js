@@ -1,12 +1,6 @@
+import {inputTypes, header, loginUser} from '../support/consts'
 
-
-import {singUpLogin, inputPasswordLogIn, inputEmailAddressLogIn, emailSignUp, loginButton, passwordSignUp 
- ,loginToYourAccountH2,logOut } from "../support/consts";
-
-    // 1. Launch browser
-    // 2. Navigate to url 'http://automationexercise.com'
     describe('Login with Correct email and password', () => {
-  
         it('Visit page',()=>{
             //Navigate to url 'http://automationexercise.com'
             cy.visit('/')
@@ -16,26 +10,29 @@ import {singUpLogin, inputPasswordLogIn, inputEmailAddressLogIn, emailSignUp, lo
         // Verify that home page is visible successfully
         cy.CheckElement('body')
         cy.CheckHidden('body')
-        //Check Width and Height is greater and less than
       })
     // 4. Click on 'Signup / Login' button
     it('Sing up', ()=>{
       //Click on 'Signup / Login' button
-    cy.get(singUpLogin).click() 
+    cy.get(header.buttonSingUpLogin).click() 
  // 5. Verify 'Login to your account' is visible
-  cy.CheckElement(loginToYourAccountH2)
-  cy.get(loginToYourAccountH2).contains("Login to your account")  
+  cy.CheckElement(loginUser.loginToYourAccountH2)
+  cy.get(loginUser.loginToYourAccountH2).contains("Login to your account")  
   // 6. Enter correct email address and password
-  cy.get(inputEmailAddressLogIn).type(emailSignUp) //email
-  cy.get(inputPasswordLogIn).type(passwordSignUp);
+  cy.get(loginUser.inputEmailAddressLogIn).type(inputTypes.emailSignUp) //email
+  cy.get(loginUser.inputPasswordLogIn).type(inputTypes.passwordSignUp);
 
   // 7. Click 'login' button
-  cy.get(loginButton).click()
+  cy.get(loginUser.buttonLogin).click()
   //Verify that 'ENTER ACCOUNT INFORMATION' is visible
+  cy.get(loginUser.incorrectEmailORPasswordMsg)
+  .should('not.exist','Your email or password is incorrect!');
+})
+it('Verify that you can log out', ()=>{
 
-//Verify that the you can log out
-cy.CheckElement(logOut)
-
+  cy.get(loginUser.buttonLogOut)
+  .should('have.text',' Logout');
+cy.CheckElement(loginUser.buttonLogOut)
 })
 
     // 8. Verify that 'Logged in as username' is visible
@@ -44,4 +41,4 @@ cy.CheckElement(logOut)
     
     // 10. Verify that 'ACCOUNT DELETED!' is visible
 
-    })
+})

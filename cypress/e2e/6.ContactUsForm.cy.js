@@ -1,68 +1,47 @@
-import {ContactUs, getInTouchTitle, emailInputField, emailSignUp, nameinputForm, nameSignUp, test,
-  chooseFilButton, subjectInputField, messageInputField, submitButton, succesFormChangesMsg} 
-from "../support/Consts";
-  
-
+import {header, inputTypes, contactUsInformation} from '../support/consts'
 // 1. Launch browser
 // 2. Navigate to url 'http://automationexercise.com'
-
 describe('Register User', () => {
-  
     it('Visit page',()=>{
         //Navigate to url 'http://automationexercise.com'
         cy.visit('/')
     })
-
 // 3. Verify that home page is visible successfully
-
 it('Verify that home page is visible successfully', () => {
     // Verify that home page is visible successfully
     cy.CheckElement('body')
-    cy.CheckHidden('body')
   })
-
 it('', ()=>{
 // 4. Click on 'Contact Us' button
-
-cy.get(ContactUs).click()
-
+cy.get(header.buttonContactUs).click()
 // 5. Verify 'GET IN TOUCH' is visible
-
-cy.CheckElement(getInTouchTitle)
-cy.CheckHidden(getInTouchTitle)
-cy.get(getInTouchTitle).should('have.text', 'Get In Touch')
-
+cy.CheckHidden(contactUsInformation.getInTouchTitle)
+.should('have.text', 'Get In Touch')
 // 6. Enter name, email, subject and message
-
-cy.get(nameinputForm).type(nameSignUp) 
-cy.get(emailInputField).type(emailSignUp);
-
-
-cy.get(subjectInputField).type(test)
-
-cy.get(messageInputField).type(test)
-
+cy.get(contactUsInformation.inputNameForm)
+.type(inputTypes.nameSignUp) 
+cy.get(contactUsInformation.inputEmailField)
+.type(inputTypes.emailSignUp);
+cy.get(contactUsInformation.inputSubjectField)
+.type(inputTypes.test)
+cy.get(contactUsInformation.inputSubjectField)
+.type(inputTypes.test)
 // 7. Upload file
-
-cy.get(chooseFilButton).click()
-
+cy.get(contactUsInformation.buttonChooseFile)
+.click()
 // 8. Click 'Submit' button
-
-
-cy.get(submitButton).click()
-
+cy.get(contactUsInformation.buttonSubmit)
+.click()
 // 9. Click OK button
-
-cy.CheckElement(succesFormChangesMsg)
-cy.CheckHidden(succesFormChangesMsg)
-
-cy.get(succesFormChangesMsg).should('have.text', 'Success! Your details have been submitted successfully.')
-
-
+cy.CheckElement(contactUsInformation.succesFormChangesMsg)
+cy.get(contactUsInformation.succesFormChangesMsg)
+.should('have.text', 'Success! Your details have been submitted successfully.')
 })
-
 // 10. Verify success message 'Success! Your details have been submitted successfully.' is visible
-
 // 11. Click 'Home' button and verify that landed to home page successfully
-
+it('Verify that landed to home page successfully',()=>{
+cy.get(header.buttonHome).click()
+cy.url()
+.should('include', '/')
+})
 })

@@ -1,5 +1,4 @@
-
-import{emailSignUp, subscriptionH2, subscribeButton, alertMessageofSuccess, subscriptionEmailInput} from '../support/consts'
+import {subscriptionSection, inputTypes}  from '../support/consts'
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
     describe('Register User', () => {
@@ -20,18 +19,19 @@ cy.scrollTo('bottom')
 // cy.get('fotter').scrollTo('center')
 cy.CheckElement('#footer')
         // 5. Verify text 'SUBSCRIPTION'
-       
-cy.CheckElement(subscriptionH2).should('have.text', 'Subscription')
+cy.CheckElement(subscriptionSection.h2Subscription)
+.should('have.text', 'Subscription')
    })
  
 it('',()=>{
-
-  cy.get(subscriptionEmailInput).type(emailSignUp)
-
+  cy.get(subscriptionSection.inputSubscriptionEmail)
+  .type(inputTypes.emailSignUp)
   // 6. Enter email address in input and click arrow button
-  cy.get(subscribeButton).click()
+  cy.get(subscriptionSection.buttonSubscribe)
+  .click()
       // 7. Verify success message 'You have been successfully subscribed!' is visible
-  cy.CheckElement(alertMessageofSuccess)
-  cy.get(alertMessageofSuccess).should('have.text', 'You have been successfully subscribed!')
+  cy.CheckElement(subscriptionSection.alertMessageofSuccess)
+  cy.get(subscriptionSection.alertMessageofSuccess)
+  .should('have.text', 'You have been successfully subscribed!')
 })
     })
