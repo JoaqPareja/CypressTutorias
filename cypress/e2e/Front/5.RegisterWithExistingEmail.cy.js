@@ -1,6 +1,6 @@
 
 
-  import {inputTypes, header, loginUser, singUpUser} from '../support/consts'
+  import {inputTypes, header, loginUser, singUpUser} from '../../support/consts'
     describe('Register User', () => {
         it('Visit page',()=>{
             //Navigate to url 'http://automationexercise.com'

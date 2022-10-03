@@ -1,5 +1,4 @@
-import {header} 
-from "../support/Consts";
+import {header} from '../../support/consts';
 
 
     // 1. Launch browser

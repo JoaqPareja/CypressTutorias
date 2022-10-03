@@ -1,4 +1,4 @@
-import {subscriptionSection, inputTypes}  from '../support/consts'
+import {subscriptionSection, inputTypes}  from '../../support/consts';
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
     describe('Register User', () => {
@@ -13,7 +13,7 @@ import {subscriptionSection, inputTypes}  from '../support/consts'
         cy.CheckHidden('body')
         //Check Width and Height is greater and less than
       })
-   it('',()=>{
+   it('Scroll down to footer',()=>{
     // 4. Scroll down to footer
 cy.scrollTo('bottom')
 // cy.get('fotter').scrollTo('center')
@@ -22,7 +22,7 @@ cy.CheckElement('#footer')
 cy.CheckElement(subscriptionSection.h2Subscription)
 .should('have.text', 'Subscription')
    })
- 
+
 it('',()=>{
   cy.get(subscriptionSection.inputSubscriptionEmail)
   .type(inputTypes.emailSignUp)

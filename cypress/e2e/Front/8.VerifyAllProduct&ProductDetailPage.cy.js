@@ -1,6 +1,6 @@
 
 
-import {header,productsPage } from '../support/Consts'
+import {header,productsPage } from '../../support/consts';
     // 1. Launch browser
     describe('Register User', () => {
   

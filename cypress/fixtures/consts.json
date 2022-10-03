@@ -1,0 +1,62 @@
+{
+"consts": [
+     {"inputTypes": {
+            "nameSignUp": "JoaqTest1",
+            "emailSignUp":  "joaqTest21@gmail.com",
+            "passwordSignUp": "PasswordTest",
+            "test": "test",
+            "testNumber": "13570",
+            "incorrectEmail":"IncorrectEmail@gmail.com",
+            "incorrectPassword": "IncorrectPassowrd"
+                    }},
+    {"header": {
+            "buttonHome": ".navbar-nav > li:nth-child(1)",
+            "buttonProducts": ".navbar-nav > li:nth-child(2)",
+            "buttonCart": ".navbar-nav > li:nth-child(3)",
+            "buttonSingUpLogin": ".navbar-nav > li:nth-child(4)",
+            "buttonTestCAses": ".navbar-nav > li:nth-child(5)",
+            "buttonApiTesting": ".navbar-nav > li:nth-child(6)",
+            "buttonVideoTutorials": ".navbar-nav > li:nth-child(7)",
+            "buttonContactUs": ".navbar-nav > li:nth-child(8)"
+                }},
+    {"loginUser":{
+            "loginToYourAccountH2": ".login-form > h2",
+            "inputEmailAddressLogIn":".login-form > form > [type='email']", 
+            "inputPasswordLogIn": "[type='password'] ",
+            "buttonLogin": ".login-form > form > .btn",
+            "incorrectEmailORPasswordMsg": ".login-form > form > p",
+            "buttonLogOut": ".shop-menu > .nav > :nth-child(4) > a"
+                }}, 
+    {"singUpUser" : {
+            "sectionForm": "#form",
+            "newUserSignUpH2":".signup-form > h2",
+            "inputNameSingUp": "[type='text']",
+            "inputEmailSingup": ".signup-form > form > [type='email']",
+            "buttonSingUp":".signup-form > form > .btn",
+            "emailAlreadyExist": ".signup-form > form > p"
+                     }},
+              
+    {"enterAccountInformation": {
+            "inputName": "#name",
+            "inputEmail": "#email",
+            "inputPassword": "#password",
+            "selectDateDay": "#days",
+            "selectDateMonth": "#months",
+            "selectDateYear": "#years",
+            "radioButtonNewsLetter": "#newsletter",
+            "radioButtonReceiveSpecialOffers": "#optin",
+            "inputFirstName":"#first_name", 
+            "inputLastName": "#last_name",
+            "inputCompany": "#company",
+            "inputAddressName1": "#address1",
+            "inputAddressName2": "#address2",
+            "inputCountry": "#country",
+            "inputState": "#state",
+            "inputCity": "#city",
+            "inputZipcode":"#zipcode",
+            "inputMobileNumber":"#mobile_number",
+            "buttonCreateAccount": ".login-form > form > .btn"
+                                 }}
+
+]  
+}

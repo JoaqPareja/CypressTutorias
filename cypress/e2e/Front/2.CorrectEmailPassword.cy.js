@@ -1,4 +1,4 @@
-import {inputTypes, header, loginUser} from '../support/consts'
+import {inputTypes, header, loginUser} from '../../support/consts';
 
     describe('Login with Correct email and password', () => {
         it('Visit page',()=>{
@@ -17,10 +17,13 @@ import {inputTypes, header, loginUser} from '../support/consts'
     cy.get(header.buttonSingUpLogin).click() 
  // 5. Verify 'Login to your account' is visible
   cy.CheckElement(loginUser.loginToYourAccountH2)
-  cy.get(loginUser.loginToYourAccountH2).contains("Login to your account")  
+  cy.get(loginUser.loginToYourAccountH2)
+  .contains("Login to your account")  
   // 6. Enter correct email address and password
-  cy.get(loginUser.inputEmailAddressLogIn).type(inputTypes.emailSignUp) //email
-  cy.get(loginUser.inputPasswordLogIn).type(inputTypes.passwordSignUp);
+  cy.get(loginUser.inputEmailAddressLogIn)
+  .type(inputTypes.emailSignUp) //email
+  cy.get(loginUser.inputPasswordLogIn)
+  .type(inputTypes.passwordSignUp);
 
   // 7. Click 'login' button
   cy.get(loginUser.buttonLogin).click()

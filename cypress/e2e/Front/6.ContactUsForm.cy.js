@@ -1,4 +1,4 @@
-import {header, inputTypes, contactUsInformation} from '../support/consts'
+import {header, inputTypes, contactUsInformation} from '../../support/consts'
 // 1. Launch browser
 // 2. Navigate to url 'http://automationexercise.com'
 describe('Register User', () => {

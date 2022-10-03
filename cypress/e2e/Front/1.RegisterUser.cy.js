@@ -1,4 +1,6 @@
-import {inputTypes, singUpUser, enterAccountInformation} from '../support/consts'
+import {header,inputTypes, singUpUser, enterAccountInformation} from '../../support/consts';
+// import {consts} from '../fixtures/consts.json'
+// import { inputTypes } from '../support/consts'
 
 describe('Register User', () => {
   
@@ -14,7 +16,8 @@ describe('Register User', () => {
   })
   it('Sing up', ()=>{
         //Click on 'Signup / Login' button
-      cy.get(singUpUser.buttonSingUp).click() 
+        // cy.get(consts[1].header.buttonSingUpLogin).click()
+      cy.get(header.buttonSingUpLogin).click() 
     // Verify 'New User Signup!' is visible
     cy.get(singUpUser.newUserSignUpH2)
     .contains("New User Signup!")  
@@ -24,8 +27,10 @@ describe('Register User', () => {
     .type(inputTypes.emailSignUp) //email
     cy.get(singUpUser.buttonSingUp)
     .click()
-   
-  })
+    cy.get(singUpUser.emailAlreadyExist)
+    .should('not.exist')
+    .should('have.text','Email Address already exist!')
+       })
   it('Account information', function (){
     cy.get('.clearfix')
     .contains("Mr")

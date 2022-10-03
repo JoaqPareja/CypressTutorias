@@ -1,4 +1,4 @@
-import {productsPage, header} from '../support/consts'
+import {productsPage, header} from '../../support/consts';
     // 2. Navigate to url 'http://automationexercise.com'
     describe('Register User', () => {
   
@@ -23,7 +23,7 @@ import {productsPage, header} from '../support/consts'
         // 6. The products list is visible
         cy.CheckElement(productsPage.listOfItems)
         cy.get(productsPage.h2TitlePageProducts)
-        .should('have.text', ' All Products')
+        .should('have.text', 'All Products')
     // 6. Enter product name in search input and click search button\
     cy.CheckElement(productsPage.inputSearchProduct)
     cy.get(productsPage.inputSearchProduct).type('Blue Top')

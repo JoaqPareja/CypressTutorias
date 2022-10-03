@@ -2,8 +2,8 @@
 // First letter of the text must be in camelcase
 
 export const inputTypes = {
-     nameSignUp: 'JoaqTest1',
-     emailSignUp:  'joaqTest21@gmail.com',
+     nameSignUp: 'JoaqTest2',
+     emailSignUp:  'joaqTest221@gmail.com',
     passwordSignUp: 'PasswordTest',
      test: "test",
  testNumber: '13570',
