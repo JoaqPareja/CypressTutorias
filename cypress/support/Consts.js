@@ -77,7 +77,8 @@ export const loginUser =
 export const productsPage = 
  {
     listOfItems: '.features_items',
-    buttonSelectfirstProduct: '.features_items:last-child > :nth-child(3) > .product-image-wrapper > .choose > .nav > li > a',
+    firstProductImage: '.features_items:last-child > :nth-child(3) > .product-image-wrapper',
+    buttonViewFirstProduct: '.features_items:last-child > :nth-child(3) > .product-image-wrapper > .choose > .nav > li > a',
     imgViewProduct: '.view-product > img',
     h2ProductInformation: '.product-information > h2',
     pProductInformation: '.product-information > p',
@@ -85,8 +86,19 @@ export const productsPage =
     spanPriceInformation: '.product-information > span:nth-child(5) > span:nth-child(1)',
     buttonProductInformationAddToCart: 'button.btn:nth-child(5)',
     h2TitlePageProducts: '.title',
-    inputSearchProduct: '#search_product'
- }
+    inputSearchProduct: '#search_product',
+    pAddedText: '.modal-title',
+    pProducAddedToCart: '.modal-body > :nth-child(1)',
+    buttonContinueShopping: '.modal-footer > .btn',
+    pLinkViewCart: 'u',
+    divFirstProduct: 'div.col-sm-4:nth-child(3)',
+    divFirstProductOnHover: 'div.col-sm-4:nth-child(3) > div.product-image-wrapper > div.single-products> div.product-overlay ',
+    divSecondProduct: 'div.col-sm-4:nth-child(4)',
+    divSecondProductOnHover: 'div.col-sm-4:nth-child(4) > div.product-image-wrapper > div.single-products> div.product-overlay'
+
+
+ 
+}
 export const subscriptionSection =
 {
     h2Subscription: '.single-widget > h2:nth-child(1)',    
@@ -95,3 +107,7 @@ export const subscriptionSection =
     alertMessageofSuccess: '.alert-success'
 }
 
+export const testCases ={
+    registerUser: '.panel-group:nth-child(2) .panel > .panel-heading > .panel-title > a'
+
+ }
