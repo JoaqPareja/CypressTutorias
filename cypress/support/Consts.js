@@ -77,7 +77,7 @@ export const loginUser =
 export const productsPage = 
  {
     listOfItems: '.features_items',
-    firstProductImage: '.features_items:last-child > :nth-child(3) > .product-image-wrapper',
+    imgFirstProduct: '.features_items:last-child > :nth-child(3) > .product-image-wrapper',
     buttonViewFirstProduct: '.features_items:last-child > :nth-child(3) > .product-image-wrapper > .choose > .nav > li > a',
     imgViewProduct: '.view-product > img',
     h2ProductInformation: '.product-information > h2',
@@ -92,12 +92,19 @@ export const productsPage =
     buttonContinueShopping: '.modal-footer > .btn',
     pLinkViewCart: 'u',
     divFirstProduct: 'div.col-sm-4:nth-child(3)',
+    h2priceFirstProduct: 'div.col-sm-4:nth-child(3) > h2',
     divFirstProductOnHover: 'div.col-sm-4:nth-child(3) > div.product-image-wrapper > div.single-products> div.product-overlay ',
     divSecondProduct: 'div.col-sm-4:nth-child(4)',
-    divSecondProductOnHover: 'div.col-sm-4:nth-child(4) > div.product-image-wrapper > div.single-products> div.product-overlay'
-
-
- 
+    divSecondProductOnHover: 'div.col-sm-4:nth-child(4) > div.product-image-wrapper > div.single-products> div.product-overlay',
+    h2ProductTitle: 'h2:nth-child(2)',
+    pProductTitle: 'p:nth-child(2)',
+    linkProductOnHover: 'div > a',
+    h4CartFirstProductTitle: 'tbody > tr:first-child > td.cart_description > h4',
+    pPriceFirstProduct: 'tbody > tr:first-child > td.cart_price > p',
+    buttonQuantityFirstProduct: 'tbody > tr:first-child > td.cart_quantity > button',
+    h4CartSecondProductTitle: 'tbody > tr:nth-child(2) > td.cart_description > h4',
+    pPriceSecondProduct: 'tbody > tr:nth-child(2) > td.cart_price > p',
+    buttonQuantitySecondProduct: 'tbody > tr:nth-child(2) > td.cart_quantity > button'
 }
 export const subscriptionSection =
 {
