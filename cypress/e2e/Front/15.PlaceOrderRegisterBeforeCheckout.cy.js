@@ -1,8 +1,84 @@
 
-
+import {header} from '../../support/consts'
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
     // 3. Verify that home page is visible successfully
+    describe('Register User', () => {
+  
+        it('Visit page',()=>{
+          cy.visit('/')
+          //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
+        })
+        it('Create account', ()=>{
+          cy.get(header.buttonSingUpLogin)
+        })
+        it('Adding items to the cart', ()=>{   
+          // it('Adding first item to the cart', ()=>{
+              cy.get(productsPage
+                  .divFirstProduct)
+                    .realHover()
+                      .find(productsPage
+                        .divProductOnHoverOnlyDiv)
+                          .should('be.visible')
+                            .find(productsPage
+                              .linkProductOnHover)
+                                .click({force: true})
+                                .wait(1000);
+              cy.get(productsPage
+                .buttonDialogContinueShopping)
+                  .click();
+                                // .click({waitForAnimations: false});
+                            // });
+          // it('Adding Second item to the cart',()=>{
+            cy.get(productsPage
+              .divSecondProduct)
+                .realHover()
+                  .find(productsPage
+                    .divProductOnHoverOnlyDiv)
+                      .should('be.visible')
+                        .find(productsPage
+                          .linkProductOnHover)
+                            .click({waitForAnimations: false})
+                              .wait(1000);
+            cy.get(productsPage
+                .buttonDialogContinueShopping)
+                  .click();
+                            // .click({waitForAnimations: false});       
+          // });     
+          // it('Adding Third item to the cart',()=>{      
+            cy.get(productsPage
+              .divThirdProduct)
+                .realHover()
+                  .find(productsPage
+                    .divProductOnHoverOnlyDiv)
+                      .should('be.visible') 
+                        .find(productsPage
+                          .linkProductOnHover)
+                            .click({waitForAnimations: false});
+            cy.get(productsPage
+                .buttonDialogContinueShopping)
+                  .click();
+                            // .click({waitForAnimations: false});                  
+                              // });             
+          // it('Adding last item to the cart',()=>{
+            cy.get(productsPage
+              .divLastProduct)
+                .realHover()
+                  .find(productsPage
+                    .divProductOnHoverOnlyDiv)
+                      .should('be.visible')
+                        .find(productsPage
+                          .linkProductOnHover)
+                            .click({waitForAnimations: false}); 
+            cy.get(productsPage
+                .buttonDialogContinueShopping)
+                  .click();          
+                   // Verify 'New User Signup!' is visible
+                cy.get(header
+                  .buttonCart)
+                    .click();                                         
+            });
+        
     // 4. Click 'Signup / Login' button
     // 5. Fill all details in Signup and create account
     // 6. Verify 'ACCOUNT CREATED!' and click 'Continue' button
@@ -19,3 +95,4 @@
     // 17. Click 'Delete Account' button
     // 18. Verify 'ACCOUNT DELETED!' and click 'Continue' button
 
+        })

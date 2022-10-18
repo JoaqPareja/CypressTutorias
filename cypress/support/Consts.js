@@ -2,13 +2,14 @@
 // First letter of the text must be in camelcase
 
 export const inputTypes = {
-     nameSignUp: 'JoaqTest2',
-     emailSignUp:  'joaqTest221@gmail.com',
+    nameSignUp: 'JoaqTest2',
+    emailSignUp:  'joaqTest221@gmail.com',
+    emailAlternativeSingUp: 'joaqTestAlternative221@gmail.com',
     passwordSignUp: 'PasswordTest',
-     test: "test",
- testNumber: '13570',
- incorrectEmail:'IncorrectEmail@gmail.com',
- incorrectPassword: 'IncorrectPassowrd'
+    test: "test",
+    testNumber: '13570',
+    incorrectEmail:'IncorrectEmail@gmail.com',
+    incorrectPassword: 'IncorrectPassowrd'
 }
 export const header =
 {
@@ -39,7 +40,7 @@ export const loginUser =
  inputNameSingUp: '[type="text"]',
  inputEmailSingup: '.signup-form > form > [type="email"]',
  buttonSingUp:'.signup-form > form > .btn',
- emailAlreadyExist: '.signup-form > form > p'
+ pEmailAlreadyExist: '.signup-form > form > p'
 }
  export const  enterAccountInformation = {
   inputName: '#name',
@@ -89,20 +90,28 @@ export const productsPage =
     inputSearchProduct: '#search_product',
     pAddedText: '.modal-title',
     pProducAddedToCart: '.modal-body > :nth-child(1)',
-    buttonContinueShopping: '.modal-footer > .btn',
     pLinkViewCart: 'u',
     divFirstProduct: 'div.col-sm-4:nth-child(3)',
-    h2priceFirstProduct: 'div.col-sm-4:nth-child(3) > h2',
-    divFirstProductOnHover: 'div.col-sm-4:nth-child(3) > div.product-image-wrapper > div.single-products> div.product-overlay ',
     divSecondProduct: 'div.col-sm-4:nth-child(4)',
+    divThirdProduct: 'div.col-sm-4:nth-child(5)',
+    divLastProduct: 'div.col-sm-4:last-child',
+    h2priceFirstProduct: 'div.col-sm-4:nth-child(3) > h2',
+    divProductOnHoverOnlyDiv: ' div.single-products > div.product-overlay',
+    divFirstProductOnHover: 'div.col-sm-4:nth-child(3) > div.product-image-wrapper > div.single-products> div.product-overlay ',
     divSecondProductOnHover: 'div.col-sm-4:nth-child(4) > div.product-image-wrapper > div.single-products> div.product-overlay',
+    divThirdProductOnHover: 'div.col-sm-4:nth-child(5) > div.product-image-wrapper > div.single-products> div.product-overlay',
+    divLastProductOnHover: 'div.col-sm-4:last-child > div.product-image-wrapper > div.single-products> div.product-overlay',
     h2ProductTitle: 'h2:nth-child(2)',
     pProductTitle: 'p:nth-child(2)',
     linkProductOnHover: 'div > a',
-    h4CartFirstProductTitle: 'tbody > tr:first-child > td.cart_description > h4',
+    buttonDialogContinueShopping:'.modal-footer > .btn'
+}
+export const cart = {
+    sectionCartItems: '.cart_items',
+    h4FirstProductTitle: 'tbody > tr:first-child > td.cart_description > h4',
     pPriceFirstProduct: 'tbody > tr:first-child > td.cart_price > p',
     buttonQuantityFirstProduct: 'tbody > tr:first-child > td.cart_quantity > button',
-    h4CartSecondProductTitle: 'tbody > tr:nth-child(2) > td.cart_description > h4',
+    h4SecondProductTitle: 'tbody > tr:nth-child(2) > td.cart_description > h4',
     pPriceSecondProduct: 'tbody > tr:nth-child(2) > td.cart_price > p',
     buttonQuantitySecondProduct: 'tbody > tr:nth-child(2) > td.cart_quantity > button'
 }

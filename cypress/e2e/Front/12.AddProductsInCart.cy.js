@@ -1,4 +1,4 @@
-import{header, productsPage} from '../../support/consts'
+import{header, productsPage, cart} from '../../support/consts'
 
 //Falta generar array vacio de enteros y luego que por cada elemento 
 // anadido al carrito este se incremente y luego comprararlo
@@ -16,25 +16,45 @@ describe('Register User', () => {
       cy.get(header
              .buttonProducts)
               .click();
+            })
       //Debo de obtener Price & name of the product
+     
+        it('Store first product details', ()=>{
       cy.get(productsPage
               .divFirstProduct)
                 .find(productsPage
                   .h2ProductTitle)
                     .then(response => {
-                      h2TxtPriceFirstProduct = response.text() 
+                          h2TxtPriceFirstProduct = response.text() 
             });   
       cy.get(productsPage
               .divFirstProduct)
                 .find(productsPage
-                      .pProductTitle)
-                       .then(response => {
+                  .pProductTitle)
+                    .then(response => {
                          pTxtTitleFirstProduct = response.text() 
           });
+        })
+        it('Store second product details', ()=>{
+      cy.get(productsPage
+            .divSecondProduct)
+             .find(productsPage
+                   .h2ProductTitle)
+                     .then(response => {
+                        h2TxtPriceSecondProduct = response.text() 
+          }); 
+      cy.get(productsPage
+             .divSecondProduct)
+              .find(productsPage.pProductTitle)
+               .then(response => {
+                 pTxtTitleSecondProduct = response.text() 
+          });   
+        })
+        
+        it('Add products to the cart', ()=>{
       cy.get(productsPage
               .divFirstProduct)
                   .realHover()
-                    .wait(2500)
       cy.get(productsPage
               .divFirstProductOnHover)
                 .should('be.visible')
@@ -53,27 +73,13 @@ describe('Register User', () => {
              .pLinkViewCart)
               .should('have.text','View Cart')
       cy.get(productsPage
-             .buttonContinueShopping)
+             .buttonDialogContinueShopping)
               .click()
 //     7. Hover over second product and click 'Add to cart'
 //     8. Click 'View Cart' button
       cy.get(productsPage
-             .divSecondProduct)
-              .find(productsPage
-                    .h2ProductTitle)
-                      .then(response => {
-                         h2TxtPriceSecondProduct = response.text() 
-      }); 
-      cy.get(productsPage
-              .divSecondProduct)
-               .find(productsPage.pProductTitle)
-                .then(response => {
-                  pTxtTitleSecondProduct = response.text() 
-      });
-      cy.get(productsPage
               .divSecondProduct)
                 .realHover()
-                  .wait(2500)
       cy.get(productsPage
               .divSecondProductOnHover)
                 .should('be.visible')
@@ -90,46 +96,47 @@ describe('Register User', () => {
               .pLinkViewCart)
                 .should('have.text','View Cart')
       cy.get(productsPage
-              .buttonContinueShopping)
+              .buttonDialogContinueShopping)
                 .click();
       cy.get(header
               .buttonCart)
                 .click();
+              })
     //  10. Verify their prices, quantity and total price
-    })
-
+  
     it('Cart products verify first product', ()=>{
-      cy.get(productsPage
-              .h4CartFirstProductTitle) 
+      cy.get(cart
+              .h4FirstProductTitle) 
                .then(response =>{
                 expect(response.text())
                         .to.eq(pTxtTitleFirstProduct)
                });         
-      cy.get(productsPage
+      cy.get(cart
               .pPriceFirstProduct)
                .then(response =>{
                 expect(response.text())
                       .to.eq(h2TxtPriceFirstProduct)
                });
-      cy.get(productsPage.buttonQuantityFirstProduct)
-              .should('have.text', '1');
+      cy.get(cart
+                .buttonQuantityFirstProduct)
+                  .should('have.text', '1');
             });
 it('Cart products verify second product', ()=>{
-      cy.get(productsPage
-              .h4CartSecondProductTitle)
+      cy.get(cart
+              .h4SecondProductTitle)
                 .then(response =>{
                  expect(response.text())
                         .to.eq(pTxtTitleSecondProduct)
                 });         
-       cy.get(productsPage
+       cy.get(cart
               .pPriceSecondProduct)
                 .then(response =>{
                  expect(response.text())
                         .to.eq(h2TxtPriceSecondProduct)
                 });
-       cy.get(productsPage
-                .buttonQuantitySecondProduct)
-                 .should('have.text', '1')
+       cy.get(cart
+              .buttonQuantitySecondProduct)
+                .should('have.text', '1')
                 })
 //Poner en variables de ambiente en vez de codigo spaghetti
 //No logrado

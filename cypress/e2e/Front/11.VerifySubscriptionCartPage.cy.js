@@ -30,7 +30,7 @@ describe('Register User', () => {
         'Subscription')
          })
       
-      it('',()=>{
+      it('Subscribe',()=>{
         cy.get(subscriptionSection
           .inputSubscriptionEmail)
         .type(inputTypes.emailSignUp)

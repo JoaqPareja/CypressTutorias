@@ -6,7 +6,6 @@
     // 2. Navigate to url 'http://automationexercise.com'
     // 3. Verify that home page is visible successfully
     describe('Register User', () => {
-  
         it('Visit page',()=>{
           cy.visit('/')
           //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
