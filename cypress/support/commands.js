@@ -1,6 +1,35 @@
 
 import "cypress-real-events/support";
 
+import {header,loginUser, inputTypes} from '../support/consts'
+//{experimentalSessionAndOrigin = true} = {}
+Cypress.Commands.add('login', ()=>{
+    cy.session('Stored session', () => {
+        cy.visit('/')
+          cy.get(header
+            .buttonSingUpLogin)
+              .click()
+         cy.get(loginUser
+            .loginToYourAccountH2)
+              .contains("Login to your account")  
+          cy.get(loginUser
+              .inputEmailAddressLogIn)
+                .type(inputTypes
+                  .emailSignUp) //email
+          cy.get(loginUser
+              .inputPasswordLogIn)
+               .type(inputTypes
+                .passwordSignUp);
+          // 7. Click 'login' button
+          cy.get(loginUser
+              .buttonLogin)
+                .click();
+          cy.url()
+            .should('contain', '/')         
+      })
+
+})
+
 // Cypress.Commands.add('login', (email, password) => { ... })
 Cypress.Commands.add('CheckElement', (label) =>{
 cy.get(label).then(($el) => {

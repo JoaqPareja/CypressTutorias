@@ -3,7 +3,9 @@
 
 export const inputTypes = {
     nameSignUp: 'JoaqTest2',
+    nameSingUp2: 'JoaqTest02',
     emailSignUp:  'joaqTest221@gmail.com',
+    emailSignUp2:  'joaqTest321@gmail.com',
     emailAlternativeSingUp: 'joaqTestAlternative221@gmail.com',
     passwordSignUp: 'PasswordTest',
     test: "test",
@@ -20,7 +22,8 @@ export const header =
     buttonTestCAses: '.navbar-nav > li:nth-child(5)',
     buttonApiTesting: '.navbar-nav > li:nth-child(6)',
     buttonVideoTutorials: '.navbar-nav > li:nth-child(7)',
-    buttonContactUs: '.navbar-nav > li:nth-child(8)'
+    buttonContactUs: '.navbar-nav > li:nth-child(8)',
+    linkViewUserlogged: '.navbar-nav > li:nth-child(10) > a'
 }
 
 export const loginUser = 
@@ -34,14 +37,14 @@ export const loginUser =
 }
 
  export const singUpUser = 
- {
- sectionForm: '#form',
- newUserSignUpH2:'.signup-form > h2',
- inputNameSingUp: '[type="text"]',
- inputEmailSingup: '.signup-form > form > [type="email"]',
- buttonSingUp:'.signup-form > form > .btn',
- pEmailAlreadyExist: '.signup-form > form > p'
-}
+    {
+    sectionForm: '#form',
+    newUserSignUpH2:'.signup-form > h2',
+    inputNameSingUp: '[type="text"]',
+    inputEmailSingup: '.signup-form > form > [type="email"]',
+    buttonSingUp:'.signup-form > form > .btn',
+    pEmailAlreadyExist: '.signup-form > form > p'
+    }
  export const  enterAccountInformation = {
   inputName: '#name',
   inputEmail: '#email',
@@ -65,18 +68,18 @@ export const loginUser =
  }
 
  export const contactUsInformation =
- {
-  getInTouchTitle: 'div.contact-form > .title',
-  inputNameForm:':nth-child(2) > .form-control',
-  inputEmailField: ':nth-child(3) > .form-control',
-  inputSubjectField: ':nth-child(4) > .form-control',
-  inputMessageField:'#message',
-  buttonChooseFile: '#contact-us-form > div:nth-child(6) > input',
-  buttonSubmit: ':nth-child(7) > .btn',
-  succesFormChangesMsg: '.status'
- }
+    {
+    getInTouchTitle: 'div.contact-form > .title',
+    inputNameForm:':nth-child(2) > .form-control',
+    inputEmailField: ':nth-child(3) > .form-control',
+    inputSubjectField: ':nth-child(4) > .form-control',
+    inputMessageField:'#message',
+    buttonChooseFile: '#contact-us-form > div:nth-child(6) > input',
+    buttonSubmit: ':nth-child(7) > .btn',
+    succesFormChangesMsg: '.status'
+    }
 export const productsPage = 
- {
+    {
     listOfItems: '.features_items',
     imgFirstProduct: '.features_items:last-child > :nth-child(3) > .product-image-wrapper',
     buttonViewFirstProduct: '.features_items:last-child > :nth-child(3) > .product-image-wrapper > .choose > .nav > li > a',
@@ -113,7 +116,50 @@ export const cart = {
     buttonQuantityFirstProduct: 'tbody > tr:first-child > td.cart_quantity > button',
     h4SecondProductTitle: 'tbody > tr:nth-child(2) > td.cart_description > h4',
     pPriceSecondProduct: 'tbody > tr:nth-child(2) > td.cart_price > p',
-    buttonQuantitySecondProduct: 'tbody > tr:nth-child(2) > td.cart_quantity > button'
+    buttonQuantitySecondProduct: 'tbody > tr:nth-child(2) > td.cart_quantity > button',
+    buttonProceedtoCheckout:'.col-sm-6 > .btn',
+    linkRegisterOrLogin: '.modal-body > :nth-child(2) > a > u', 
+    buttonContinueOnCart:'.modal-footer > .btn',
+    textAreaForm: '.form-control',
+    buttonPlaceOrder: ':nth-child(7) > .btn'
+}
+export const cartAddress={
+    pAddressDetailHeader: ':nth-child(2) > .heading',
+    pYourDeliveryAddressTitle:'#address_delivery > .address_title > .page-subheading',
+    pYourDeliveryAddressFirstName:'#address_delivery > .address_firstname',
+    pYourDeliveryAddressLastName: '#address_delivery > :nth-child(3)',
+    pYourDeliveryAddresCompany: '#address_delivery > :nth-child(4)',
+    pYourDeliveryAddressCity: '#address_delivery > .address_city',
+    pYourDeliveryAddressCountryName: '#address_delivery > .address_country_name',
+    pYourDeliveryAddressPhoneNumber:'#address_delivery > .address_phone',
+    pYourBillingAddressHeader: ':nth-child(3) > .heading',
+    pYourBillingAddressTitle: '#address_invoice > .address_title > .page-subheading',
+    pYourBillingAddressFirstName: '#address_invoice  > .address_firstname',
+    pYourBillingAddressLastName: '#address_invoice > :nth-child(3)',
+    pYourBillingAddressCompany: '#address_invoice > :nth-child(4)',
+    pYourBillingAddressCity:'#address_invoice  > .address_city',
+    pYourBillingAddresCountryName:'#address_invoice > .address_country_name',
+    pYourBillingAddresPhoneNumber:'#address_invoice  > .address_phone'
+    }
+export const cartPayment ={
+    pHeading: '.heading',
+    pNameOnCard: ':nth-child(2) > .col-sm-12 > .control-label',
+    inputNameOnCard: ':nth-child(2) > .col-sm-12 > .form-control',
+    pCardNumber:':nth-child(3) > .col-sm-12 > .control-label',
+    inputCardNumber:':nth-child(3) > .col-sm-12 > .form-control',
+    pCVC:'.cvc > .control-label',
+    inputCVC: '.cvc > .form-control',
+    pExpiration: '.cvc > .form-control',
+    inputExpirationMonth:':nth-child(2) > .form-control',
+    inputExpirationYear: ':nth-child(3) > .form-control',
+    buttonPayConfirmOrder: '#submit',
+    alertSuccessMessage:'#success_message > .alert-success'
+}
+export const paymentDone ={
+   pOrderPlaced: '.title > b',
+   pSuccesfullMessage: '.col-sm-9 > p',
+   buttonDoanloadInvoice: '.col-sm-9 > .btn-default',
+   buttonContinue: '.pull-right > .btn'
 }
 export const subscriptionSection =
 {

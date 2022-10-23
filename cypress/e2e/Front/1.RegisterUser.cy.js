@@ -2,12 +2,14 @@ import {header, inputTypes, singUpUser, enterAccountInformation} from '../../sup
 // import {consts} from '../fixtures/consts.json'
 // import { inputTypes } from '../support/consts'
 
-describe('Register User', () => {
+describe('Register User', { experimentalSessionAndOrigin: false },() => {
 
-  it('Visit page',()=>{
+  it('Site',()=>{
     cy.visit('/')
-    //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
   })
+  // beforeEach(()=>{
+  //   cy.visit('/')
+  // })
   it('Verify that home page is visible successfully', () => {
     // Verify that home page is visible successfully
       //Cambiar esto por una seccion que no sea el body pero si igual de grande
@@ -15,7 +17,6 @@ describe('Register User', () => {
   })
   it('Sing up', ()=>{
         //Click on 'Signup / Login' button
-        
     cy.get(header
       .buttonSingUpLogin).click();
     // Verify 'New User Signup!' is visible
@@ -25,11 +26,11 @@ describe('Register User', () => {
     cy.get(singUpUser
       .inputNameSingUp)
         .type(inputTypes
-          .nameSignUp); // name
+          .nameSingUp2); // name
     cy.get(singUpUser
         .inputEmailSingup)
          .type(inputTypes
-          .emailSignUp)     
+          .emailSignUp2)     
     cy.get(singUpUser
         .buttonSingUp)
           .click();
@@ -109,11 +110,10 @@ describe('Register User', () => {
     cy.get(enterAccountInformation
         .inputMobileNumber)
           .type(inputTypes
-            .testNumber);
+           .testNumber);
+    cy.get(enterAccountInformation
+      .buttonCreateAccount)
+        .click();
 })
-it("Create account", ()=>{
-  cy.get(enterAccountInformation
-        .buttonCreateAccount)
-          .click()
-})
+
 })
