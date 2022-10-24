@@ -121,7 +121,8 @@ export const cart = {
     linkRegisterOrLogin: '.modal-body > :nth-child(2) > a > u', 
     buttonContinueOnCart:'.modal-footer > .btn',
     textAreaForm: '.form-control',
-    buttonPlaceOrder: ':nth-child(7) > .btn'
+    buttonPlaceOrder: ':nth-child(7) > .btn',
+    buttonDelete:'.cart_delete > .cart_quantity_delete'
 }
 export const cartAddress={
     pAddressDetailHeader: ':nth-child(2) > .heading',
