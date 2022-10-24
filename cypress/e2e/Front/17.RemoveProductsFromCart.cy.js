@@ -92,16 +92,16 @@ import {header, cart, productsPage} from '../../support/consts'
               cy.visit('/view_cart')
               // cy.get('#product-1 > .cart_delete > .cart_quantity_delete')
               cy.get('tbody > tr:first-child > td:last-child') //First child of the table
-                  .find('.cart_quantity_delete > .fa') //Specific close button class
+                  .find('.fa') //Specific close button class
                     .click();
               cy.get('tbody > tr:nth-child(2)> td:last-child') //Second child of the table
-                  .find('.cart_quantity_delete > .fa')
+                  .find('.fa')
                     .click();
               cy.get('tbody > tr:nth-child(3) > td:last-child') //Third child of the table
-                  .find('.cart_quantity_delete > .fa')
+                  .find(' .fa')
                     .click();
               cy.get('tbody > tr:last-child > td:last-child') //Forth child of the table
-                  .find('.cart_quantity_delete > .fa')
+                  .find('.fa')
                    .click();
               cy.get('#empty_cart > .text-center')
                  .should('have.text','Cart is empty! Click here to buy products.')

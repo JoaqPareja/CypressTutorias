@@ -1,5 +1,5 @@
 
-import {header, loginUser, inputTypes, cart, productsPage} from '../../support/consts'
+import {header, inputTypes, cart, productsPage} from '../../support/consts'
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
     // 3. Verify that home page is visible successfully
@@ -12,15 +12,11 @@ import {header, loginUser, inputTypes, cart, productsPage} from '../../support/c
             // 5. Fill email, password and click 'Login' button
                         // 6. Enter correct email address and password
   // 6. Verify 'Logged in as username' at top
-  // cy.visit('/')
-  // cy.login('user', { cacheSession: false })
-  cy.visit('/')
-  cy.get(header
-    .linkViewUserlogged)
-      .should('have.text', ' Logged in as ' + inputTypes.nameSignUp)
-        
-            })
-      
+            cy.visit('/')
+            cy.get(header
+              .linkViewUserlogged)
+                .should('have.text', ' Logged in as ' + inputTypes.nameSignUp)
+                 })
         it('Add products to the cart', ()=>{
           cy.visit('/')
             cy.get(productsPage
@@ -81,7 +77,6 @@ import {header, loginUser, inputTypes, cart, productsPage} from '../../support/c
           
                     })
 
-          //  10. Verify their prices, quantity and total price
    
     // 7. Add products to cart
     // 8. Click 'Cart' button

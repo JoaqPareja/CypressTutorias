@@ -2,8 +2,9 @@ import {header, inputTypes, singUpUser, enterAccountInformation} from '../../sup
 // import {consts} from '../fixtures/consts.json'
 // import { inputTypes } from '../support/consts'
 
-describe('Register User', { experimentalSessionAndOrigin: false },() => {
+describe('Register User',() => {
 
+ 
   it('Site',()=>{
     cy.visit('/')
   })
