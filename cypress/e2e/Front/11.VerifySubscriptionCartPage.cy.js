@@ -10,14 +10,8 @@ describe('Register User', () => {
       cy.visit('/')
       //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
     })
-    it('Verify that home page is visible successfully', () => {
-        // Verify that home page is visible successfully
-        // 3. Verify that home page is visible successfully
-        cy.CheckElement('body')
-        cy.CheckHidden('body')
-      }) 
        // 4. Click 'Cart' button
-      it('', ()=>{
+      it('Cart Testing', ()=>{
         cy.get(header
         .buttonCart).click();
             // 5. Scroll down to footer

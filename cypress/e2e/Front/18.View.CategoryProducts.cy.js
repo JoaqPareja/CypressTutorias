@@ -1,13 +1,25 @@
+import {productsPageLeftSideBar} from '../../support/consts'
 
 describe('Register User', () => {
-  
-    it('Visit page',()=>{
-      cy.visit('/')
-      //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
-    })
- 
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
+    it('Verifies categories',()=>{
+      cy.visit('/')
+        cy.get(productsPageLeftSideBar
+            .divWomenCategory)
+              .find(productsPageLeftSideBar
+                .linkCategory)
+                  .click();
+        cy.get(productsPageLeftSideBar
+            .linkWomenDress)
+              .click();
+        cy.url()
+            .should('contain','category_products/1')
+    })
+
+ 
+    // it('',()=>{
+    // })
     // 3. Verify that categories are visible on left side bar
     // 4. Click on 'Women' category
     // 5. Click on any category link under 'Women' category, for example: Dress

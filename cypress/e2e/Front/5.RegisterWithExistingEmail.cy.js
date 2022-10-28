@@ -1,18 +1,10 @@
 
 
-  import {inputTypes, header, loginUser, singUpUser} from '../../support/consts'
+  import {inputTypes, header, singUpUser} from '../../support/consts'
     describe('Register User', () => {
-        it('Visit page',()=>{
-            //Navigate to url 'http://automationexercise.com'
-            cy.visit('/')
-        })
     // 3. Verify that home page is visible successfully
-    it('Verify that home page is visible successfully', () => {
-        // Verify that home page is visible successfully
-        cy.CheckElement('body')
-        cy.CheckHidden('body')
-      })
       it('Sing up', ()=>{
+        cy.visit('/')
         //Click on 'Signup / Login' button
       cy.get(header.buttonSingUpLogin).click() 
     // Verify 'New User Signup!' is visible

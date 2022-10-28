@@ -18,7 +18,6 @@ describe('Register User', () => {
               .click();
             })
       //Debo de obtener Price & name of the product
-     
         it('Store first product details', ()=>{
       cy.get(productsPage
               .divFirstProduct)

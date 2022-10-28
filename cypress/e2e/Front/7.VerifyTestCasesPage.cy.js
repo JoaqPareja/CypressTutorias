@@ -2,25 +2,19 @@ import {header, testCases} from '../../support/consts';
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
     describe('Register User', () => {
-        it('Visit page',()=>{
-            //Navigate to url 'http://automationexercise.com'
-          cy.visit('/')
-        })
     // 3. Verify that home page is visible successfully
-    it('Verify that home page is visible successfully', () => {
-        // Verify that home page is visible successfully
-        cy.CheckElement('body')
-        cy.CheckHidden('body')
-      })
     // 4. Click on 'Test Cases' button
     // 5. Verify user is navigated to test cases page successfully
     it('Verify user is navigated to test cases page', ()=>{
+      cy.visit('/')
       cy.get(header
-        .buttonTestCAses).click();
+          .buttonTestCAses)
+           .click();
       cy.url()
-      .should('include', '/test_cases')
-      .should('not.include', '/test_cases/');
+          .should('include', '/test_cases')
+            .should('not.include', '/test_cases/');
       cy.get(testCases
-        .registerUser).click();
+          .registerUser)
+            .click();
     })   
     })

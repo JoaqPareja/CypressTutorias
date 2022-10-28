@@ -1,12 +1,71 @@
 
-
+import {header, productsPage, loginUser, inputTypes} from '../../support/consts'
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
     describe('Register User', () => {
   
         it('Visit page',()=>{
           cy.visit('/')
-          //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
+           cy.get(header
+              .buttonProducts)
+                .click();
+          cy.get(productsPage
+              .inputSearchProducts)
+                .type('Dress');
+          cy.get(productsPage
+              .buttonSearchProducts)
+                .click();
+          cy.url()
+              .should('contain', '/products')
+        })
+        it('Add products', ({ cacheSession = true } = {})  =>{
+          cy.visit('/products?search=dress')
+          cy.get(productsPage
+            .divFirstProductOnHover)
+              .trigger('mouseover', {force: true})
+                        .find(productsPage
+                          .linkProductOnHover)
+                            .click({force: true})
+                              .wait(1000);
+        cy.get(productsPage
+            .buttonDialogContinueShopping)
+              .click();
+        cy.get(productsPage
+            .divSecondProductOnHover)
+              .trigger('mouseover', {force: true})
+                        .find(productsPage
+                          .linkProductOnHover)
+                            .click( {force: true})
+                              .wait(1000);
+        cy.get(productsPage
+            .buttonDialogContinueShopping)
+              .click();   
+        cy.get(productsPage
+            .divThirdProductOnHover)
+             .trigger('mouseover', {force: true})
+              .find(productsPage
+                .linkProductOnHover)
+                  .click({force: true});
+        cy.get(productsPage
+            .buttonDialogContinueShopping)
+              .click();
+        cy.get(productsPage
+            .divLastProductOnHover)
+            .trigger('mouseover', {force: true})
+                        .find(productsPage
+                          .linkProductOnHover)
+                            .click({force: true}); 
+        cy.get(productsPage
+            .buttonDialogContinueShopping)
+              .click();  
+        })
+      
+        it('Go Back to check those products',()=>{
+          cy.login();
+          cy.visit('/')
+          cy.get(header
+             .buttonCart)
+              .click();
         })
     // 3. Click on 'Products' button
     // 4. Verify user is navigated to ALL PRODUCTS page successfully

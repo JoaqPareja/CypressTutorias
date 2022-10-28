@@ -20,10 +20,15 @@ Cypress.Commands.add('login', ()=>{
               .inputPasswordLogIn)
                .type(inputTypes
                 .passwordSignUp);
+                
           // 7. Click 'login' button
           cy.get(loginUser
               .buttonLogin)
                 .click();
+          cy.get(loginUser
+            .incorrectEmailORPasswordMsg)
+              .should('not.exist',
+                'Your email or password is incorrect!');
           cy.url()
             .should('contain', '/')         
       })

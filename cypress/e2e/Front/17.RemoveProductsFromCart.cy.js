@@ -1,23 +1,21 @@
 
 import {header, cart, productsPage} from '../../support/consts'
 
+ 
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
     // 3. Verify that home page is visible successfully
     describe('Register User', () => {
-  
+
       beforeEach('it should store the credentials',() => {   
         cy.login();
+        
        })
-
-        it('Visit page',()=>{
-          cy.visit('/')
-          //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
-        })
        
         it('Adding items to the cart', ()=>{   
+          // const productsPage = new productsPage()
+        
           cy.visit('/')
-          // it('Adding first item to the cart', ()=>{
             cy.get(productsPage
                 .divFirstProductOnHover)
                   .trigger('mouseover', {force: true})
@@ -88,7 +86,7 @@ import {header, cart, productsPage} from '../../support/consts'
                   .click();
                                         
             });
-            it('Delete Products', ()=>{
+            it('Delete Products from cart', ()=>{
               cy.visit('/view_cart')
               // cy.get('#product-1 > .cart_delete > .cart_quantity_delete')
               cy.get('tbody > tr:first-child > td:last-child') //First child of the table

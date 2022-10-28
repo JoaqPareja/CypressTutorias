@@ -9,10 +9,15 @@
 describe('TODO api testing', () => {
 
     before(function(){
+        let username = 'test';
+        let password = 'test';
         cy.request({
-            method: 'GET',
-            url: 'https://automationexercise.com/api/productsList'
-        }).as('productsList')
+          method: 'POST',
+          url: '/login',
+          body: { username, password },
+        }).then(({ body }) => {
+          window.localStorage.setItem('authToken', body.token)
+        }).as('login')
     })
     
 // let 

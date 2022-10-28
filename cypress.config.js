@@ -5,7 +5,7 @@ module.exports = defineConfig({
   viewportWidth: 1980,
   viewportHeight: 1050,
   e2e: {
-    "supportFile": "cypress/support/commands.js",
+    // "supportFile": "cypress/support/commands.js",
     baseUrl: 'http://automationexercise.com',
     experimentalSessionAndOrigin: true
     // setupNodeEvents(on, config) {

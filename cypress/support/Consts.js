@@ -1,6 +1,7 @@
 //Structure [typeOfElement] [nameOfTheElement] (if aplicable [nameOfTheChildElement]) 
 // First letter of the text must be in camelcase
 
+
 export const inputTypes = {
     nameSignUp: 'JoaqTest2',
     nameSingUp2: 'JoaqTest02',
@@ -78,8 +79,16 @@ export const loginUser =
     buttonSubmit: ':nth-child(7) > .btn',
     succesFormChangesMsg: '.status'
     }
+
+    // class producPage2(value) {
+    //    const divFirstProductOnHover = cy.get('div.col-sm-4:nth-child(3) > div.product-image-wrapper > div.single-products> div.product-overlay');
+    //    divFirstProductOnHover.type(value)
+       
+    // }
 export const productsPage = 
     {
+    inputSearchProducts: '#search_product',
+    buttonSearchProducts: '#submit_search',
     listOfItems: '.features_items',
     imgFirstProduct: '.features_items:last-child > :nth-child(3) > .product-image-wrapper',
     buttonViewFirstProduct: '.features_items:last-child > :nth-child(3) > .product-image-wrapper > .choose > .nav > li > a',
@@ -100,7 +109,7 @@ export const productsPage =
     divLastProduct: 'div.col-sm-4:last-child',
     h2priceFirstProduct: 'div.col-sm-4:nth-child(3) > h2',
     divProductOnHoverOnlyDiv: ' div.single-products > div.product-overlay',
-    divFirstProductOnHover: 'div.col-sm-4:nth-child(3) > div.product-image-wrapper > div.single-products> div.product-overlay ',
+    divFirstProductOnHover: 'div.col-sm-4:nth-child(3) > div.product-image-wrapper > div.single-products> div.product-overlay',
     divSecondProductOnHover: 'div.col-sm-4:nth-child(4) > div.product-image-wrapper > div.single-products> div.product-overlay',
     divThirdProductOnHover: 'div.col-sm-4:nth-child(5) > div.product-image-wrapper > div.single-products> div.product-overlay',
     divLastProductOnHover: 'div.col-sm-4:last-child > div.product-image-wrapper > div.single-products> div.product-overlay',
@@ -108,6 +117,21 @@ export const productsPage =
     pProductTitle: 'p:nth-child(2)',
     linkProductOnHover: 'div > a',
     buttonDialogContinueShopping:'.modal-footer > .btn'
+}
+export const productsPageLeftSideBar ={
+    sectionLeft: 'left-sidebar',
+    h2Category:'.left-sidebar > :nth-child(1)',
+    divCategory:'#accordian',
+    divWomenCategory:':nth-child(1) > .panel-heading > .panel-title',
+    divMenCategory:':nth-child(2) > .panel-heading > .panel-title',
+    divKidsCategory:':nth-child(3) > .panel-heading > .panel-title',
+    linkCategory: '> a', //Gonna use this to find each of the categories child element
+    spanOpenWomenCategory: ' > span > i', //Example get(divWomenCategory).find(spanCategory)
+    linkWomenDress:'#Women > .panel-body ul > :nth-child(1) > a',
+    linkWomenTops: '#Women > .panel-body ul > :nth-child(2) > a',
+    linkWomenSaree: '#Women > .panel-body ul > :nth-child(3) > a',
+    linkMenTSHIRTS: '#Men > .panel-body ul > :nth-child(1) > a',
+    linkMenJEANS: '#Men > .panel-body ul > :nth-child(2) > a',
 }
 export const cart = {
     sectionCartItems: '.cart_items',
