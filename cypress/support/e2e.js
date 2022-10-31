@@ -15,66 +15,13 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import {productsPage} from './consts'
 
-class AddProducts{
-    getFirstProuct() {
-      const firstProuct =  
-            cy.get(productsPage
-                .divFirstProductOnHover)
-                    .trigger('mouseover', 
-                        {force: true})
-                            .find(productsPage
-                                .linkProductOnHover)
-                                    .click({force: true})
-                                        .wait(1000)
-            cy.get(productsPage
-                .buttonDialogContinueShopping)
-                    .click();                       
-        return firstProuct;
-    }
-    getSecondProduct(){
-        const secondProduct =   
-                cy.get(productsPage
-                    .divSecondProductOnHover)
-                        .trigger('mouseover', {force: true})
-                            .find(productsPage
-                                .linkProductOnHover)
-                                    .click( {force: true})
-                cy.get(productsPage
-                        .buttonDialogContinueShopping)
-                          .click();                        
-        return secondProduct;
-    }
-    getThirdProduct(){
-        const thirdProduct =   
-        cy.get(productsPage
-            .divThirdProductOnHover)
-                .trigger('mouseover', {force: true})
-                .find(productsPage
-                .linkProductOnHover)
-                    .click({force: true}) 
-        cy.get(productsPage
-            .buttonDialogContinueShopping)
-                .click();                     
-        return thirdProduct;
-    }
-    getLastProduct(){
-        const lastProduct = 
-        cy.get(productsPage
-            .divLastProductOnHover)
-             .trigger('mouseover', {force: true})
-                .find(productsPage
-                    .linkProductOnHover)
-                        .click({force: true}); 
-        cy.get(productsPage
-            .buttonDialogContinueShopping)
-                .click();  
-        return lastProduct;
-    }
+// import index from '../support/POM/index'
 
-}
-module.exports = new AddProducts();
+
+
+
+
 // describe('Add products', ()=>{ 
 //     it('Adding items to the cart', ()=>{   
 //       // const productsPage = new productsPage()
