@@ -1,5 +1,5 @@
 
-import {header, productsPage, cart, inputTypes, cartAddress, cartPayment, paymentDone} from '../../support/consts'
+import {header, productsPage, cart, inputTypes, cartAddress, cartPayment, paymentDone} from '../../support/POM/consts'
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
     // 3. Verify that home page is visible successfully

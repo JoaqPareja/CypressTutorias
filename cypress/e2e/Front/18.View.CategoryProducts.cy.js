@@ -1,4 +1,4 @@
-import {productsPageLeftSideBar} from '../../support/consts'
+import {productsPageLeftSideBar} from '../../support/POM/consts'
 
 describe('Register User', () => {
     // 1. Launch browser

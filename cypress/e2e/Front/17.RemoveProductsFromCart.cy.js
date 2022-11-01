@@ -1,5 +1,5 @@
 
-import {header, cart, productsPage} from '../../support/consts'
+import {header, cart, productsPage} from '../../support/POM/consts'
 
  
     // 1. Launch browser

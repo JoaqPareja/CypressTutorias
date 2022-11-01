@@ -1,13 +1,14 @@
 
-import "cypress-real-events/support";
+// import "cypress-real-events/support";
+import 'cypress-plugin-api'
 
-import {header,loginUser, inputTypes} from '../support/consts'
+import {header,loginUser, inputTypes} from './POM/consts'
 //{experimentalSessionAndOrigin = true} = {}
 Cypress.Commands.add('login', ()=>{
     cy.session('Stored session', () => {
         cy.visit('/')
           cy.get(header
-            .buttonSingUpLogin)
+            .linkSingUpLogin)
               .click()
          cy.get(loginUser
             .loginToYourAccountH2)
@@ -19,9 +20,7 @@ Cypress.Commands.add('login', ()=>{
           cy.get(loginUser
               .inputPasswordLogIn)
                .type(inputTypes
-                .passwordSignUp);
-                
-          // 7. Click 'login' button
+                .passwordSignUp);     
           cy.get(loginUser
               .buttonLogin)
                 .click();

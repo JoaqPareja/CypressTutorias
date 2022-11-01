@@ -1,90 +1,37 @@
-import{header, productsPage, cart} from '../../support/consts'
+import{header, productsPage} from '../../support/POM/consts'
 
+import {addProducts,storeProductInformation, verifyProducts} from '../../support/POM'
 //Falta generar array vacio de enteros y luego que por cada elemento 
 // anadido al carrito este se incremente y luego comprararlo
-describe('Register User', () => {   
-  let h2TxtPriceFirstProduct;
-  let pTxtTitleFirstProduct;
-  let h2TxtPriceSecondProduct;
-  let pTxtTitleSecondProduct;
+describe('Register User', () => {  
 
-    it('Visit page',()=>{
-      cy.visit('/')
-    })
-//     4. Click 'Products' button
-    it('Add products',()=>{
-      cy.get(header
-             .buttonProducts)
+  beforeEach('Stored loggin', ()=>{     
+    cy.login();  
+  })
+  it('Store product information',()=>{
+    cy.visit('/')
+      cy.get(header // .Click 'Products' button
+            .linkProducts)
               .click();
-            })
-      //Debo de obtener Price & name of the product
-        it('Store first product details', ()=>{
-      cy.get(productsPage
-              .divFirstProduct)
-                .find(productsPage
-                  .h2ProductTitle)
-                    .then(response => {
-                          h2TxtPriceFirstProduct = response.text() 
-            });   
-      cy.get(productsPage
-              .divFirstProduct)
-                .find(productsPage
-                  .pProductTitle)
-                    .then(response => {
-                         pTxtTitleFirstProduct = response.text() 
-          });
-        })
-        it('Store second product details', ()=>{
-      cy.get(productsPage
-            .divSecondProduct)
-             .find(productsPage
-                   .h2ProductTitle)
-                     .then(response => {
-                        h2TxtPriceSecondProduct = response.text() 
-          }); 
-      cy.get(productsPage
-             .divSecondProduct)
-              .find(productsPage.pProductTitle)
-               .then(response => {
-                 pTxtTitleSecondProduct = response.text() 
-          });   
-        })
-        
-        it('Add products to the cart', ()=>{
-      cy.get(productsPage
-              .divFirstProduct)
-                  .realHover()
-      cy.get(productsPage
-              .divFirstProductOnHover)
-                .should('be.visible')
-                  .find(productsPage
-                    .linkProductOnHover)
-                      .click({waitForAnimations: false}) //disables waiting on animations
-      //    5. Hover over first product and click 'Add to cart'
-      //    6. Click 'Continue Shopping' button
+      storeProductInformation.getFirstProduct();    
+      storeProductInformation.getSecondProduct();      
+})      
+  it('Add products to the cart', ()=>{
+    cy.visit('/')
+    addProducts.getFirstProduct();
       cy.get(productsPage
               .pAddedText)
                 .should('have.text', 'Added!')
       cy.get(productsPage
               .pProducAddedToCart)
-               .should('have.text', 'Your product has been added to cart.')
+              .should('have.text', 'Your product has been added to cart.')
       cy.get(productsPage
-             .pLinkViewCart)
+            .pLinkViewCart)
               .should('have.text','View Cart')
       cy.get(productsPage
-             .buttonDialogContinueShopping)
-              .click()
-//     7. Hover over second product and click 'Add to cart'
-//     8. Click 'View Cart' button
-      cy.get(productsPage
-              .divSecondProduct)
-                .realHover()
-      cy.get(productsPage
-              .divSecondProductOnHover)
-                .should('be.visible')
-                  .find(productsPage
-                        .linkProductOnHover)
-                          .click({waitForAnimations: false}) //disables waiting on animations   
+            .buttonDialogContinueShopping)
+              .click({force: true});
+              addProducts.getSecondProduct();
       cy.get(productsPage
               .pAddedText)
                 .should('have.text', 'Added!')
@@ -96,50 +43,21 @@ describe('Register User', () => {
                 .should('have.text','View Cart')
       cy.get(productsPage
               .buttonDialogContinueShopping)
-                .click();
       cy.get(header
-              .buttonCart)
-                .click();
-              })
-    //  10. Verify their prices, quantity and total price
-  
-    it('Cart products verify first product', ()=>{
-      cy.get(cart
-              .h4FirstProductTitle) 
-               .then(response =>{
-                expect(response.text())
-                        .to.eq(pTxtTitleFirstProduct)
-               });         
-      cy.get(cart
-              .pPriceFirstProduct)
-               .then(response =>{
-                expect(response.text())
-                      .to.eq(h2TxtPriceFirstProduct)
-               });
-      cy.get(cart
-                .buttonQuantityFirstProduct)
-                  .should('have.text', '1');
-            });
+              .linkCart)
+                .click({force: true});     
+    })     
+  it('Cart products verify first product', ()=>{ // . Verify their prices, quantity and total price
+    cy.visit('/view_cart')
+    verifyProducts.getFirstProduct();
+  })
 it('Cart products verify second product', ()=>{
-      cy.get(cart
-              .h4SecondProductTitle)
-                .then(response =>{
-                 expect(response.text())
-                        .to.eq(pTxtTitleSecondProduct)
-                });         
-       cy.get(cart
-              .pPriceSecondProduct)
-                .then(response =>{
-                 expect(response.text())
-                        .to.eq(h2TxtPriceSecondProduct)
-                });
-       cy.get(cart
-              .buttonQuantitySecondProduct)
-                .should('have.text', '1')
-                })
+  cy.visit('/view_cart')
+    verifyProducts.getSecondProduct();
+})
+})
 //Poner en variables de ambiente en vez de codigo spaghetti
 //No logrado
-
 //Comparar desde un objeto
 //Se compara desde variables
-    })
+    

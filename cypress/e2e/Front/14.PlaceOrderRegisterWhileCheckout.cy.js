@@ -1,4 +1,4 @@
-import {productsPage, cart, header, singUpUser, inputTypes, enterAccountInformation} from '../../support/consts'
+import {productsPage, cart, header, singUpUser, inputTypes, enterAccountInformation} from '../../support/POM/consts'
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
     // 3. Verify that home page is visible successfully
