@@ -1,4 +1,4 @@
-import{header, productsPage} from '../../support/POM/consts'
+import{header, productsPage} from '../../support/POM/Consts'
 
 import {addProducts,storeProductInformation, verifyProducts} from '../../support/POM'
 //Falta generar array vacio de enteros y luego que por cada elemento 

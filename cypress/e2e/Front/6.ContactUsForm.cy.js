@@ -1,27 +1,23 @@
 import {header, inputTypes, contactUsInformation} from '../../support/consts'
-// 1. Launch browser
-// 2. Navigate to url 'http://automationexercise.com'
+
 describe('Register User', () => {
 it('Test the contact form', ()=>{
     cy.visit('/')
         cy.CheckElement('body')
-        // 4. Click on 'Contact Us' button
-        cy.get(header
+        cy.get(header        //. Click on 'Contact Us' button
             .linkContactUs)
-            .click();
-        // 5. Verify 'GET IN TOUCH' is visible
-        cy.CheckHidden(contactUsInformation
+                .click();
+        cy.CheckHidden(contactUsInformation   // . Verify 'GET IN TOUCH' is visible
             .getInTouchTitle)
-            .should('have.text', 'Get In Touch')
-        // 6. Enter name, email, subject and message
-        cy.get(contactUsInformation
+                .should('have.text', 'Get In Touch')
+        cy.get(contactUsInformation   // . Enter name, email, subject and message
             .inputNameForm)
-            .type(inputTypes
-                .nameSignUp); 
+                .type(inputTypes
+                    .nameSignUp); 
         cy.get(contactUsInformation
             .inputEmailField)
                 .type(inputTypes
-                .emailSignUp);
+                    .emailSignUp);
         cy.get(contactUsInformation
             .inputSubjectField)
                 .type(inputTypes
@@ -30,23 +26,18 @@ it('Test the contact form', ()=>{
             .inputSubjectField)
                 .type(inputTypes
                 .test);
-        // 7. Upload file
-        cy.get(contactUsInformation
+        cy.get(contactUsInformation  // . Upload file
             .buttonChooseFile)
-            .click();
-        // 8. Click 'Submit' button
-        cy.get(contactUsInformation
+                .click();
+        cy.get(contactUsInformation  // . Click 'Submit' button
             .buttonSubmit)
-            .click();
-        // 9. Click OK button
-        cy.CheckElement(contactUsInformation
+                .click();
+        cy.CheckElement(contactUsInformation  // . Click OK button
             .succesFormChangesMsg);
-        cy.get(contactUsInformation
+        cy.get(contactUsInformation  // 10. Verify success message 'Success! Your details have been submitted successfully.' is visible
             .succesFormChangesMsg)
-            .should('have.text', 'Success! Your details have been submitted successfully.');
-    // 10. Verify success message 'Success! Your details have been submitted successfully.' is visible
-    // 11. Click 'Home' button and verify that landed to home page successfully
-        cy.get(header
+                .should('have.text', 'Success! Your details have been submitted successfully.');
+        cy.get(header  //. Click 'Home' button and verify that landed to home page successfully
             .buttonHome)
             .click()
         cy.url()

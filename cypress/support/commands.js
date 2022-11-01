@@ -2,7 +2,7 @@
 // import "cypress-real-events/support";
 import 'cypress-plugin-api'
 
-import {header,loginUser, inputTypes} from './POM/consts'
+import {header,loginUser, inputTypes} from './POM/Consts'
 //{experimentalSessionAndOrigin = true} = {}
 Cypress.Commands.add('login', ()=>{
     cy.session('Stored session', () => {

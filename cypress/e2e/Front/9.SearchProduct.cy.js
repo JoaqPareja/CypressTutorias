@@ -1,4 +1,4 @@
-import {productsPage, header} from '../../support/POM/consts';
+import {productsPage, header} from '../../support/POM/Consts';
     describe('Register User', () => {
       it('Verify products', ()=>{
       cy.visit('/')  // Navigate to url 'http://automationexercise.com'
@@ -6,7 +6,7 @@ import {productsPage, header} from '../../support/POM/consts';
         cy.get(header //  Click on 'Products' button
             .buttonProducts)
               .click();  
-        cy.url()  // 5. Verify user is navigated to ALL PRODUCTS page successfully
+        cy.url()  // . Verify user is navigated to ALL PRODUCTS page successfully
             .should('include', '/products')
               .should('not.include', '/products/');
         cy.CheckElement(productsPage // The products list is visible

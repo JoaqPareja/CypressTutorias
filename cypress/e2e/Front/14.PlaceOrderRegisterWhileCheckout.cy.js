@@ -1,83 +1,24 @@
-import {productsPage, cart, header, singUpUser, inputTypes, enterAccountInformation} from '../../support/POM/consts'
-    // 1. Launch browser
-    // 2. Navigate to url 'http://automationexercise.com'
-    // 3. Verify that home page is visible successfully
+import { header, singUpUser, inputTypes, enterAccountInformation} from '../../support/POM/Consts'
+import {addProducts} from '../../support/POM'
+
 describe('Adding items to the cart', () => {
-  
-      it('Visit page',()=>{
-        cy.visit('/')
-        //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
-      })
+
           // 4. Add products to cart
      it('Adding items to the cart', ()=>{   
-      // it('Adding first item to the cart', ()=>{
-          cy.get(productsPage
-              .divFirstProduct)
-                .realHover()
-                  .find(productsPage
-                    .divProductOnHoverOnlyDiv)
-                      .should('be.visible')
-                        .find(productsPage
-                          .linkProductOnHover)
-                            .click({force: true})
-                            .wait(1000);
-          cy.get(productsPage
-            .buttonDialogContinueShopping)
-              .click();
-                            // .click({waitForAnimations: false});
-                        // });
-      // it('Adding Second item to the cart',()=>{
-        cy.get(productsPage
-          .divSecondProduct)
-            .realHover()
-              .find(productsPage
-                .divProductOnHoverOnlyDiv)
-                  .should('be.visible')
-                    .find(productsPage
-                      .linkProductOnHover)
-                        .click({waitForAnimations: false})
-                          .wait(1000);
-        cy.get(productsPage
-            .buttonDialogContinueShopping)
-              .click();
-                        // .click({waitForAnimations: false});       
-      // });     
-      // it('Adding Third item to the cart',()=>{      
-        cy.get(productsPage
-          .divThirdProduct)
-            .realHover()
-              .find(productsPage
-                .divProductOnHoverOnlyDiv)
-                  .should('be.visible') 
-                    .find(productsPage
-                      .linkProductOnHover)
-                        .click({waitForAnimations: false});
-        cy.get(productsPage
-            .buttonDialogContinueShopping)
-              .click();
-                        // .click({waitForAnimations: false});                  
-                          // });             
-      // it('Adding last item to the cart',()=>{
-        cy.get(productsPage
-          .divLastProduct)
-            .realHover()
-              .find(productsPage
-                .divProductOnHoverOnlyDiv)
-                  .should('be.visible')
-                    .find(productsPage
-                      .linkProductOnHover)
-                        .click({waitForAnimations: false}); 
-        cy.get(productsPage
-            .buttonDialogContinueShopping)
-              .click();          
-               // Verify 'New User Signup!' is visible
+      cy.visit('/')
+      //The thing here is that later after register it does not store the products in the cache
+      // I have to make something to store the products without the need to be logged in
+      //To only be able to store products with the cache.
+        addProducts.getFirstProduct();
+        addProducts.getSecondProduct();   
+        addProducts.getThirdProduct();
+        addProducts.getLastProduct();     
             cy.get(header
               .buttonCart)
                 .click();                                         
         });
         it('Register user',()=>{
-            //Click on 'Signup / Login' button
-       cy.get(header
+       cy.get(header //Click on 'Signup / Login' button
           .buttonSingUpLogin)
             .click();
         cy.get(singUpUser
@@ -96,55 +37,52 @@ describe('Adding items to the cart', () => {
               .click();
         cy.get(singUpUser
             .pEmailAlreadyExist)
-              .should('not.exist')
+             .should('not.exist')
         })
         it('Account information', function (){
           cy.get('.clearfix')
-          .contains("Mr")
-          .click();
-          // Validate name and email previously place it the step before
-          cy.get(enterAccountInformation
+              .contains("Mr")
+               .click();
+          cy.get(enterAccountInformation // Validate name and email previously place it the step before
             .inputName)
               .should('have.value',
                 inputTypes.nameSignUp);
-         
           cy.get(enterAccountInformation
-            .inputPassword)
-          .type(inputTypes
-            .passwordSignUp);
-          //Date of birth
+              .inputPassword)
+                .type(inputTypes
+                 .passwordSignUp);
+          cy.get(enterAccountInformation  //Date of birth
+              .selectDateDay)
+                 .select('1');
           cy.get(enterAccountInformation
-            .selectDateDay)
+             .selectDateMonth)
               .select('1');
           cy.get(enterAccountInformation
-            .selectDateMonth)
-              .select('1');
-          cy.get(enterAccountInformation
-            .selectDateYear)
+             .selectDateYear)
               .select('1995');
           //Checkboxes
           cy.get(enterAccountInformation
-            .radioButtonNewsLetter)
-              .click();
+              .radioButtonNewsLetter)
+                .click();
           cy.get(enterAccountInformation
-            .radioButtonReceiveSpecialOffers)
+             .radioButtonReceiveSpecialOffers)
               .click();
           //Address information
           cy.get(enterAccountInformation
-            .inputFirstName)
-              .type(inputTypes
-                  .test);
-          cy.get(enterAccountInformation
-              .inputLastName)
+              .inputFirstName)
                 .type(inputTypes
                   .test);
           cy.get(enterAccountInformation
-                .inputCompany)
-                  .type(inputTypes
-                    .test);
+            .inputLastName)
+              .type(inputTypes
+                .test);
           cy.get(enterAccountInformation
-                .inputAddressName1)
-                  .type(inputTypes
+              .inputCompany)
+                .type(inputTypes
+                  .test);
+          cy.get(enterAccountInformation
+              .inputAddressName1)
+                .type(inputTypes
                   .test);
           cy.get(enterAccountInformation
                 .inputAddressName2)
@@ -166,15 +104,13 @@ describe('Adding items to the cart', () => {
                   .type(inputTypes
                     .test);
           cy.get(enterAccountInformation
-            .inputMobileNumber)
-              .type(inputTypes
-                .testNumber);
-        })
-      it("Create account", ()=>{
-        cy.get(enterAccountInformation
+              .inputMobileNumber)
+                .type(inputTypes
+                  .testNumber);
+          cy.get(enterAccountInformation
               .buttonCreateAccount)
                 .click()
-      })
+        })
 
       }); 
 // describe('Verify that Products in carts',()=>{

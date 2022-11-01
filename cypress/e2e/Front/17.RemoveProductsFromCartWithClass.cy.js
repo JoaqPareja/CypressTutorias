@@ -1,17 +1,6 @@
-
-
-// import {AddProducts} from '../../support/POM/index'
-
-// import {header, cart} from '../../support/POM/Consts'
-// import AddProducts from "../../support/POM/Products"
-import {header, cart} from "../../support/POM/consts"
-// import AddProducts from '../../support/POM' //It returns undifined
-// import AddProducts from '../../support/POM/Products'
+import {header, cart} from "../../support/POM/Consts"
 import {addProducts} from '../../support/POM'
 
-    // 1. Launch browser
-    // 2. Navigate to url 'http://automationexercise.com'
-    // 3. Verify that home page is visible successfully
 describe('Register User', () => {
  
   beforeEach('it should store the credentials',() => {   
@@ -66,7 +55,4 @@ describe('Register User', () => {
           cy.get('#empty_cart > .text-center')
               .should('have.text','Cart is empty! Click here to buy products.')
         })
-
-
-
     })

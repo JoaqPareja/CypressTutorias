@@ -1,17 +1,13 @@
-import {header, testCases} from '../../support/POM/consts';
-    // 1. Launch browser
-    // 2. Navigate to url 'http://automationexercise.com'
+import {header, testCases} from '../../support/POM/Consts';
+
     describe('Register User', () => {
-    // 3. Verify that home page is visible successfully
-    // 4. Click on 'Test Cases' button
-    // 5. Verify user is navigated to test cases page successfully
     it('Verify user is navigated to test cases page', ()=>{
       cy.visit('/')
-        cy.get(header
+        cy.get(header // . Click on 'Test Cases' button
             .buttonTestCAses)
               .click();
-        cy.url()
-            .should('include', '/test_cases')
+        cy.url() 
+            .should('include', '/test_cases') // . Verify user is navigated to test cases page successfully
               .should('not.include', '/test_cases/');
         cy.get(testCases
             .registerUser)

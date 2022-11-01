@@ -1,5 +1,5 @@
 
-import {cart} from './consts'
+import {cart} from './Consts'
 
 class DeleteProducts{
     getDeleteFirstProduct(){

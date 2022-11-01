@@ -1,13 +1,13 @@
 
 //  11: Verify Subscription in Cart page
-import {header, subscriptionSection, inputTypes} from '../../support/POM/consts'
+import {header, subscriptionSection, inputTypes} from '../../support/POM/Consts'
 
 describe('Register User', () => {
       it('Cart Testing', ()=>{
         cy.visit('/') //Navigate to url 'http://automationexercise.com'
           cy.get(header // . Click 'Cart' button
               .buttonCart)
-              .click();
+                .click();
           cy.scrollTo('bottom'); // . Scroll down to footer
           cy.CheckElement(subscriptionSection  // . Verify text 'SUBSCRIPTION'
               .h2Subscription)

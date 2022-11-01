@@ -1,4 +1,4 @@
-import {subscriptionSection, inputTypes}  from '../../support/POM/consts';
+import {subscriptionSection, inputTypes}  from '../../support/POM/Consts';
   describe('Verify Subscription in Home Page', () => {
    it('Verify subscription',()=>{
     cy.visit('/')  //  Navigate to url 'http://automationexercise.com'

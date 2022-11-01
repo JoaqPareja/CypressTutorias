@@ -7,8 +7,7 @@
           cy.get(header  //Click on 'Signup / Login' button
               .buttonSingUpLogin)
                 .click() 
-        // Verify 'New User Signup!' is visible
-          cy.get('body')
+          cy.get('body')  // Verify 'New User Signup!' is visible
               .contains("New User Signup!")  
           cy.get(singUpUser  //Enter name and email address
               .inputNameSingUp)

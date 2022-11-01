@@ -1,7 +1,6 @@
 
-import {header, productsPage, loginUser, inputTypes} from '../../support/consts'
-    // 1. Launch browser
-    // 2. Navigate to url 'http://automationexercise.com'
+import {header, productsPage} from '../../support/POM/Consts'
+import {addProducts} from '../../support/POM'
     describe('Register User', () => {
   
         it('Visit page',()=>{
@@ -20,45 +19,11 @@ import {header, productsPage, loginUser, inputTypes} from '../../support/consts'
         })
         it('Add products', ({ cacheSession = true } = {})  =>{
           cy.visit('/products?search=dress')
-          cy.get(productsPage
-            .divFirstProductOnHover)
-              .trigger('mouseover', {force: true})
-                        .find(productsPage
-                          .linkProductOnHover)
-                            .click({force: true})
-                              .wait(1000);
-        cy.get(productsPage
-            .buttonDialogContinueShopping)
-              .click();
-        cy.get(productsPage
-            .divSecondProductOnHover)
-              .trigger('mouseover', {force: true})
-                        .find(productsPage
-                          .linkProductOnHover)
-                            .click( {force: true})
-                              .wait(1000);
-        cy.get(productsPage
-            .buttonDialogContinueShopping)
-              .click();   
-        cy.get(productsPage
-            .divThirdProductOnHover)
-             .trigger('mouseover', {force: true})
-              .find(productsPage
-                .linkProductOnHover)
-                  .click({force: true});
-        cy.get(productsPage
-            .buttonDialogContinueShopping)
-              .click();
-        cy.get(productsPage
-            .divLastProductOnHover)
-            .trigger('mouseover', {force: true})
-                        .find(productsPage
-                          .linkProductOnHover)
-                            .click({force: true}); 
-        cy.get(productsPage
-            .buttonDialogContinueShopping)
-              .click();  
-        })
+            addProducts.getFirstProduct();
+            addProducts.getSecondProduct();
+            addProducts.getThirdProduct();
+            addProducts.getLastProduct();
+      })
       
         it('Go Back to check those products',()=>{
           cy.login();

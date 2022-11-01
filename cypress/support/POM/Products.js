@@ -1,5 +1,5 @@
 
-import {productsPage} from './consts'
+import {productsPage} from './Consts'
 
 // let h2TxtPriceFirstProduct;
 // let pTxtTitleFirstProduct;
