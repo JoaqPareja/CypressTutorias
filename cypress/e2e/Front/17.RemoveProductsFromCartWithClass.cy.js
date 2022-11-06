@@ -13,9 +13,8 @@ describe('Register User', () => {
       addProducts.getSecondProduct();
       addProducts.getThirdProduct();
       addProducts.getLastProduct();
-        cy.get(header  // Click 'Cart' button
-            .linkCart)
-              .click();                              
+        cy.get(header.linkCart)  // Click 'Cart' button
+            .click();                              
         }); 
           // 6. Verify that cart page is displayed
           //Missing
@@ -27,30 +26,22 @@ describe('Register User', () => {
         // dependiendo la cantidad de productos selecionados llamar a la cantidad
         //  de metodos de eliminacion de productos del carrito
         cy.visit('/view_cart')  // 7. Click 'X' button corresponding to particular product
-          cy.get(cart
-              .tdFirstProduct)//First child of the table
-                .find(cart
-                  .linkDelete)
-                    .click();
+          cy.get(cart.tdFirstProduct)//First child of the table
+              .find(cart.linkDelete)
+                .click();
                     //what i can do right is to store the first product title and then after it 
                     // has been deleted assert that product name does not exist in the DOM
                       // .should('not.exist');            
                         // 8. Verify that product is removed from the cart
                         //MISSING
-          cy.get(cart
-            .tdSecondProduct)//First child of the table
-              .find(cart
-                .linkDelete)
+          cy.get(cart.tdSecondProduct)//First child of the table
+              .find(cart.linkDelete)
                   .click();
-          cy.get(cart
-            .tdThirdProduct)//First child of the table
-              .find(cart
-                .linkDelete)
+          cy.get(cart.tdThirdProduct)//First child of the table
+              .find(cart.linkDelete)
                   .click();
-          cy.get(cart
-            .tdLastProduct)//First child of the table
-              .find(cart
-                .linkDelete)
+          cy.get(cart.tdLastProduct)//First child of the table
+              .find(cart.linkDelete)  
                   .click();
           cy.get('#empty_cart > .text-center')
               .should('have.text','Cart is empty! Click here to buy products.')

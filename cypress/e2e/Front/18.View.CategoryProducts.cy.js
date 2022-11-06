@@ -5,21 +5,16 @@ describe('Register User', () => {
     // 2. Navigate to url 'http://automationexercise.com'
     it('Verifies categories',()=>{
       cy.visit('/')
-        cy.get(productsPageLeftSideBar
-            .divWomenCategory)
-              .find(productsPageLeftSideBar
-                .linkCategory)
+        cy.get(productsPageLeftSideBar.divWomenCategory)
+              .find(productsPageLeftSideBar.linkCategory)
                   .click();
-        cy.get(productsPageLeftSideBar
-            .linkWomenDress)
+        cy.get(productsPageLeftSideBar.linkWomenDress)
               .click();
         cy.url()
             .should('contain','category_products/1')
     })
 
- 
-    // it('',()=>{
-    // })
+
     // 3. Verify that categories are visible on left side bar
     // 4. Click on 'Women' category
     // 5. Click on any category link under 'Women' category, for example: Dress

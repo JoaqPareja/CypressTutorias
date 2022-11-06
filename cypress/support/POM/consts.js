@@ -112,7 +112,16 @@ export const productsPage =
     h2ProductTitle: 'h2:nth-child(2)',
     pProductTitle: 'p:nth-child(2)',
     linkProductOnHover: 'div > a',
-    buttonDialogContinueShopping:'.modal-footer > .btn'
+    buttonDialogContinueShopping:'.modal-footer > .btn',
+    linkViewProducts: ' .product-image-wrapper > .choose > .nav > li > a' //Used for a .find()
+}
+export const productsPageSelectedProduct ={
+    pWriteYourReview: '.active > a',
+    inputYourName: '#name',
+    inputYourEmail: '#email',
+    textArea: '#review',
+    buttonSubmit: '#button-review',
+    spanSuccesAlert: '.alert-success > span'
 }
 export const productsPageLeftSideBar ={
     sectionLeft: 'left-sidebar',
@@ -128,6 +137,7 @@ export const productsPageLeftSideBar ={
     linkWomenSaree: '#Women > .panel-body ul > :nth-child(3) > a',
     linkMenTSHIRTS: '#Men > .panel-body ul > :nth-child(1) > a',
     linkMenJEANS: '#Men > .panel-body ul > :nth-child(2) > a',
+    linkKidsSecondElement: '#Kids > .panel-body > ul > :nth-child(2) > a'
 }
 export const cart = {
     sectionCartItems: '.cart_items',

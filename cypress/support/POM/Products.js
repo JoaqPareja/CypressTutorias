@@ -9,36 +9,28 @@ import {productsPage} from './Consts'
  class StoreProductInformation{
         getFirstProduct(){
             const firstProduct =
-                cy.get(productsPage
-                    .divFirstProduct)
-                        .find(productsPage
-                            .h2ProductTitle)
-                                .then(response => {
-                                     Cypress.env(h2TxtPriceFirstProduct = response.text() )
-                                    })
-                cy.get(productsPage
-                    .divFirstProduct)
-                        .find(productsPage
-                            .pProductTitle)
-                                .then(response => {
-                                    Cypress.env(pTxtTitleFirstProduct = response.text()) 
-                                       });                  
+                cy.get(productsPage.divFirstProduct)
+                    .find(productsPage.h2ProductTitle)
+                        .then(response => {
+                                Cypress.env(h2TxtPriceFirstProduct = response.text() )
+                            })
+                cy.get(productsPage.divFirstProduct)
+                     .find(productsPage.pProductTitle)
+                        .then(response => {
+                            Cypress.env(pTxtTitleFirstProduct = response.text()) 
+                                });                  
           return firstProduct;
     }
     getSecondProduct(){
         const secondProduct =
-            cy.get(productsPage
-                .divSecondProduct)
-                    .find(productsPage
-                        .h2ProductTitle)
-                            .then(response => {
-                                Cypress.env(h2TxtPriceSecondProduct = response.text()) })
-            cy.get(productsPage
-                .divFirstProduct)
-                    .find(productsPage
-                        .pProductTitle)
-                            .then(response => {
-                                Cypress.env(pTxtTitleSecondProduct = response.text()) 
+            cy.get(productsPage.divSecondProduct)
+                .find(productsPage.h2ProductTitle)
+                    .then(response => {
+                        Cypress.env(h2TxtPriceSecondProduct = response.text()) })
+            cy.get(productsPage.divFirstProduct)
+                .find(productsPage.pProductTitle)
+                    .then(response => {
+                        Cypress.env(pTxtTitleSecondProduct = response.text()) 
         });                  
   return secondProduct
     } 
@@ -48,71 +40,48 @@ import {productsPage} from './Consts'
   //Will create an empty contructor
         getFirstProduct() {
         const firstProduct =
-                cy.get(productsPage // . Hover over first product and click 'Add to cart'
-                    .divFirstProductOnHover)
-                        .trigger('mouseover', 
-                            {force: true})
-                                .find(productsPage
-                                    .linkProductOnHover)
-                                        .click({force: true});
-                                            
-                cy.get(productsPage  // . Click 'Continue Shopping' button
-                    .buttonDialogContinueShopping)
-                        .click();                       
-                        return firstProduct;
+                cy.get(productsPage.divFirstProductOnHover) // . Hover over first product and click 'Add to cart'
+                    .trigger('mouseover', {force: true})
+                        .find(productsPage.linkProductOnHover)
+                            .click({force: true});                                       
+                cy.get(productsPage.buttonDialogContinueShopping)  // . Click 'Continue Shopping' button                    
+                    .click();                       
+        return firstProduct;
         }
-      
-        
         getSecondProduct(){
             const secondProduct = 
-                    cy.get(productsPage
-                        .divSecondProductOnHover)
+                    cy.get(productsPage.divSecondProductOnHover)
                             .trigger('mouseover', {force: true})
-                                .find(productsPage
-                                    .linkProductOnHover)
-                                    .wait(2000)
+                                .find(productsPage.linkProductOnHover)
                                         .click( {force: true});
-                    cy.get(productsPage
-                            .buttonDialogContinueShopping)
-                                .click() 
+                    cy.get(productsPage.buttonDialogContinueShopping)
+                        .click(); 
             return secondProduct;                             
         }
  
         getThirdProduct(){
             const thirdProduct =  
-                cy.get(productsPage
-                    .divThirdProductOnHover)
-                        .trigger('mouseover', {force: true})
-                            .find(productsPage
-                                .linkProductOnHover)
-                                .wait(2000)
-                                    .click({force: true}); 
-            cy.get(productsPage
-                .buttonDialogContinueShopping)
-                    .click();                     
+                cy.get(productsPage.divThirdProductOnHover)   
+                    .trigger('mouseover', {force: true})
+                        .find(productsPage.linkProductOnHover)
+                             .click({force: true}); 
+            cy.get(productsPage.buttonDialogContinueShopping)
+                .click();                     
             return thirdProduct;          
         }
 
         getLastProduct(){
             const lastProduct =  
-                cy.get(productsPage
-                    .divLastProductOnHover)
-                        .trigger('mouseover', {force: true})
-                            .find(productsPage
-                                .linkProductOnHover)
-                                .wait(2000)
-                                    .click({force: true}) 
-            cy.get(productsPage
-                .buttonDialogContinueShopping)
-                    .click();  
+                cy.get(productsPage.divLastProductOnHover)
+                    .trigger('mouseover', {force: true})
+                        .find(productsPage.linkProductOnHover)
+                            .click({force: true}) 
+            cy.get(productsPage.buttonDialogContinueShopping)
+                .click();  
         return lastProduct;   
         }
-        
 }
  
-// class productInformation {
-
-// }
 module.exports ={
     AddProducts,
     StoreProductInformation

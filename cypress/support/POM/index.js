@@ -7,4 +7,4 @@ export const addProducts = new AddProducts();
 
 export const storeProductInformation = new StoreProductInformation();
 export const verifyProducts = new VerifyProducts();
-export const deleteProducts = DeleteProducts();
+export const deleteProducts = new DeleteProducts();

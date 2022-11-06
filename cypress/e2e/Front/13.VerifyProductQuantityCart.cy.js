@@ -15,8 +15,7 @@ describe('Register User', () => {
               .click()
         cy.get('p.text-center:nth-child(2) > a:nth-child(1)')
                 .click()
-        cy.get(cart
-          .buttonQuantityFirstProduct)
+        cy.get(cart.buttonQuantityFirstProduct)
             .should('have.text', '4')
 })
 

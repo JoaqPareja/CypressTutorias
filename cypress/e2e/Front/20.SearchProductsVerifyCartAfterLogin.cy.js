@@ -5,14 +5,11 @@ import {addProducts} from '../../support/POM'
   
         it('Visit page',()=>{
           cy.visit('/')
-           cy.get(header
-              .buttonProducts)
-                .click();
-          cy.get(productsPage
-              .inputSearchProducts)
+           cy.get(header.buttonProducts)
+              .click();
+          cy.get(productsPage.inputSearchProducts)
                 .type('Dress');
-          cy.get(productsPage
-              .buttonSearchProducts)
+          cy.get(productsPage.buttonSearchProducts)
                 .click();
           cy.url()
               .should('contain', '/products')
@@ -28,8 +25,7 @@ import {addProducts} from '../../support/POM'
         it('Go Back to check those products',()=>{
           cy.login();
           cy.visit('/')
-          cy.get(header
-             .buttonCart)
+          cy.get(header.buttonCart)
               .click();
         })
     // 3. Click on 'Products' button

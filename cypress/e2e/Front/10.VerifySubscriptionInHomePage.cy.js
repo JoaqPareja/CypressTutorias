@@ -5,20 +5,14 @@ import {subscriptionSection, inputTypes}  from '../../support/POM/Consts';
       cy.CheckHidden('body')
       cy.scrollTo('bottom')// . Scroll down to footer
       cy.CheckElement('#footer')
-      cy.CheckElement(subscriptionSection  // . Verify text 'SUBSCRIPTION'
-          .h2Subscription)
-            .should('have.text', 'Subscription')
-      cy.get(subscriptionSection  // . Enter email address in input and click arrow button
-         .inputSubscriptionEmail)
-          .type(inputTypes
-           .emailSignUp);
-      cy.get(subscriptionSection  // . Verify success message 'You have been successfully subscribed!' is visible
-         .buttonSubscribe)
+      cy.CheckElement(subscriptionSection.h2Subscription)  // . Verify text 'SUBSCRIPTION'
+          .should('have.text', 'Subscription')
+      cy.get(subscriptionSection.inputSubscriptionEmail)  // . Enter email address in input and click arrow button
+          .type(inputTypes.emailSignUp);
+      cy.get(subscriptionSection.buttonSubscribe)  // . Verify success message 'You have been successfully subscribed!' is visible
           .click();
-      cy.CheckElement(subscriptionSection
-          .alertMessageofSuccess)
-      cy.get(subscriptionSection
-          .alertMessageofSuccess)
-           .should('have.text', 'You have been successfully subscribed!')
+      cy.CheckElement(subscriptionSection.alertMessageofSuccess)
+      cy.get(subscriptionSection.alertMessageofSuccess)
+          .should('have.text', 'You have been successfully subscribed!')
 })
     })

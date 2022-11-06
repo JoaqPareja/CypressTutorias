@@ -5,25 +5,18 @@ import {header, subscriptionSection, inputTypes} from '../../support/POM/Consts'
 describe('Register User', () => {
       it('Cart Testing', ()=>{
         cy.visit('/') //Navigate to url 'http://automationexercise.com'
-          cy.get(header // . Click 'Cart' button
-              .buttonCart)
-                .click();
-          cy.scrollTo('bottom'); // . Scroll down to footer
-          cy.CheckElement(subscriptionSection  // . Verify text 'SUBSCRIPTION'
-              .h2Subscription)
-                .should('have.text', 'Subscription')
-          cy.get(subscriptionSection // . Enter email address in input and click arrow button
-              .inputSubscriptionEmail)
-                .type(inputTypes // . Enter email address in input and click arrow button
-                  .emailSignUp);
-          cy.get(subscriptionSection
-            .buttonSubscribe)
+          cy.get(header.buttonCart) // . Click 'Cart' button
               .click();
-          cy.CheckElement(subscriptionSection  // 8. Verify success message 'You have been successfully subscribed!' is visible
-              .alertMessageofSuccess);
-          cy.get(subscriptionSection   // 7. Verify success message 'You have been successfully subscribed!' is visible
-              .alertMessageofSuccess)
-                .should('have.text', 'You have been successfully subscribed!')
+          cy.scrollTo('bottom'); // . Scroll down to footer
+          cy.CheckElement(subscriptionSection.h2Subscription)  // . Verify text 'SUBSCRIPTION'
+              .should('have.text', 'Subscription')
+          cy.get(subscriptionSection.inputSubscriptionEmail) // . Enter email address in input and click arrow button
+              .type(inputTypes.emailSignUp); // . Enter email address in input and click arrow button       
+          cy.get(subscriptionSection.buttonSubscribe)
+              .click();
+          cy.CheckElement(subscriptionSection.alertMessageofSuccess);  // 8. Verify success message 'You have been successfully subscribed!' is visible
+          cy.get(subscriptionSection.alertMessageofSuccess)   // 7. Verify success message 'You have been successfully subscribed!' is visible
+              .should('have.text', 'You have been successfully subscribed!')
       })
 
 })
