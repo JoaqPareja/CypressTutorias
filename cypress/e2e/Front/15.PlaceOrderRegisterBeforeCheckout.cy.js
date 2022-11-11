@@ -1,9 +1,11 @@
 
 import {header, cart, inputTypes, cartAddress, cartPayment, paymentDone} from '../../support/POM/Consts'
 import {addProducts} from '../../support/POM'    
-import { zip } from 'cypress/types/lodash';
+
+
 
     describe('Register User', () => {
+        
       beforeEach('Stored loggin', ()=>{
         cy.login();  
       })
@@ -13,7 +15,7 @@ import { zip } from 'cypress/types/lodash';
           addProducts.getSecondProduct();   
           addProducts.getThirdProduct();
           addProducts.getLastProduct();     
-          cy.get(header.buttonCart)    
+          cy.get(header.linkCart)    
               .click();         
             cy.get(cart
               .buttonProceedtoCheckout)
@@ -58,7 +60,8 @@ import { zip } from 'cypress/types/lodash';
         cy.get(cart.buttonPlaceOrder)
             .click();  
   })
-      it('Cart Payment',()=>{
+      it('Cart Payment',{pageLoadTimeout: 10000},()=>{
+        
         cy.visit('/payment')
         cy.get(cartPayment.inputNameOnCard)
             .type('Joaquin Pareja');
@@ -71,29 +74,24 @@ import { zip } from 'cypress/types/lodash';
         cy.get(cartPayment
             .inputExpirationYear)    
               .type(24);   
-        cy.get(cartPayment.buttonPayConfirmOrder)    
-            .click();
-        cy.get(cartPayment.alertSuccessMessage)        
-            .should('have.text', 'Your order has been placed successfully!')    
-        cy.url()
-            .should('contain', '/payment_done');   
-              // cy.wait(cartPayment.buttonPayConfirmOrder).then(()=>{
-              //   cy.get(cartPayment
-              //     .alertSuccessMessage)
-              //       .should('have.text', 'Your order has been placed successfully!')
-              //   })
+              cy.window().document().then(function (doc) {
+                doc.addEventListener('click', () => {
+                    //Avoid page reload
+                    setTimeout(function () {   doc.location && doc.location.reload();                
+                    }, 1500)
+                })
+                    cy.get(cartPayment.buttonPayConfirmOrder)
+                        .click();
+                    cy.get(cartPayment.alertSuccessMessage)
+                        .invoke('show') //After the element has appeared in the DOM i must call it again to show up to then be able to trow the assertion 
+                            .contains('Your order has been placed successfully!') // . Verify success message 'Your order has been placed successfully!'
+                    }) 
+ 
+                    })        
+                })
 
-              // .wait(5000)
-              // .then(()=>{
-              //   cy.get(cartPayment.alertSuccessMessage).should('have.text', 'Your order has been placed successfully!')
-              // })
-     })
-     it('Payment confirmation',()=>{
-        cy.visit('/payment_done/3289')
-        cy.get(paymentDone.pSuccesfullMessage).should('have.text', 'Congratulations! Your order has been confirmed!')
-     })
-          })
-    // 4. Click 'Signup / Login' button
+    //       })
+    // 4.// Click 'Signup / Login' button
     // 5. Fill all details in Signup and create account
     // 6. Verify 'ACCOUNT CREATED!' and click 'Continue' button
     // 7. Verify ' Logged in as username' at top
@@ -105,7 +103,6 @@ import { zip } from 'cypress/types/lodash';
     // 13. Enter description in comment text area and click 'Place Order'
     // 14. Enter payment details: Name on Card, Card Number, CVC, Expiration date
     // 15. Click 'Pay and Confirm Order' button
-    // 16. Verify success message 'Your order has been placed successfully!'
     // 17. Click 'Delete Account' button
     // 18. Verify 'ACCOUNT DELETED!' and click 'Continue' button
 

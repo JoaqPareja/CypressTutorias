@@ -6,9 +6,9 @@
 // 2. Navigate to url 'http://automationexercise.com'
 describe('Register User', () => {
   
-    it('Visit page',()=>{
+    it('Recommend items',()=>{
       cy.visit('/')
-      //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
+        cy.scrollTo('bottom')
     })
 // 3. Scroll to bottom of page
 // 4. Verify 'RECOMMENDED ITEMS' are visible

@@ -139,6 +139,13 @@ export const productsPageLeftSideBar ={
     linkMenJEANS: '#Men > .panel-body ul > :nth-child(2) > a',
     linkKidsSecondElement: '#Kids > .panel-body > ul > :nth-child(2) > a'
 }
+export const productsPageRecommendedItem ={
+    divRecommendedSection: 'recommended_items',
+    h2Recommendedtitle: '.recommended_items > .title',
+    divCarousel: 'carousel-inner',
+    divCarouselActive: 'item active',
+    divProduct:'productinfo text-center'
+}
 export const cart = {
     sectionCartItems: '.cart_items',
     tdFirstProduct: 'tbody > tr:first-child > td:last-child ',
