@@ -74,21 +74,21 @@ import {addProducts} from '../../support/POM'
         cy.get(cartPayment
             .inputExpirationYear)    
               .type(24);   
-        cy.window().document().then(function (doc) {// Get the global event from the windod
-            doc.addEventListener('click', () => { //Add the to the global event of the window an event listener of "Click"
-            //Avoid page reload
-            setTimeout(function () {   doc.location && doc.location.reload(); //To that spicific eventl add stop page reload event            
-            }, 1500) // Do this after 1500 ms
-        })
+        cy.window() // Get the global event from the window
+            .document()
+                .then(function (doc) {
+                    doc.addEventListener('click', () => { //Add the to the global event of the window an event listener of "Click"
+                        setTimeout(function () {   doc.location && doc.location.reload(); //To that spicific eventl add stop page reload event //Avoid page reload           
+                    }, 1500) // Do this after 1500 ms
+                    })
             cy.get(cartPayment.buttonPayConfirmOrder)
                 .click();
             cy.get(cartPayment.alertSuccessMessage)
                 .invoke('show') //After the element has appeared in the DOM i must call it again to show up to then be able to trow the assertion 
                     .contains('Your order has been placed successfully!') // . Verify success message 'Your order has been placed successfully!'
-            }) 
-
-            })        
-        })
+        }) 
+    })        
+})
 
     //       })
     // 4.// Click 'Signup / Login' button

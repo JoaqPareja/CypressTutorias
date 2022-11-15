@@ -7,29 +7,20 @@ import {header,loginUser, inputTypes} from './POM/Consts'
 Cypress.Commands.add('login', ()=>{
     cy.session('Stored session', () => {
         cy.visit('/')
-          cy.get(header
-            .linkSingUpLogin)
+          cy.get(header.linkSingUpLogin)
               .click()
-         cy.get(loginUser
-            .loginToYourAccountH2)
+         cy.get(loginUser.loginToYourAccountH2)
               .contains("Login to your account")  
-          cy.get(loginUser
-              .inputEmailAddressLogIn)
-                .type(inputTypes
-                  .emailSignUp) //email
-          cy.get(loginUser
-              .inputPasswordLogIn)
-               .type(inputTypes
-                .passwordSignUp);     
-          cy.get(loginUser
-              .buttonLogin)
+          cy.get(loginUser.inputEmailAddressLogIn)
+                .type(inputTypes.emailSignUp) //email       
+          cy.get(loginUser.inputPasswordLogIn)
+               .type(inputTypes.passwordSignUp);      
+          cy.get(loginUser.buttonLogin)
                 .click();
-          cy.get(loginUser
-            .incorrectEmailORPasswordMsg)
-              .should('not.exist',
-                'Your email or password is incorrect!');
+          cy.get(loginUser.incorrectEmailORPasswordMsg)
+              .should('not.exist','Your email or password is incorrect!'); 
           cy.url()
-            .should('contain', '/')         
+              .should('contain', '/')         
       })
 
 })
