@@ -5,9 +5,9 @@ import {header, subscriptionSection, inputTypes} from '../../support/POM/Consts'
 describe('Register User', () => {
       it('Cart Testing', ()=>{
         cy.visit('/') //Navigate to url 'http://automationexercise.com'
-          cy.get(header.buttonCart) // . Click 'Cart' button
+          cy.get(header.linkCart) // . Click 'Cart' button
               .click();
-          cy.scrollTo('bottom'); // . Scroll down to footer
+          cy.scrollTo('bottom', {ensureScrollable: false}); // . Scroll down to footer
           cy.CheckElement(subscriptionSection.h2Subscription)  // . Verify text 'SUBSCRIPTION'
               .should('have.text', 'Subscription')
           cy.get(subscriptionSection.inputSubscriptionEmail) // . Enter email address in input and click arrow button

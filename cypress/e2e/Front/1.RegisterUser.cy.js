@@ -1,19 +1,17 @@
 import {header, inputTypes, singUpUser} from '../../support/POM/Consts';
 // import {consts} from '../fixtures/consts.json'
 import {registerUser} from '../../support/POM'
-let userName;
+
+
 describe('Register User',() => {
-    beforeEach(function(){
-        userName = Cypress.env('userName')
-      });
-//   beforeEach(()=>{
+    // before(function(){
     //     Cypress.config('experimentalSessionAndOrigin', false);
-
-//   })
-//   after(()=>{
-//     Cypress.config('experimentalSessionAndOrigin', true);
-
-//   })
+    //   });
+    // after(function(){
+    //     Cypress.config("experimentalSessionAndOrigin", true)
+    // });
+    
+    
   it('Sing up', ()=>{
     cy.visit('/')
         cy.CheckHidden('body')

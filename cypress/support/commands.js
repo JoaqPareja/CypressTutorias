@@ -4,8 +4,13 @@ import 'cypress-plugin-api'
 
 import {header,loginUser, inputTypes} from './POM/Consts'
 //{experimentalSessionAndOrigin = true} = {}
+before(()=>{ 
+    Cypress.env("EXPERIMENTALSESSIONANDORIGIN", true)
+  }) 
 Cypress.Commands.add('login', ()=>{
+    
     cy.session('Stored session', () => {
+        
         cy.visit('/')
           cy.get(header.linkSingUpLogin)
               .click()
@@ -20,8 +25,10 @@ Cypress.Commands.add('login', ()=>{
           cy.get(loginUser.incorrectEmailORPasswordMsg)
               .should('not.exist','Your email or password is incorrect!'); 
           cy.url()
-              .should('contain', '/')         
+              .should('contain', '/')
+          
       })
+   
 
 })
 
@@ -44,8 +51,8 @@ Cypress.Commands.add('getWidth', (label) =>{
     .then(function(owidth){
           cy.log(owidth)
           expect(owidth)
-          .to.be.greaterThan(900)
-          .to.be.lessThan(1200);
+             .to.be.greaterThan(900)
+                .to.be.lessThan(1200);
     });
 })
 Cypress.Commands.add('getHeight', (label) =>{

@@ -1,37 +1,69 @@
 
 import {productsPage} from './Consts'
-
-// let h2TxtPriceFirstProduct;
-// let pTxtTitleFirstProduct;
-// let h2TxtPriceSecondProduct;
-// let pTxtTitleSecondProduct; 
-
+let h2TxtPriceFirstProduct;
+let pTxtTitleFirstProduct;
+let h2TxtPriceSecondProduct;
+let pTxtTitleSecondProduct;
+const filename = '/EnviromentVariables.json';
  class StoreProductInformation{
+
         getFirstProduct(){
-            const firstProduct =
+
+    const firstProduct =
+
                 cy.get(productsPage.divFirstProduct)
                     .find(productsPage.h2ProductTitle)
                         .then(response => {
-                                Cypress.env(h2TxtPriceFirstProduct = response.text() )
+                            h2TxtPriceFirstProduct = response.text();
+                            cy.log(h2TxtPriceFirstProduct).pause();
+                            cy.readFile(filename).then((EnviromentVariables) => {
+                                EnviromentVariables.push({priceFirstProduct: h2TxtPriceFirstProduct})
+                                cy.writeFile(filename,  EnviromentVariables);
+                                    });
+                                cy.readFile(filename).then((str)=>{
+                                cy.log(str.priceFirstProduct).pause();
                             })
+                        });
                 cy.get(productsPage.divFirstProduct)
                      .find(productsPage.pProductTitle)
                         .then(response => {
-                            Cypress.env(pTxtTitleFirstProduct = response.text()) 
-                                });                  
+                            pTxtTitleFirstProduct = response.text();
+                            cy.log(pTxtTitleFirstProduct).pause();
+                            cy.readFile(filename).then((enviromentVariables) => {
+                                enviromentVariables.push({titleFirstProduct: pTxtTitleFirstProduct })
+                            cy.writeFile(filename, enviromentVariables );
+                            });
+                    cy.readFile(filename).then((str)=>{
+                    cy.log(str.titleFirstProduct).pause();
+                });
+            });                                     
           return firstProduct;
     }
     getSecondProduct(){
+
         const secondProduct =
             cy.get(productsPage.divSecondProduct)
                 .find(productsPage.h2ProductTitle)
                     .then(response => {
-                        Cypress.env(h2TxtPriceSecondProduct = response.text()) })
+                        h2TxtPriceSecondProduct = response.text();
+                        cy.log(h2TxtPriceSecondProduct);
+                        cy.writeFile(filename, 
+                            {priceSecondProduct: h2TxtPriceSecondProduct });
+                        cy.readFile(filename).then((str)=>{
+                        cy.log(str.h2TxtPriceSecondProduct)
+                    });
+                });  
             cy.get(productsPage.divFirstProduct)
                 .find(productsPage.pProductTitle)
                     .then(response => {
-                        Cypress.env(pTxtTitleSecondProduct = response.text()) 
-        });                  
+                        pTxtTitleSecondProduct = response.text();
+                        // cy.log(pTxtTitleSecondProduct);
+                        cy.writeFile(filename, 
+                            {titleSecondProduct: pTxtTitleSecondProduct });
+                        cy.readFile(filename).then((str)=>{
+                        // cy.log(str.pTxtTitleSecondProduct)
+                    });
+                    });                    
   return secondProduct
     } 
 }
@@ -80,6 +112,18 @@ import {productsPage} from './Consts'
                 .click();  
         return lastProduct;   
         }
+}
+
+class AddRecommendedProducts {
+    
+    //if the class active then do the following method else do the second one
+    //First do the first methods
+    getThirstProductNotActive(){
+
+    }
+    getThirstProductActive(){
+        
+    }
 }
  
 module.exports ={

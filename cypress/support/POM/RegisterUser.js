@@ -6,12 +6,15 @@ let userName;
 beforeEach(function(){
     userName = Cypress.env('userName')
   });
+afterEach(function(){
+userName = '';
+});
+  
 class RegisterUser {
     
     postUser(){
         
         const registerUser =  
-            // cy.visit('/signup')
             cy.url().should('contain', '/signup')   
                 cy.get(radioButtonMr)  
                         .click();

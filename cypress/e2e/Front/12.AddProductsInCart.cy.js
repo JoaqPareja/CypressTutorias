@@ -3,6 +3,9 @@ import{header, productsPage} from '../../support/POM/Consts'
 import {addProducts,storeProductInformation, verifyProducts} from '../../support/POM'
 //Falta generar array vacio de enteros y luego que por cada elemento 
 // anadido al carrito este se incremente y luego comprararlo
+
+
+
 describe('Register User', () => {  
 
   beforeEach('Stored loggin', ()=>{     
