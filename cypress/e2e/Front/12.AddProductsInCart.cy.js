@@ -6,7 +6,7 @@ import {addProducts,storeProductInformation, verifyProducts} from '../../support
 
 
 
-describe('Register User', () => {  
+describe('Add products and verified each on the Cart', () => {  
 
   beforeEach('Stored loggin', ()=>{     
     cy.login();  
@@ -39,15 +39,12 @@ describe('Register User', () => {
       cy.get(productsPage.buttonDialogContinueShopping)
       cy.get(header.linkCart)
           .click({force: true});     
-    })     
+    });     
   it('Cart products verify first product', ()=>{ // . Verify their prices, quantity and total price
     cy.visit('/view_cart')
     verifyProducts.getFirstProduct();
-  })
-it('Cart products verify second product', ()=>{
-  cy.visit('/view_cart')
     verifyProducts.getSecondProduct();
-})
+  });
 })
 //Poner en variables de ambiente en vez de codigo spaghetti
 //No logrado

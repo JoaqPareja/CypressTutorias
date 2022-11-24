@@ -1,8 +1,10 @@
 const { defineConfig } = require("cypress");
 
 
-module.exports = defineConfig({ 
+module.exports = defineConfig({
+  projectId: 'zs8v5h', 
   e2e: {
+    projectId: 'zs8v5h',
     viewportWidth: 1980,
     viewportHeight: 1050,
     "supportFile": "cypress/support/commands.js",
