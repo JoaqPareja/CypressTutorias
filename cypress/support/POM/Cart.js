@@ -1,17 +1,34 @@
 
 import {cart} from './Consts'
 
-let titleFirstProduct;
 let priceFirstProduct;
-let titleSecondProduct;
+let titleFirstProduct;
 let priceSecondProduct;
+let titleSecondProduct;
 
-// afterEach(function(){
-//     h2TxtPriceFirstProduct = "";
-//     pTxtTitleFirstProduct = "";
-//     h2TxtPriceSecondProduct = "";
-//     pTxtTitleSecondProduct = "";
-// });
+const filename = '/EnviromentVariables.json';
+beforeEach(()=>{
+        cy.readFile(filename).then((str)=>{
+            cy.log(str).pause();
+            const arr = str
+            cy.log(arr[0].priceFirstProduct)
+            cy.log(arr[1].titleFirstProduct)
+            cy.log(arr[2].priceSecondProduct)
+            cy.log(arr[3].titleSecondProduct).pause();
+            priceFirstProduct =  arr[0].priceFirstProduct;
+            titleFirstProduct =  arr[1].titleFirstProduct;
+            priceSecondProduct = arr[2].priceSecondProduct;
+            titleSecondProduct = arr[3].titleSecondProduct;
+            cy.log(titleSecondProduct).pause();
+        });
+})
+
+afterEach(function(){
+    priceFirstProduct;
+    titleFirstProduct;
+    priceSecondProduct;
+    titleSecondProduct;
+});
 
 class DeleteProducts{
     getDeleteFirstProduct(){
@@ -27,17 +44,10 @@ class VerifyProducts{
     getFirstProduct(){
         
         const verifyFirstProduct = 
-            cy.get(cart.h4FirstProductTitle).then(response =>{
-                let h4FirstProductTitleText =  response.text()
-                cy.readFile('/EnviromentVariables.json').then((str)=>{ 
-                    titleFirstProduct =  str;
-                    cy.log(titleFirstProduct).pause();
-                    cy.get(h4FirstProductTitleText).should('have.text', titleFirstProduct).pause();
-                })
-            })
-                
+            cy.get(cart.h4FirstProductTitle)  
+                .should('have.text', titleFirstProduct).pause();
             cy.get(cart.pPriceFirstProduct)
-                // .should('have.text', priceFirstProduct)
+                .should('have.text', priceFirstProduct)
             cy.get(cart.buttonQuantityFirstProduct)
                 .should('have.text', '1');      
     return verifyFirstProduct;
@@ -45,9 +55,9 @@ class VerifyProducts{
     getSecondProduct(){
         const verifySecondProduct = 
         cy.get(cart.h4SecondProductTitle)
-            // .should('have.text', titleSecondProduct)       
+            .should('have.text', titleSecondProduct)       
       cy.get(cart.pPriceSecondProduct)
-            // .should('have.text', priceSecondProduct)
+            .should('have.text', priceSecondProduct)
       cy.get(cart.buttonQuantitySecondProduct)
               .should('have.text', '1');
     return verifySecondProduct;     

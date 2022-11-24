@@ -9,11 +9,7 @@ module.exports = defineConfig({
     baseUrl: 'http://automationexercise.com',
     experimentalSessionAndOrigin: true,
    env:{
-    h2TxtPriceFirstProduct: '',
-    pTxtTitleFirstProduct:'',
-    h2TxtPriceSecondProduct:'',
-    pTxtTitleSecondProduct:'',
-    userName: '',
+
    }
    
 
