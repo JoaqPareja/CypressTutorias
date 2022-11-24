@@ -14,41 +14,33 @@ const filename = '/EnviromentVariables.json';
                     .find(productsPage.h2ProductTitle)
                         .then(response => {
                             h2TxtPriceFirstProduct = response.text();
-                                cy.log(h2TxtPriceFirstProduct).pause();   
+                                cy.log(h2TxtPriceFirstProduct);  
                                 test.push({'priceFirstProduct': h2TxtPriceFirstProduct})
                                 cy.writeFile(filename,  test);
                                     cy.readFile(filename).then((str)=>{
-                                        cy.log(str).pause();
-                                         cy.log(str[0]).pause();
+                                        cy.log(str);
+                                         cy.log(str[0]);
                                          const arr = str[0]
-                                         cy.log(arr.priceFirstProduct).pause();
+                                         cy.log(arr.priceFirstProduct);
                             });
                         });
                         cy.readFile(filename).then((str)=>{
-                            cy.log(str).pause();
+                            cy.log(str);
                             const arr = str[0]
-                            cy.log(arr.priceFirstProduct).pause();
-                    
-
+                            cy.log(arr.priceFirstProduct);
                         });
  
                 cy.get(productsPage.divFirstProduct)
                      .find(productsPage.pProductTitle)
                         .then(response => {
                             pTxtTitleFirstProduct = response.text();
-                            cy.log(pTxtTitleFirstProduct).pause();
+                            cy.log(pTxtTitleFirstProduct);
                             test.push({'titleFirstProduct': pTxtTitleFirstProduct})
                                 cy.writeFile(filename,  test);
                                     cy.readFile(filename).then((str)=>{
-                                        cy.log(str).pause();
-                                        //  cy.log(str[0]).pause(); //Este no me trae todos
+                                        cy.log(str);
                                          const arr = str
-                                        //  cy.log(arr.test.titleFirstProduct).pause();
-                                         cy.log(arr[1].titleFirstProduct).pause();
-                                        // cy.log(str.test).pause();
-                                        //     const arr = str.test
-                                        //     cy.log(arr);
-                                        //     cy.log(arr.pTxtTitleFirstProduct)
+                                         cy.log(arr[1].titleFirstProduct);
                              });   
                             });                                  
           return firstProduct;
@@ -64,15 +56,10 @@ const filename = '/EnviromentVariables.json';
                         test.push({'priceSecondProduct': h2TxtPriceSecondProduct})
                         cy.writeFile(filename, test);
                         cy.readFile(filename).then((str)=>{
-                            cy.log(str).pause();
+                            cy.log(str);
                              const arr = str
-                             cy.log(arr[2].priceSecondProduct).pause();
+                             cy.log(arr[2].priceSecondProduct);
                  });   
-                    //     cy.writeFile(filename, 
-                    //         {priceSecondProduct: h2TxtPriceSecondProduct });
-                    //     cy.readFile(filename).then((str)=>{
-                    //     cy.log(str.h2TxtPriceSecondProduct)
-                    // });
                 });  
             cy.get(productsPage.divSecondProduct)
                 .find(productsPage.pProductTitle)
@@ -81,10 +68,13 @@ const filename = '/EnviromentVariables.json';
                         test.push({'titleSecondProduct': pTxtTitleSecondProduct})
                         cy.writeFile(filename,  test);
                         cy.readFile(filename).then((str)=>{
-                            cy.log(str).pause();
+                            cy.log(str);
                              const arr = str
-                             cy.log(arr[1].titleFirstProduct).pause();
-                             cy.log(arr[3].titleSecondProduct).pause();
+                            //  let titleFirstProduct = arr[1].titleFirstProduct;
+                            //  let titleSecondProduct = arr[3].titleSecondProduct
+                            // //  expect(titleFirstProduct).to.not.equal(titleSecondProduct).pause(); //An assertion within the assertion
+                             cy.log(arr[1].titleFirstProduct);
+                             cy.log(arr[3].titleSecondProduct);
                  });   
   
                     });                    

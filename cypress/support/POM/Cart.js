@@ -9,17 +9,17 @@ let titleSecondProduct;
 const filename = '/EnviromentVariables.json';
 beforeEach(()=>{
         cy.readFile(filename).then((str)=>{
-            cy.log(str).pause();
+            cy.log(str);
             const arr = str
-            cy.log(arr[0].priceFirstProduct)
-            cy.log(arr[1].titleFirstProduct)
-            cy.log(arr[2].priceSecondProduct)
-            cy.log(arr[3].titleSecondProduct).pause();
+            cy.log(arr[0].priceFirstProduct);
+            cy.log(arr[1].titleFirstProduct);
+            cy.log(arr[2].priceSecondProduct);
+            cy.log(arr[3].titleSecondProduct);
             priceFirstProduct =  arr[0].priceFirstProduct;
             titleFirstProduct =  arr[1].titleFirstProduct;
             priceSecondProduct = arr[2].priceSecondProduct;
             titleSecondProduct = arr[3].titleSecondProduct;
-            cy.log(titleSecondProduct).pause();
+            // cy.log(titleSecondProduct).pause();
         });
 })
 
