@@ -46,8 +46,5 @@ describe('Add products and verified each on the Cart', () => {
     verifyProducts.getSecondProduct();
   });
 })
-//Poner en variables de ambiente en vez de codigo spaghetti
-//No logrado
-//Comparar desde un objeto
-//Se compara desde variables
+
     
