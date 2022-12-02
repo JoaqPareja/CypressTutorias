@@ -16,8 +16,13 @@ describe('Add products and verified each on the Cart', () => {
           .click();
           storeProductInformationPushJson.getFirstProduct();    
           storeProductInformationPushJson.getSecondProduct();   
-          storeProductInformationPushJson.getFirstRecommendedItem();   
-})      
+          // storeProductInformationPushJson.getFirstRecommendedItem();   
+})  
+it('Store product information recommended product',()=>{
+  cy.visit('/')
+  storeProductInformationPushJson.getFirstRecommendedItem();   
+
+})       
   it('Add products to the cart', ()=>{
     cy.visit('/')
     addProducts.getFirstProduct();

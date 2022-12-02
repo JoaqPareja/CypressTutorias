@@ -16,8 +16,8 @@ describe('Add products and verified each on the Cart', () => {
           .click();
           storeProductInformationReWriteJson.getFirstProduct();    
           storeProductInformationReWriteJson.getSecondProduct();   
-          storeProductInformationReWriteJson.getFirstRecommendedItem();   
-})      
+})
+    
   it('Add products to the cart', ()=>{
     cy.visit('/')
     addProducts.getFirstProduct();
@@ -25,8 +25,8 @@ describe('Add products and verified each on the Cart', () => {
     });     
   it('Cart products verify first product', ()=>{ // . Verify their prices, quantity and total price
     cy.visit('/view_cart')
-    verifyProducts.getFirstProduct();
-    verifyProducts.getSecondProduct();
+    verifyProducts.firstProduct;
+    verifyProducts.secondProduct;
   });
 })
 

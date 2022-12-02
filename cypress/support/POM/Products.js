@@ -13,11 +13,11 @@ class StoreProductInformationReWriteJson{
         const firstProduct =
             cy.get(productsPage.divFirstProduct)
                 .find(productsPage.h2ProductTitle)
-                .then(response => {
-                    h2TxtPriceFirstProduct = response.text();
-                        test.push({'priceFirstProduct': h2TxtPriceFirstProduct})
-                        cy.writeFile(filename,  test)  //This will re write the existing json
-                });
+                    .then(response => {
+                        h2TxtPriceFirstProduct = response.text();
+                            test.push({'priceFirstProduct': h2TxtPriceFirstProduct})
+                            cy.writeFile(filename,  test)  //This will re write the existing json
+                    });
                 cy.readFile(filename).then((str)=>{
                     // cy.log(str).pause();
                     // cy.log(str[0].priceFirstProduct).pause();
@@ -63,9 +63,9 @@ class StoreProductInformationReWriteJson{
     getFirstRecommendedItem(){
     const firstRecommended =
     cy.scrollTo('bottom');
-    cy.get('div.carousel-inner:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > a:nth-child(4)')
+    cy.get(productsPageRecommendedItem.divRecommendedSection)
         .invoke('show')
-            .should('be.visible')
+         .find(productsPageRecommendedItem.linkItemActive).should('be.visible')
                 .then(response => {
                     priceFirstRecommendedProduct = response.text();
                         test.push({'firstRecommendedProduct': priceFirstRecommendedProduct})
