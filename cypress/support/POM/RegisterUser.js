@@ -1,25 +1,33 @@
 
 import { inputTypes, enterAccountInformation} from '../../support/POM/Consts';
-let titleSection = '.clearfix';
-let radioButtonMr ='#id_gender1';
-let userName;
-beforeEach(function(){
-    userName = Cypress.env('userName')
+
+class user{
+    constructor(userName){
+        this.userName = userName;
+        
+beforeEach(() =>{
+    this.userName = Cypress.env('userName')
   });
-afterEach(function(){
-userName = '';
+afterEach(() =>{
+    this.userName = '';
 });
-  
-class RegisterUser {
+}
+}
+class RegisterUser extends user{
+    constructor(){
+        super();
+    };
+    get generateNewUser(){
+        return this.postUser();
+    };
     
     postUser(){
-        
         const registerUser =  
             cy.url().should('contain', '/signup')   
-                cy.get(radioButtonMr)  
+                cy.get(enterAccountInformation.radioButtonMr)  
                         .click();
                 cy.get(enterAccountInformation.inputName)// Validate name and email previously place it the step before
-                        .should('have.value', userName);            
+                        .should('have.value', this.userName);            
                 cy.get(enterAccountInformation.inputPassword)
                     .invoke('show')    //avoid disabled input   
                         .type(inputTypes.passwordSignUp);//Date of birth            

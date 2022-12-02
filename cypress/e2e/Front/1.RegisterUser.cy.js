@@ -4,14 +4,7 @@ import {registerUser} from '../../support/POM'
 
 
 describe('Register User',() => {
-    // before(function(){
-    //     Cypress.config('experimentalSessionAndOrigin', false);
-    //   });
-    // after(function(){
-    //     Cypress.config("experimentalSessionAndOrigin", true)
-    // });
-    
-    
+
   it('Sing up', ()=>{
     cy.visit('/')
         cy.CheckHidden('body')
@@ -33,8 +26,7 @@ describe('Register User',() => {
  
             })
   it('Register Account information',  ()=>{
-    
-        registerUser.postUser();
+        registerUser.postUser;
     
   })
 })
