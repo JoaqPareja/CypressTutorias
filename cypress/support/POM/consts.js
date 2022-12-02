@@ -109,7 +109,7 @@ export const productsPage =
     divSecondProductOnHover: 'div.col-sm-4:nth-child(4) > div.product-image-wrapper > div.single-products> div.product-overlay',
     divThirdProductOnHover: 'div.col-sm-4:nth-child(5) > div.product-image-wrapper > div.single-products> div.product-overlay',
     divLastProductOnHover: 'div.col-sm-4:last-child > div.product-image-wrapper > div.single-products> div.product-overlay',
-    h2ProductTitle: 'h2:nth-child(2)',
+    h2ProductPrice: 'h2:nth-child(2)',
     divFirstProductH2Product: '.features_items > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h2:nth-child(2)',
     pProductTitle: 'p:nth-child(2)',
     linkProductOnHover: 'div > a',

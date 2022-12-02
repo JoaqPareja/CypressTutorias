@@ -14,24 +14,20 @@ describe('Add products and verified each on the Cart', () => {
     cy.visit('/')
       cy.get(header.linkProducts) // .Click 'Products' button
           .click();
-          storeProductInformationPushJson.getFirstProduct();    
-          storeProductInformationPushJson.getSecondProduct();   
+          storeProductInformationPushJson.firstProduct;    
+          storeProductInformationPushJson.secondProduct;   
           // storeProductInformationPushJson.getFirstRecommendedItem();   
 })  
-it('Store product information recommended product',()=>{
-  cy.visit('/')
-  storeProductInformationPushJson.getFirstRecommendedItem();   
-
-})       
+    
   it('Add products to the cart', ()=>{
     cy.visit('/')
-    addProducts.getFirstProduct();
-    addProducts.getSecondProduct();
+    addProducts.firstProduct;
+    addProducts.secondProduct;
     });     
   it('Cart products verify first product', ()=>{ // . Verify their prices, quantity and total price
     cy.visit('/view_cart')
-    verifyProducts.getFirstProduct();
-    verifyProducts.getSecondProduct();
+    verifyProducts.firstProduct;
+    verifyProducts.secondProduct;
   });
 })
 

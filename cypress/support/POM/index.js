@@ -1,5 +1,6 @@
 
-import {AddProducts, StoreProductInformationReWriteJson, StoreProductInformationPushJson} from '../POM/Products'
+import {StoreProductInformationReWriteJson, StoreProductInformationPushJson} from './ProductsStoreInformation'
+import {AddProducts} from '../POM/ProductsAddItems'
 import {VerifyProducts, DeleteProducts} from '../POM/Cart'
 import {RegisterUser} from '../POM/RegisterUser'
 
