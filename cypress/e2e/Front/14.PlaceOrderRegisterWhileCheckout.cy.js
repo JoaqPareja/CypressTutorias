@@ -13,103 +13,65 @@ describe('Adding items to the cart', () => {
         addProducts.getSecondProduct();   
         addProducts.getThirdProduct();
         addProducts.getLastProduct();     
-            cy.get(header
-              .buttonCart)
-                .click();                                         
+        cy.get(header.buttonCart)    
+            .click();                                         
         });
         it('Register user',()=>{
-       cy.get(header //Click on 'Signup / Login' button
-          .buttonSingUpLogin)
-            .click();
-        cy.get(singUpUser
-          .newUserSignUpH2)
+       cy.get(header.buttonSingUpLogin) //Click on 'Signup / Login' button
+           .click();
+        cy.get(singUpUser.newUserSignUpH2)
             .contains("New User Signup!");  
-        cy.get(singUpUser
-          .inputNameSingUp)
-            .type(inputTypes
-              .nameSignUp); // name
-        cy.get(singUpUser
-            .inputEmailSingup)
-             .type(inputTypes
-              .emailSignUp)     
-        cy.get(singUpUser
-            .buttonSingUp)
-              .click();
-        cy.get(singUpUser
-            .pEmailAlreadyExist)
-             .should('not.exist')
+        cy.get(singUpUser.inputNameSingUp)
+            .type(inputTypes.nameSignUp); // name
+        cy.get(singUpUser.inputEmailSingup)
+            .type(inputTypes.emailSignUp)     
+        cy.get(singUpUser.buttonSingUp)
+            .click();
+        cy.get(singUpUser.pEmailAlreadyExist)
+            .should('not.exist')
         })
         it('Account information', function (){
           cy.get('.clearfix')
               .contains("Mr")
-               .click();
-          cy.get(enterAccountInformation // Validate name and email previously place it the step before
-            .inputName)
-              .should('have.value',
-                inputTypes.nameSignUp);
-          cy.get(enterAccountInformation
-              .inputPassword)
-                .type(inputTypes
-                 .passwordSignUp);
-          cy.get(enterAccountInformation  //Date of birth
-              .selectDateDay)
-                 .select('1');
-          cy.get(enterAccountInformation
-             .selectDateMonth)
+                .click();
+          cy.get(enterAccountInformation.inputName) // Validate name and email previously place it the step before
+              .should('have.value',inputTypes.nameSignUp);
+          cy.get(enterAccountInformation.inputPassword)
+              .type(inputTypes.passwordSignUp);        
+          cy.get(enterAccountInformation.selectDateDay)  //Date of birth  
               .select('1');
-          cy.get(enterAccountInformation
-             .selectDateYear)
+          cy.get(enterAccountInformation.selectDateMonth)
+              .select('1');
+          cy.get(enterAccountInformation.selectDateYear)
               .select('1995');
           //Checkboxes
-          cy.get(enterAccountInformation
-              .radioButtonNewsLetter)
-                .click();
-          cy.get(enterAccountInformation
-             .radioButtonReceiveSpecialOffers)
+          cy.get(enterAccountInformation.radioButtonNewsLetter)
+              .click();
+          cy.get(enterAccountInformation.radioButtonReceiveSpecialOffers)
               .click();
           //Address information
-          cy.get(enterAccountInformation
-              .inputFirstName)
-                .type(inputTypes
-                  .test);
-          cy.get(enterAccountInformation
-            .inputLastName)
-              .type(inputTypes
-                .test);
-          cy.get(enterAccountInformation
-              .inputCompany)
-                .type(inputTypes
-                  .test);
-          cy.get(enterAccountInformation
-              .inputAddressName1)
-                .type(inputTypes
-                  .test);
-          cy.get(enterAccountInformation
-                .inputAddressName2)
-                  .type(inputTypes
-                    .test);
-          cy.get(enterAccountInformation
-                .inputCountry)
-                  .select('India');
-          cy.get(enterAccountInformation
-                .inputState)
-                  .type(inputTypes
-                    .test);
-          cy.get(enterAccountInformation
-                .inputCity)
-                  .type(inputTypes
-                    .test);
-          cy.get(enterAccountInformation
-                .inputZipcode)
-                  .type(inputTypes
-                    .test);
-          cy.get(enterAccountInformation
-              .inputMobileNumber)
-                .type(inputTypes
-                  .testNumber);
-          cy.get(enterAccountInformation
-              .buttonCreateAccount)
-                .click()
+          cy.get(enterAccountInformation.inputFirstName)
+              .type(inputTypes.test);
+          cy.get(enterAccountInformation.inputLastName)
+              .type(inputTypes.test);
+          cy.get(enterAccountInformation.inputCompany)
+              .type(inputTypes.test);
+          cy.get(enterAccountInformation.inputAddressName1)
+              .type(inputTypes.test);    
+          cy.get(enterAccountInformation.inputAddressName2)
+              .type(inputTypes.test);
+          cy.get(enterAccountInformation.inputCountry)
+              .select('India');
+          cy.get(enterAccountInformation.inputState)
+              .type(inputTypes.test);
+          cy.get(enterAccountInformation.inputCity)
+              .type(inputTypes.test);   
+          cy.get(enterAccountInformation.inputZipcode)
+              .type(inputTypes.test);     
+          cy.get(enterAccountInformation.inputMobileNumber)
+              .type(inputTypes.testNumber);                  
+          cy.get(enterAccountInformation.buttonCreateAccount)
+              .click()
         })
 
       }); 

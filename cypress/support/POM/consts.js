@@ -141,12 +141,14 @@ export const productsPageLeftSideBar ={
     linkKidsSecondElement: '#Kids > .panel-body > ul > :nth-child(2) > a'
 }
 export const productsPageRecommendedItem ={
-    divRecommendedSection: 'recommended_items',
+    divRecommendedSection: '.recommended_items',
     h2Recommendedtitle: '.recommended_items > .title',
-    divCarousel: 'carousel-inner',
+    divCarousel: 'div.carousel-inner:nth-child(1)',
     divCarouselActive: 'item active',
-    divProduct:'productinfo text-center'
+    divProduct:'productinfo text-center',
+    linkItemActive: '.active > :nth-child(1) > .product-image-wrapper > .single-products > .productinfo > .btn',
 }
+// 
 export const cart = {
     sectionCartItems: '.cart_items',
     tdFirstProduct: 'tbody > tr:first-child > td:last-child ',

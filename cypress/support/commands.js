@@ -4,16 +4,14 @@ import 'cypress-plugin-api'
 
 import {header,loginUser, inputTypes} from './POM/Consts'
 //{experimentalSessionAndOrigin = true} = {}
-before(()=>{ 
-    Cypress.env("EXPERIMENTALSESSIONANDORIGIN", true)
-  }) 
+
 Cypress.Commands.add('login', ()=>{
     
     cy.session('Stored session', () => {
         
         cy.visit('/')
           cy.get(header.linkSingUpLogin)
-              .click()
+              .click();
          cy.get(loginUser.loginToYourAccountH2)
               .contains("Login to your account")  
           cy.get(loginUser.inputEmailAddressLogIn)
