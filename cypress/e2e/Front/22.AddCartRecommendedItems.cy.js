@@ -2,38 +2,36 @@
 
 //  22: Add to cart from Recommended items
 import {productsPageRecommendedItem } from '../../support/POM/Consts'
-import {storeProductInformationReWriteJson,addProducts, verifyProductsRecommended} from '../../support/POM'
-
+import {storeRecommendedReWriteJson,addProducts, verifyProductsRecommended} from '../../support/POM'
+const filename = '/EnviromentVariables.json';
+let test = [];
 // 1. Launch browser
 // 2. Navigate to url 'http://automationexercise.com'
-describe('Register User', () => {
+
+describe('Store and verified recommended product', () => {
   beforeEach('Stored loggin', ()=>{     
     cy.login();  
   })
   
-    it('Check Recommend items',()=>{
-      cy.clearLocalStorage();
+    it('Store Recommend items',()=>{
       cy.visit('/')
-        cy.scrollTo('bottom')// . Scroll to bottom of page
-         cy.CheckElement(productsPageRecommendedItem.divRecommendedSection)
-         storeProductInformationReWriteJson.firstRecommendedProduct
-        //  cy.get(productsPageRecommendedItem.divCarousel).find(productsPageRecommendedItem.linkItemActive).click();  
-          
+      // test.push({str : []})
+        cy.writeFile(filename, test)
+        // cy.log(str).pause();
+         cy.CheckElement(productsPageRecommendedItem.divRecommendedSection) // 4. Verify 'RECOMMENDED ITEMS' are visible
+         storeRecommendedReWriteJson.firstRecommendedProduct
+        //  cy.get(productsPageRecommendedItem.divCarousel).find(productsPageRecommendedItem.linkItemActive).click();   
       })
       it('Add Recommended product', ()=>{
         cy.visit('/')
-        addProducts.firstRecommendedProduct;
-        cy.contains('View Cart')
-            .click({force: true});
+        addProducts.firstRecommendedProduct; // 5. Click on 'Add To Cart' on Recommended product
+        cy.contains('View Cart') // 6. Click on 'View Cart' button
+            .click({force: true}); 
       })
       it('Verify product information recommended product',()=>{
         cy.visit('/view_cart')
-        verifyProductsRecommended.firstProduct;   
-        
-      })   
-// 4. Verify 'RECOMMENDED ITEMS' are visible
-// 5. Click on 'Add To Cart' on Recommended product
-// 6. Click on 'View Cart' button
-// 7. Verify that product is displayed in cart page
+        verifyProductsRecommended.firstProduct; // 7. Verify that product is displayed in cart page   
+        // cy.writeFile(filename, test) //Cleaning the Json Again
+      });   
 
 })

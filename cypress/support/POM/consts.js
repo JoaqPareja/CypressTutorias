@@ -47,6 +47,7 @@ export const loginUser =
     pEmailAlreadyExist: '.signup-form > form > p'
     }
  export const  enterAccountInformation = {
+    radioButtonMr :'#id_gender1',
   inputName: '#name',
   inputEmail: '#email',
   inputPassword: '#password',
@@ -110,7 +111,6 @@ export const productsPage =
     divThirdProductOnHover: 'div.col-sm-4:nth-child(5) > div.product-image-wrapper > div.single-products> div.product-overlay',
     divLastProductOnHover: 'div.col-sm-4:last-child > div.product-image-wrapper > div.single-products> div.product-overlay',
     h2ProductPrice: 'h2:nth-child(2)',
-    divFirstProductH2Product: '.features_items > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h2:nth-child(2)',
     pProductTitle: 'p:nth-child(2)',
     linkProductOnHover: 'div > a',
     buttonDialogContinueShopping:'.modal-footer > .btn',
@@ -141,6 +141,8 @@ export const productsPageLeftSideBar ={
     linkKidsSecondElement: '#Kids > .panel-body > ul > :nth-child(2) > a'
 }
 export const productsPageRecommendedItem ={
+    h2PriceFirst: '#recommended-item-carousel > div > div.item.active > div:nth-child(1) > div > div > div > h2',
+    pTitleFirst: '#recommended-item-carousel > div > div.item.active > div:nth-child(1) > div > div > div > p',
     divRecommendedSection: '.recommended_items',
     h2Recommendedtitle: '.recommended_items > .title',
     divCarousel: 'div.carousel-inner:nth-child(1)',

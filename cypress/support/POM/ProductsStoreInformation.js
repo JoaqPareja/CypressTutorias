@@ -16,7 +16,35 @@ class storeProduct{
         this.pTxtFirstRecommendedProduct = pTxtFirstRecommendedProduct;
     }
 }
-class StoreProductInformationReWriteJson extends storeProduct{
+
+class StoreRecommendedReWriteJson extends storeProduct{
+    constructor() {
+        super();
+    }
+    get firstRecommendedProduct(){
+        return this.storeFirstRecommendedItem();
+    }
+    storeFirstRecommendedItem(){
+        const firstRecommended =
+            cy.scrollTo('bottom');
+            cy.get(productsPageRecommendedItem.h2PriceFirst)
+                .invoke('show')
+                    .then(response => {
+                        this.priceFirstRecommendedProduct = response.text();
+                            test.push({'priceFirstRecommendedProduct': this.priceFirstRecommendedProduct})
+                                cy.writeFile(filename,  test); 
+                                });
+            cy.get(productsPageRecommendedItem.pTitleFirst)
+                .invoke('show')
+                    .then(response => {
+                        this.pTxtFirstRecommendedProduct = response.text();
+                            test.push({'titleFirstRecommendedProduct': this.pTxtFirstRecommendedProduct})
+                                cy.writeFile(filename, test);  
+                });           
+        return firstRecommended
+      }
+}
+class StoreProductReWriteJson extends storeProduct{
     constructor() {
         super();
     }
@@ -26,9 +54,7 @@ class StoreProductInformationReWriteJson extends storeProduct{
     get secondProduct(){
         return this.storeSecondProduct();
     }
-    get firstRecommendedProduct(){
-        return this.storeFirstRecommendedItem();
-    }
+    
     storeFirstProduct(){
         const firstProduct =
             cy.get(productsPage.divFirstProduct)
@@ -64,29 +90,10 @@ class StoreProductInformationReWriteJson extends storeProduct{
                     });                    
   return secondProduct
                 }
-storeFirstRecommendedItem(){
-    const firstRecommended =
-        cy.scrollTo('bottom');
-        cy.get(productsPageRecommendedItem.divRecommendedSection)
-            .invoke('show')
-                .find(productsPage.h2ProductPrice)
-                    .then(response => {
-                    this.priceFirstRecommendedProduct = response.text();
-                        test.push({'firstRecommendedProduct': this.priceFirstRecommendedProduct})
-                            cy.writeFile(filename,  test); 
-                            });
-        cy.get(productsPageRecommendedItem.divRecommendedSection)
-            .find(productsPage.h2ProductPrice)
-                .then(response => {
-                    this.pTxtFirstRecommendedProduct = response.text();
-                        test.push({'titleFirstRecommendedProduct': this.pTxtFirstRecommendedProduct})
-                            cy.writeFile(filename, test);  
-            });           
-    return firstRecommended
-  }
+
 }//End of class StoreProductInformationReWriteJson
 
- class StoreProductInformationPushJson extends storeProduct{
+ class StoreProductPushJson extends storeProduct{
     constructor() {
         super();
     }
@@ -179,6 +186,7 @@ storeFirstRecommendedItem(){
  
 
 module.exports ={
-    StoreProductInformationReWriteJson,
-    StoreProductInformationPushJson
+    StoreProductReWriteJson,
+    StoreRecommendedReWriteJson,
+    StoreProductPushJson
 }
