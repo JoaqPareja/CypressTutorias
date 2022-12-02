@@ -1,4 +1,4 @@
-import {productsPage} from './Consts'
+import {productsPage, productsPageRecommendedItem} from './Consts'
 
 
 class AddProducts{
@@ -10,35 +10,35 @@ class AddProducts{
   get secondProduct(){
       return this.storeSecondProduct();
   }
-  get thirdProduct(){
-      return this.thirdProduct();
+//   get thirdProduct(){
+//       return this.thirdProduct();
+//   }
+//   get lastProduct(){
+//       return this.lastProduct();
+//   }
+  get firstRecommendedProduct(){
+      return this.storeFirstRecommendedItem();
   }
-  get lastProduct(){
-      return this.lastProduct();
-  }
-  // get firstRecommendedProduct(){
-  //     return this.storeFirstRecommendedItem();
-  // }
-          firstProduct() {
-          const firstProduct =
+  storeFirstProduct() {
+          const storeFirstProduct =
                   cy.get(productsPage.divFirstProductOnHover) // . Hover over first product and click 'Add to cart'
                       .trigger('mouseover', {force: true})
                           .find(productsPage.linkProductOnHover)
                               .click({force: true});                                       
                   cy.get(productsPage.buttonDialogContinueShopping)  // . Click 'Continue Shopping' button                    
                       .click();                       
-          return firstProduct;
-          }
-          secondProduct(){
-              const secondProduct = 
+          return storeFirstProduct;
+          };
+          storeSecondProduct(){
+              const storeSecondProduct = 
                       cy.get(productsPage.divSecondProductOnHover)
                               .trigger('mouseover', {force: true})
                                   .find(productsPage.linkProductOnHover)
                                           .click( {force: true});
                       cy.get(productsPage.buttonDialogContinueShopping)
                           .click(); 
-              return secondProduct;                             
-          }
+              return storeSecondProduct;                             
+          };
           thirdProduct(){
               const thirdProduct =  
                   cy.get(productsPage.divThirdProductOnHover)   
@@ -48,7 +48,7 @@ class AddProducts{
               cy.get(productsPage.buttonDialogContinueShopping)
                   .click();                     
               return thirdProduct;          
-          }
+          };
           lastProduct(){
               const lastProduct =  
                   cy.get(productsPage.divLastProductOnHover)
@@ -59,10 +59,16 @@ class AddProducts{
                   .click();  
                   // verifiyAlertMessage();
           return lastProduct;   
+          };
+            storeFirstRecommendedItem(){
+            const storeFirstRecommendedItem=
+            cy.get(productsPageRecommendedItem.divRecommendedSection)
+                        .find(productsPageRecommendedItem.linkItemActive)
+                            .click({force: true}) 
+                           
+            return storeFirstRecommendedItem;
           }
-  
   }
-
 
   module.exports ={
     AddProducts,

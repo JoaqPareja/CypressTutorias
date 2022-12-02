@@ -1,8 +1,10 @@
 import{header} from '../../support/POM/Consts'
 
-import {addProducts,storeProductInformationReWriteJson, verifyProducts} from '../../support/POM'
+import {addProducts,storeProductInformationReWriteJson, verifyProductsGeneral} from '../../support/POM'
 //Falta generar array vacio de enteros y luego que por cada elemento 
 // anadido al carrito este se incremente y luego comprararlo
+const filename = '/EnviromentVariables.json';
+let test = [];
 
 describe('Add products and verified each on the Cart', () => {  
 
@@ -12,6 +14,9 @@ describe('Add products and verified each on the Cart', () => {
   })
   it('Store product information',()=>{
     cy.visit('/')
+      // test.push({str : []}) //Make the array empty
+      cy.writeFile(filename, test)
+      cy.readFile(filename).then((str)=>{cy.log(str).pause();})
       cy.get(header.linkProducts) // .Click 'Products' button
           .click();
           storeProductInformationReWriteJson.firstProduct;    
@@ -27,8 +32,8 @@ describe('Add products and verified each on the Cart', () => {
     });     
   it('Cart products verify first product', ()=>{ // . Verify their prices, quantity and total price
     cy.visit('/view_cart')
-    verifyProducts.firstProduct;
-    verifyProducts.secondProduct;
+    verifyProductsGeneral.firstProduct;
+    verifyProductsGeneral.secondProduct;
   });
 })
 

@@ -69,12 +69,19 @@ storeFirstRecommendedItem(){
         cy.scrollTo('bottom');
         cy.get(productsPageRecommendedItem.divRecommendedSection)
             .invoke('show')
-             .find(productsPageRecommendedItem.linkItemActive).should('be.visible')
-                .then(response => {
-                    priceFirstRecommendedProduct = response.text();
-                        test.push({'firstRecommendedProduct': priceFirstRecommendedProduct})
+                .find(productsPage.h2ProductPrice)
+                    .then(response => {
+                    this.priceFirstRecommendedProduct = response.text();
+                        test.push({'firstRecommendedProduct': this.priceFirstRecommendedProduct})
                             cy.writeFile(filename,  test); 
                             });
+        cy.get(productsPageRecommendedItem.divRecommendedSection)
+            .find(productsPage.h2ProductPrice)
+                .then(response => {
+                    this.pTxtFirstRecommendedProduct = response.text();
+                        test.push({'titleFirstRecommendedProduct': this.pTxtFirstRecommendedProduct})
+                            cy.writeFile(filename, test);  
+            });           
     return firstRecommended
   }
 }//End of class StoreProductInformationReWriteJson
@@ -92,9 +99,9 @@ storeFirstRecommendedItem(){
     // get lastProduct(){
     //     return this.lastProduct();
     // }
-    // get firstRecommendedProduct(){
-    //     return this.storeFirstRecommendedItem();
-    // }
+    get firstRecommendedProduct(){
+        return this.storeFirstRecommendedItem();
+    }
 
     storeFirstProduct(){
         const firstProduct =
@@ -139,7 +146,7 @@ storeFirstRecommendedItem(){
         storeLastProduct(){
             const lastProduct =  
             cy.get(productsPage.divLastProduct)
-              .find(productsPage.pProductTitle)
+                .find(productsPage.pProductTitle)
                     .then(response => {
                         this.priceFirstRecommendedProduct = response.text();
                         cy.readFile(filename).then((test)=>{
@@ -148,18 +155,25 @@ storeFirstRecommendedItem(){
                      });      
     return lastProduct;   
             }
-    storeFirstRecommendedItem(){
-    const firstRecommended =
-    cy.scrollTo('bottom');
-    cy.get(productsPageRecommendedItem.divCarousel)
-        .find(productsPageRecommendedItem.linkItemActive)
-                .then(response => {
-                    this.priceFirstRecommendedProduct = response.text();
-                    cy.readFile(filename).then((test)=>{
-                        test.push({'firstRecommendedProduct': this.priceFirstRecommendedProduct})
-                            cy.writeFile(filename,  test); });
-                          });
-    return firstRecommended
+            storeFirstRecommendedItem(){
+                const firstRecommended =
+                    cy.scrollTo('bottom');
+                    cy.get(productsPageRecommendedItem.divRecommendedSection)
+                        .invoke('show')
+                            .find(productsPage.h2ProductPrice)
+                                .then(response => {
+                                this.priceFirstRecommendedProduct = response.text();
+                                    test.push({'firstRecommendedProduct': this.priceFirstRecommendedProduct})
+                                        cy.writeFile(filename,  test); 
+                                        });
+                    cy.get(productsPageRecommendedItem.divRecommendedSection)
+                        .find(productsPage.h2ProductPrice)
+                            .then(response => {
+                                this.pTxtFirstRecommendedProduct = response.text();
+                                    test.push({'titleFirstRecommendedProduct': this.pTxtFirstRecommendedProduct})
+                                        cy.writeFile(filename, test);  
+                        });           
+                return firstRecommended
     }
 }
  
