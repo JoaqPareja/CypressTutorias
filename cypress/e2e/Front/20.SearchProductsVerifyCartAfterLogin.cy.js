@@ -14,7 +14,7 @@ import {addProducts} from '../../support/POM'
           cy.url()
               .should('contain', '/products')
         })
-        it('Add products', ({ cacheSession = true } = {})  =>{
+        it('Add products', ()  =>{
           cy.visit('/products?search=dress')
             addProducts.getFirstProduct();
             addProducts.getSecondProduct();

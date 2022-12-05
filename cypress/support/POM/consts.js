@@ -20,6 +20,7 @@ export const header =
     linkProducts: '.shop-menu >.navbar-nav > li:nth-child(2) > a',
     linkCart: '.shop-menu >.navbar-nav > li:nth-child(3) > a' ,
     linkSingUpLogin: '.shop-menu >.navbar-nav > li:nth-child(4) > a',
+    linkDelete: '.shop-menu >.navbar-nav > li:nth-child(5) > a',
     linkTestCAses: '.shop-menu >.navbar-nav > li:nth-child(5) > a',
     linkApiTesting: '.shop-menu >.navbar-nav > li:nth-child(6) > a',
     linkVideoTutorials: '.shop-menu >.navbar-nav > li:nth-child(7) > a',

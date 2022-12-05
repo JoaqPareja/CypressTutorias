@@ -99,13 +99,20 @@ import {addProducts} from '../../support/POM'
     it('Download invoice', ()=>{
       cy.visit('/payment_done/0')
       cy.get('.col-sm-9 > p').should('have.text', 'Congratulations! Your order has been confirmed!')
-      cy.get('.col-sm-9 > .btn-default').click()// Download invoice button    
+      cy.get('.col-sm-9 > .btn-default').click()//. Click 'Download Invoice' button
     })  
-    it('Verify the downloaded file', () => {
+    it('Verify the downloaded file', () => {    //  and verify invoice is downloaded successfully.
       cy.readFile('cypress\\Downloads\\invoice.txt')
-      .should('exist')
+         .should('exist')
     });  
   })
+      // 21. Click 'Delete Account' button
+      // 22. Verify 'ACCOUNT DELETED!' and click 'Continue' button
+  it('Delete Account',()=>{
+    cy.visit('/')
+      cy.get(header.linkDelete).click();
+  })
+
     // 4. Add products to cart
     // 5. Click 'Cart' button
     // 6. Verify that cart page is displayed
@@ -121,8 +128,5 @@ import {addProducts} from '../../support/POM'
     // 16. Enter payment details: Name on Card, Card Number, CVC, Expiration date
     // 17. Click 'Pay and Confirm Order' button
     // 18. Verify success message 'Your order has been placed successfully!'
-    // 19. Click 'Download Invoice' button and verify invoice is downloaded successfully.
     // 20. Click 'Continue' button
-    // 21. Click 'Delete Account' button
-    // 22. Verify 'ACCOUNT DELETED!' and click 'Continue' button
        
