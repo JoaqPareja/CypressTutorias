@@ -1,4 +1,6 @@
 
+import {header, cartAddress, inputTypes, cart, cartPayment } from '../../support/POM/Consts'
+import {addProducts} from '../../support/POM'
 
 
 
@@ -6,11 +8,104 @@
     // 2. Navigate to url 'http://automationexercise.com'
     // 3. Verify that home page is visible successfully
     describe('Register User', () => {
+      beforeEach('Stored loggin', ()=>{     
+        cy.login();  
+      })
+      
         it('Visit page',()=>{
           cy.visit('/')
-          //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
+          addProducts.firstProduct; 
+          addProducts.SecondProduct; 
+          cy.get(header.linkCart).click();
         })
-   
+        it('Check Delivery Address',()=>{
+          cy.visit('/checkout') //https://automationexercise.com/checkout
+            cy.get(cartAddress.pYourDeliveryAddressTitle)
+                .should('have.text', 'Your delivery address')
+            cy.get(cartAddress.pYourDeliveryAddressFirstName)
+                .should('have.text', '. test test') //inputTypes.test
+            cy.get(cartAddress.pYourDeliveryAddressLastName)
+                .should('have.text', inputTypes.test)
+            cy.get(cartAddress.pYourDeliveryAddresCompany)
+                .should('have.text', inputTypes.test)
+            cy.get(cartAddress.pYourDeliveryAddressCity)
+                .should('have.text', 'test test\n\t\t\t\t\t\t\t\ttest')
+            cy.get(cartAddress.pYourDeliveryAddressCountryName)
+                .should('have.text', 'New Zealand')
+            cy.get(cartAddress.pYourDeliveryAddressPhoneNumber)
+                .should('have.text', inputTypes.test)
+    })
+    it('Check Address Billing address',()=>{
+      cy.visit('/checkout') //https://automationexercise.com/checkout
+        cy.get(cartAddress.pYourBillingAddressTitle)            
+            .should('have.text', 'Your billing address')
+        cy.get(cartAddress.pYourBillingAddressFirstName)
+            .should('have.text', '. test test') //inputTypes.test
+        cy.get(cartAddress.pYourBillingAddressLastName)
+            .should('have.text', inputTypes.test)
+        cy.get(cartAddress.pYourBillingAddressCompany)
+            .should('have.text', inputTypes.test)
+        cy.get(cartAddress.pYourBillingAddressCity)
+            .should('have.text', 'test test\n\t\t\t\t\t\t\t\ttest')
+        cy.get(cartAddress.pYourBillingAddresCountryName)
+            .should('have.text', 'New Zealand')
+        cy.get(cartAddress.pYourBillingAddresPhoneNumber)
+            .should('have.text', inputTypes.test);
+        cy.get(cart.buttonPlaceOrder)
+            .click();  
+  })
+
+    it('Cart Payment',{pageLoadTimeout: 10000},()=>{
+        
+        cy.visit('/payment')
+        cy.get(cartPayment.inputNameOnCard)
+            .type('Joaquin Pareja');
+        cy.get(cartPayment.inputCardNumber)
+            .type(2222);
+        cy.get(cartPayment.inputCVC)
+            .type(333);
+        cy.get(cartPayment.inputExpirationMonth)
+            .type(11);
+        cy.get(cartPayment
+            .inputExpirationYear)    
+              .type(24);   
+        cy.window() // Get the global event from the window
+            .document()
+                .then(function (doc) {
+                    doc.addEventListener('click', () => { //Add the to the global event of the window an event listener of "Click"
+                        setTimeout(function () {   doc.location && doc.location.reload(); //To that spicific eventl add stop page reload event //Avoid page reload           
+                    }, 1500) // Do this after 1500 ms
+                    })
+            cy.get(cartPayment.buttonPayConfirmOrder)
+                .click();
+            cy.get(cartPayment.alertSuccessMessage)
+                .invoke('show') //After the element has appeared in the DOM i must call it again to show up to then be able to trow the assertion 
+                    .contains('Your order has been placed successfully!') // . Verify success message 'Your order has been placed successfully!'
+        }) 
+        cy.get(cartPayment.inputNameOnCard)
+          .type('Joaquin Pareja');
+      cy.get(cartPayment.inputCardNumber)
+          .type(2222);
+      cy.get(cartPayment.inputCVC)
+          .type(333);
+      cy.get(cartPayment.inputExpirationMonth)
+          .type(11);
+      cy.get(cartPayment
+          .inputExpirationYear)    
+            .type(24);   
+          cy.get(cartPayment.buttonPayConfirmOrder)
+              .click();
+    })
+    it('Download invoice', ()=>{
+      cy.visit('/payment_done/0')
+      cy.get('.col-sm-9 > p').should('have.text', 'Congratulations! Your order has been confirmed!')
+      cy.get('.col-sm-9 > .btn-default').click()// Download invoice button    
+    })  
+    it('Verify the downloaded file', () => {
+      cy.readFile('cypress\\Downloads\\invoice.txt')
+      .should('exist')
+    });  
+  })
     // 4. Add products to cart
     // 5. Click 'Cart' button
     // 6. Verify that cart page is displayed
@@ -30,4 +125,4 @@
     // 20. Click 'Continue' button
     // 21. Click 'Delete Account' button
     // 22. Verify 'ACCOUNT DELETED!' and click 'Continue' button
-        })
+       

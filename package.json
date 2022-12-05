@@ -3,5 +3,8 @@
     "cypress": "^10.7.0",
     "cypress-plugin-api": "^1.5.0",
     "cypress-real-events": "^1.7.1"
+  },
+  "devDependencies": {
+    "cy-verify-downloads": "^0.1.11"
   }
 }

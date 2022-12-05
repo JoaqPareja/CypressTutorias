@@ -1,7 +1,7 @@
 
 // import "cypress-real-events/support";
 import 'cypress-plugin-api'
-
+require('cy-verify-downloads').addCustomCommand();
 import {header,loginUser, inputTypes} from './POM/Consts'
 //{experimentalSessionAndOrigin = true} = {}
 

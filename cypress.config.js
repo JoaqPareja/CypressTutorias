@@ -1,5 +1,5 @@
 const { defineConfig } = require("cypress");
-
+const { isFileExist } = require('cy-verify-downloads');
 
 module.exports = defineConfig({
   projectId: 'zs8v5h', 
@@ -10,10 +10,14 @@ module.exports = defineConfig({
     "supportFile": "cypress/support/commands.js",
     baseUrl: 'http://automationexercise.com',
     experimentalSessionAndOrigin: true,
+   
    env:{
 
-   }
-   
+   },
+   setupNodeEvents (on, config) {
+    on('task', { isFileExist })
+  }
+}
 
     
 //     setupNodeEvents(on, config) {
@@ -29,6 +33,6 @@ module.exports = defineConfig({
 //         }
 //       })
 // } 
-}
+
 
 });
