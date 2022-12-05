@@ -61,11 +61,22 @@ class AddProducts{
           return lastProduct;   
           };
             storeFirstRecommendedItem(){
-            const storeFirstRecommendedItem=
+        const storeFirstRecommendedItem=
             cy.get(productsPageRecommendedItem.divRecommendedSection)
-                        .find(productsPageRecommendedItem.linkItemActive)
-                            .click({force: true}) 
-                           
+                        .find(productsPageRecommendedItem.linkItemActive).then(($btn)=>{
+                           if($btn.hasClass('active')){
+                            cy.get(productsPageRecommendedItem.divRecommendedSection)
+                                .find(productsPageRecommendedItem.linkItemActive)
+                                    .click({force: true})  
+                           } 
+                           else{
+                            cy.get(productsPageRecommendedItem.divRecommendedSection)
+                                .find('#recommended-item-carousel > div > div:nth-child(1) > div:nth-child(1) > div > div > div > a')
+                                .click({force: true})                          
+                               }
+   
+                            })
+                                         
             return storeFirstRecommendedItem;
           }
   }

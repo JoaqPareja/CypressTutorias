@@ -26,21 +26,41 @@ class StoreRecommendedReWriteJson extends storeProduct{
     }
     storeFirstRecommendedItem(){
         const firstRecommended =
-            cy.scrollTo('bottom');
-            cy.get(productsPageRecommendedItem.h2PriceFirst)
-                .invoke('show')
-                    .then(response => {
+            // cy.scrollTo('bottom');
+        cy.get(productsPageRecommendedItem.divRecommendedSection)
+            .find(productsPageRecommendedItem.linkItemActive)   
+             .then(($btn)=>{
+                if($btn.hasClass('active')){
+                    cy.get(productsPageRecommendedItem.h2Recommendedtitle).then(response => {
                         this.priceFirstRecommendedProduct = response.text();
                             test.push({'priceFirstRecommendedProduct': this.priceFirstRecommendedProduct})
                                 cy.writeFile(filename,  test); 
                                 });
             cy.get(productsPageRecommendedItem.pTitleFirst)
-                .invoke('show')
                     .then(response => {
                         this.pTxtFirstRecommendedProduct = response.text();
                             test.push({'titleFirstRecommendedProduct': this.pTxtFirstRecommendedProduct})
                                 cy.writeFile(filename, test);  
-                });           
+                    
+                            })       
+                         }
+                    else{
+                         //CarouselNewFirstItem
+                        cy.get(productsPageRecommendedItem.h2CarouselNewFirstItem).then(response => {
+                                this.priceFirstRecommendedProduct = response.text();
+                                    test.push({'priceFirstRecommendedProduct': this.priceFirstRecommendedProduct})
+                                        cy.writeFile(filename,  test); 
+                                        });
+                    cy.get(productsPageRecommendedItem.pTitleCarouselNewFirstItem)
+                            .then(response => {
+                                this.pTxtFirstRecommendedProduct = response.text();
+                                    test.push({'titleFirstRecommendedProduct': this.pTxtFirstRecommendedProduct})
+                                        cy.writeFile(filename, test);  
+                            
+                    })             
+                    }   
+                }); 
+            ;          
         return firstRecommended
       }
 }

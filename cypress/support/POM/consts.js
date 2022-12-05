@@ -149,7 +149,10 @@ export const productsPageRecommendedItem ={
     divCarouselActive: 'item active',
     divProduct:'productinfo text-center',
     linkItemActive: '.active > :nth-child(1) > .product-image-wrapper > .single-products > .productinfo > .btn',
-}
+    carouselNewFirstItem: '#recommended-item-carousel > div > div:nth-child(1) > div:nth-child(1) > div > div > div > a',    
+    h2CarouselNewFirstItem : '#recommended-item-carousel > div > div:nth-child(1) > div:nth-child(1) > div > div > div > h2',
+    pTitleCarouselNewFirstItem: '#recommended-item-carousel > div > div:nth-child(1) > div:nth-child(1) > div > div > div > p'
+}//#recommended-item-carousel > div > div.item.active > div:nth-child(1) > div > div > div > p
 // 
 export const cart = {
     sectionCartItems: '.cart_items',

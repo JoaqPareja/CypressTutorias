@@ -1,26 +1,26 @@
-
-
-
+import {header} from '../../support/POM/Consts'
+import {addProducts} from '../../support/POM'
 
     // 1. Launch browser
     // 2. Navigate to url 'http://automationexercise.com'
     // 3. Verify that home page is visible successfully
-    describe('Register User', () => {
-  
-        it('Visit page',()=>{
+    describe('Verify Address Details', () => {
+      beforeEach('Stored loggin', ()=>{     
+        cy.login();  
+      })
+      
+        it('Add products',()=>{
           cy.visit('/')
-          //I retrieve the baseURL from the cypress.config.js file and avoid to re call the url for each test
+          addProducts.firstProduct;
+          addProducts.secondProduct;
+          cy.get(header.linkCart).click();
+          cy.url().should('include', '/view_cart')
         })
-        it('Verify that home page is visible successfully', () => {
-            // Verify that home page is visible successfully
-            // 3. Verify that home page is visible successfully
-            cy.CheckElement('body')
-            cy.CheckHidden('body')
-          }) 
-    // 4. Click 'Signup / Login' button
-    // 5. Fill all details in Signup and create account
-    // 6. Verify 'ACCOUNT CREATED!' and click 'Continue' button
-    // 7. Verify ' Logged in as username' at top
+        it('Verify information',()=>{
+          cy.visit('/view_cart')
+
+        })
+
     // 8. Add products to cart
     // 9. Click 'Cart' button
     // 10. Verify that cart page is displayed
