@@ -1,7 +1,19 @@
 
 import {cart} from './Consts'
 
-const filename = '/EnviromentVariables.json';
+// const filename = '/EnviromentVariables.json';
+const filename2 =  '/EnvVariables2.json';
+
+// cy.readFile(filename2).then((testnames)=>{
+//     cy.log("test filename2")
+//     cy.log(testnames).pause();
+//     cy.log(testnames.names).pause();
+//     cy.log(testnames.names[0]).pause();
+//     cy.log(testnames.names[1]).pause();
+//     cy.log(testnames.names[2]).pause();
+//     cy.log(testnames.names[3]).pause(); 
+// }) 
+
 class VerifyProducts{
 constructor(priceFirstProduct, titleFirstProduct, priceSecondProduct, titleSecondProduct
         ,priceFirstRecommendedProduct, titleFirstRecommendedProduct){
@@ -23,14 +35,10 @@ class VerifyProductsRecommended extends VerifyProducts{
     }
     verifyFirstProduct(){      
         const verifyFirstProduct = 
-       
-            cy.readFile(filename).then((str)=>{
+            cy.readFile(filename2).then((str)=>{
                 const arr = str
-                // cy.log(arr).pause();
-                // cy.log(arr[0])
-                // cy.log(arr[1]).pause();
-                this.priceFirstRecommendedProduct = arr[0].priceFirstRecommendedProduct
-                this.titleFirstRecommendedProduct = arr[1].titleFirstRecommendedProduct
+                this.priceFirstRecommendedProduct = arr.names[0]
+                this.titleFirstRecommendedProduct = arr.names[1]
             cy.get(cart.h4FirstProductTitle)  
                 .should('have.text', this.titleFirstRecommendedProduct);
             cy.get(cart.pPriceFirstProduct)
@@ -62,12 +70,13 @@ class VerifyProductsGeneral extends VerifyProducts{
 
     // }
 
-    verifyFirstProduct(){      
+    verifyFirstProduct(){     
+     
         const verifyFirstProduct =           
-            cy.readFile(filename).then((str)=>{
+            cy.readFile(filename2).then((str)=>{
                 const arr = str
-                this.priceFirstProduct  =arr[0].priceFirstProduct;
-                this.titleFirstProduct = arr[1].titleFirstProduct;
+                this.priceFirstProduct = arr.names[0]
+                this.titleFirstProduct = arr.names[1]
                    cy.get(cart.h4FirstProductTitle)  
                        .should('have.text', this.titleFirstProduct);
                    cy.get(cart.pPriceFirstProduct)
@@ -79,11 +88,12 @@ class VerifyProductsGeneral extends VerifyProducts{
     return verifyFirstProduct;
     }
     verifySecondProduct(){
+   
         const verifySecondProduct = 
-        cy.readFile(filename).then((str)=>{
+        cy.readFile(filename2).then((str)=>{
                 const arr = str
-                this.priceSecondProduct = arr[2].priceSecondProduct;
-                this.titleSecondProduct = arr[3].titleSecondProduct;
+                this.priceSecondProduct = arr.names[2];
+                this.titleSecondProduct = arr.names[3];
                 cy.get(cart.h4SecondProductTitle)
                      .should('have.text',  this.titleSecondProduct)       
                 cy.get(cart.pPriceSecondProduct)

@@ -8,7 +8,6 @@ let test = [];
 
 describe('Add products and verified each on the Cart', () => {  
 
-  
   beforeEach('Stored loggin', ()=>{     
     cy.login();  
   })
@@ -26,6 +25,7 @@ describe('Add products and verified each on the Cart', () => {
             .click();
             storeProductReWriteJson.firstProduct;    
             storeProductReWriteJson.secondProduct;   
+            storeProductReWriteJson.pushNamesJson;
   })
   it('Cart products verify first product', ()=>{ // . Verify their prices, quantity and total price
     cy.visit('/view_cart')
