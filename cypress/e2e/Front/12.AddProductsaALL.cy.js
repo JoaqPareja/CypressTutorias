@@ -8,15 +8,21 @@ import{header} from '../../support/POM/Consts'
 const filename = '/EnviromentVariables.json';
 
 let cantidad =0;
+let textosToStore = [];
 let prices = [];//Create an empty array to then be able to add new items
 let titles = [];
-
+let textosInCart =[];
+let textCart;
 let price;
 let title;
+let priceCart;
+let pricesInCart = [];
+let arrStoreIformation;
 describe('Add products and verified each on the Cart',{failOnStatusCode: false}, () => {  
   beforeEach('Stored loggin', ()=>{     
     cy.login();  
   })
+
   it('Add All Products',()=>{
     cy.visit('/')
       cy.get('.features_items > .col-sm-4 > .product-image-wrapper > .single-products > .productinfo > .btn' ).each(($el) =>{
@@ -31,72 +37,56 @@ describe('Add products and verified each on the Cart',{failOnStatusCode: false},
   it('Store All Products information', ()=>{
     cy.visit('/')
     cy.get('.features_items > .col-sm-4 > .product-image-wrapper > .single-products > .productinfo > h2' ).each(($el) =>{
-      cy.wrap($el).each($el =>{
         price = $el.text()
-        // cy.log(price).pause();
-       Cypress.env(prices.push(price));
-      //  cy.log((Cypress.env(prices))).pause();
-
-      })
-  })
- 
-  
+        prices.push(price)
+  });
+  let prices2 = {"prices": prices}
+  textosToStore.push(prices2)
 })
+
 it('Store All Products information', ()=>{
   cy.visit('/')
-  cy.get('.features_items > .col-sm-4 > .product-image-wrapper > .single-products > .productinfo > p' ).each(($el) =>{
-    cy.wrap($el).each($el =>{
+  cy.get('.features_items > .col-sm-4 > .product-image-wrapper > .single-products > .productinfo > p' )
+      .each(($el) =>{
       title = $el.text()
-      // cy.log(title).pause();
-       Cypress.env(titles.push(title));
-      //  cy.log((Cypress.env(titles))).pause();  
-      }) 
+      titles.push(title)
     })
-})
-// it('tessts',()=>{
-//   cy.visit('/')
-//   // cy.log(Cypress.env(prices)).pause();
-//   // cy.log(Cypress.env(prices[0])).pause();
-//   let pricesArr = Cypress.env(prices);
-//   // cy.log(pricesArr).pause(); 
-//   // cy.log(pricesArr[0]).pause(); // este solo trae uno
-//  cy.wrap(pricesArr).pause();
-//   cy.wrap(pricesArr).each(($el) =>{
-//     cy.log($el)
+      let titles2 = {"titles": titles}
+      textosToStore.push(titles2)
+      cy.writeFile(filename, textosToStore)
+    })
 
-//     })
-
-//   // cy.log(Cypress.env(titles)).pause(); 
-// let titlesArr = (Cypress.env(titles))
-//   // cy.log(titlesArr[0]).pause(); 
-//   cy.wrap(titlesArr).pause();
-//   cy.wrap(titlesArr).each(($el) =>{
-//     cy.log($el)
-
-//     })
-// })
-it('Cart verification', ()=>{
- 
+it('Title Cart verification', ()=>{
   cy.visit('/view_cart')
-  cy.get('tbody > tr > .cart_description > h4').each(($el) =>{
-    let titlesArr = (Cypress.env(titles))
-    cy.wrap($el).each(($elArray)=>{
-      cy.wrap(titlesArr).each(($idexArray) =>{
-        cy.log($elArray).pause();
-        expect($elArray).to.have.text($idexArray).pause();
+  cy.get('tbody > tr > .cart_description > h4')
+      .each(($el) =>{
+        textCart = $el.text()
+        textosInCart.push(textCart)
       })
-        
-    // cy.wra(titlesArr).each(($elArray, $indexArray) =>{
-    //   cy.wrap(($elArray, $indexArray)=>{ 
-    //       if ($index == $indexArray) {
-    //         expect($elArray).to.have.text($el).pause();
-    //       }
-    //     })
-    //     })
-      })
+    cy.readFile(filename).then(($arr)=>{
+    arrStoreIformation = $arr[1].titles
+    expect(textosInCart).to.deep.eq(arrStoreIformation);
     })
+      
+    })
+    it('Price Cart verification', ()=>{
+      cy.visit('/view_cart')
+      cy.get('tbody > tr > .cart_price > p')
+          .each(($el) =>{
+            priceCart = $el.text()
+            pricesInCart.push(priceCart)
+          })
+          // cy.wrap(pricesInCart)
+          cy.readFile(filename).then(($arr)=>{
+            arrStoreIformation = $arr[0].prices
+          expect(pricesInCart).to.deep.eq(arrStoreIformation);
+        })
+          
+      })
 })
-})   
+
+
+   
       // cy.wrap($el, $index).each(()=>{
       //   let titlesArr = (Cypress.env(titles))
       //   // cy.log(titlesArr).pause();
