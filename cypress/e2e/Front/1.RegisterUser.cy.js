@@ -2,6 +2,8 @@ import {header, inputTypes, singUpUser} from '../../support/POM/Consts';
 // import {consts} from '../fixtures/consts.json'
 import {registerUser} from '../../support/POM'
 
+
+
 let userName;
 describe('Register User',() => {
     beforeEach(() =>{

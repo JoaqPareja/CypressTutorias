@@ -9,12 +9,12 @@ module.exports = defineConfig({
     viewportHeight: 1050,
     "supportFile": "cypress/support/commands.js",
     baseUrl: 'http://automationexercise.com',
-    // experimentalSessionAndOrigin: true,
+    experimentalSessionAndOrigin: true,
    
    env:{
 
    },
-   setupNodeEvents (on, config) {
+   setupNodeEvents (on, config) {// placed to download CSV
     on('task', { isFileExist })
   }
 }
