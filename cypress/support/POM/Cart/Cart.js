@@ -1,5 +1,5 @@
 
-import {cart} from './Consts'
+import {cart} from '../Consts'
 
 // const filename = '/EnviromentVariables.json';
 const filename2 =  '/EnvVariables2.json';

@@ -1,5 +1,5 @@
 
-import {productsPage, productsPageRecommendedItem} from './Consts'
+import {productsPage, productsPageRecommendedItem} from '../Consts'
 
 let test = []; //Create an empty array to then be able to add new items
 let arr =[];
@@ -220,6 +220,26 @@ class StoreProductReWriteJson extends storeProduct{
                      });      
     return lastProduct;   
             }
+            storeFirstRecommendedItem(){
+                const firstRecommended =
+                    cy.scrollTo('bottom');
+                    cy.get(productsPageRecommendedItem.divRecommendedSection)
+                        .invoke('show')
+                            .find(productsPage.h2ProductPrice)
+                                .then(response => {
+                                this.priceFirstRecommendedProduct = response.text();
+                                    test.push(this.priceFirstRecommendedProduct)
+                                        cy.writeFile(filename,  test); 
+                                        });
+                    cy.get(productsPageRecommendedItem.divRecommendedSection)
+                        .find(productsPage.h2ProductPrice)
+                            .then(response => {
+                                this.pTxtFirstRecommendedProduct = response.text();
+                                    test.push(this.pTxtFirstRecommendedProduct)
+                                        cy.writeFile(filename, test);  
+                        });           
+                return firstRecommended
+    }
     pushNamesJson(){
         const pushNamesJson =
                 cy.readFile(filename).then((testnames)=>{

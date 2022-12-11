@@ -1,4 +1,4 @@
-import {productsPage, productsPageRecommendedItem} from './Consts'
+import {productsPage, productsPageRecommendedItem} from '../Consts'
 
 
 class AddProducts{
@@ -71,8 +71,8 @@ class AddProducts{
                            } 
                            else{
                             cy.get(productsPageRecommendedItem.divRecommendedSection)
-                                .find('#recommended-item-carousel > div > div:nth-child(1) > div:nth-child(1) > div > div > div > a')
-                                .click({force: true})                          
+                                .find(productsPageRecommendedItem.CarouselNewFirstItem) //CarouselNewFirstItem
+                                    .click({force: true})                      
                                }
    
                             })

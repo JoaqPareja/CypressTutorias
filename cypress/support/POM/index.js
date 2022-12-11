@@ -1,8 +1,8 @@
 
-import {StoreRecommendedReWriteJson, StoreProductReWriteJson, StoreProductPushJson} from './ProductsStoreInformation'
-import {AddProducts} from '../POM/ProductsAddItems'
-import {VerifyProductsGeneral, DeleteProducts, VerifyProductsRecommended} from '../POM/Cart'
-import {RegisterUser} from '../POM/RegisterUser'
+import {StoreRecommendedReWriteJson, StoreProductReWriteJson, StoreProductPushJson} from './Products/ProductsStoreInformation'
+import {AddProducts} from './Products/ProductsAddItems'
+import {VerifyProductsGeneral, DeleteProducts, VerifyProductsRecommended} from '../POM/Cart/Cart'
+import {RegisterUser} from './RegisterUsers/RegisterUser'
 
 //DO NOT ADD THE "DEFAULT" value to any of new class
 export const addProducts = new AddProducts();
