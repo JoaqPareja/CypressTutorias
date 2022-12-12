@@ -1,21 +1,16 @@
-import {productsPage, header} from '../../support/POM/Consts';
-    describe('Register User', () => {
+import {productsPage} from '../../support/POM/Consts';
+import {searchProducts} from '../../support/POM'    
+describe('Register User', () => {
       it('Verify products', ()=>{
       cy.visit('/')  // Navigate to url 'http://automationexercise.com'
-        cy.CheckElement('body')
-        cy.get(header.buttonProducts) //  Click on 'Products' button
-            .click();  
+      searchProducts.clickProductsLink();
         cy.url()  // . Verify user is navigated to ALL PRODUCTS page successfully
             .should('include', '/products')
               .should('not.include', '/products/');
         cy.CheckElement(productsPage.listOfItems) // The products list is visible
-        cy.get(productsPage.h2TitlePageProducts)
-            .should('have.text', 'All Products')
         cy.CheckElement(productsPage.inputSearchProduct); // Enter product name in search input and click search button\
-        cy.get(productsPage.inputSearchProduct)
-            .type('Blue Top')
-        cy.get(productsPage.inputSearchProduct) // Verify 'SEARCHED PRODUCTS' is visible
-            .click();
+        searchProducts.typeProductSearch('Blue Top');
+        searchProducts.clickProductSerach();
         cy.CheckElement(productsPage.listOfItems) // Verify all the products related to search are visible            
     })
   })

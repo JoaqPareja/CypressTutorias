@@ -6,9 +6,12 @@ import {RegisterUser} from './RegisterUsers/RegisterUser'
 import {ContactUs} from '../POM/ContactUs/ContactUs'
 import {TestCases} from '../POM/TestCases/TestCases'
 import {VerifyProductsExist} from '../POM/Products/VerifiyProductsExist'
-//DO NOT ADD THE "DEFAULT" value to any of new class
-export const addProducts = new AddProducts();
+import {SearchProducts} from '../POM/Products/SearchProduct'
+import {Subscribe} from '../POM/Subscription/SubscriptionInHomePage'
 
+//DO NOT ADD THE "DEFAULT" value to any of new class
+
+export const addProducts = new AddProducts();
 export const storeProductReWriteJson = new StoreProductReWriteJson();
 export const storeProductPushJson = new StoreProductPushJson();
 export const storeRecommendedReWriteJson = new StoreRecommendedReWriteJson();
@@ -19,3 +22,5 @@ export const registerUser = new RegisterUser();
 export const contactUs = new ContactUs();
 export const testCases = new TestCases();
 export const verifyProductsExist = new VerifyProductsExist();
+export const searchProducts = new SearchProducts();
+export const subscribe = new Subscribe();
