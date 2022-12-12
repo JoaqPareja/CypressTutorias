@@ -1,10 +1,11 @@
 
-import {StoreRecommendedReWriteJson, StoreProductReWriteJson, StoreProductPushJson} from './Products/ProductsStoreInformation'
+import { StoreRecommendedReWriteJson, StoreProductReWriteJson, StoreProductPushJson} from './Products/ProductsStoreInformation'
 import {AddProducts} from './Products/ProductsAddItems'
 import {VerifyProductsGeneral, DeleteProducts, VerifyProductsRecommended} from '../POM/Cart/Cart'
 import {RegisterUser} from './RegisterUsers/RegisterUser'
 import {ContactUs} from '../POM/ContactUs/ContactUs'
-
+import {TestCases} from '../POM/TestCases/TestCases'
+import {VerifyProductsExist} from '../POM/Products/VerifiyProductsExist'
 //DO NOT ADD THE "DEFAULT" value to any of new class
 export const addProducts = new AddProducts();
 
@@ -16,3 +17,5 @@ export const verifyProductsRecommended = new VerifyProductsRecommended();
 export const deleteProducts = new DeleteProducts();
 export const registerUser = new RegisterUser();
 export const contactUs = new ContactUs();
+export const testCases = new TestCases();
+export const verifyProductsExist = new VerifyProductsExist();

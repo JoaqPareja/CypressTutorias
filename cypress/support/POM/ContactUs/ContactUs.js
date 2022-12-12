@@ -16,7 +16,7 @@ class ContactUs {
     clickContactUsLink(){
         this.elements.contactUsLink().click();
     }
-    checkTitle(text){
+    checkTitle(AssertionType, text){
         this.elements.getInTouchTitle().should('have.text', text)
     }
     typeformName(text){

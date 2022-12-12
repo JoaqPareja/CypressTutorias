@@ -28,7 +28,7 @@ class RegisterUser {
         this.elements.mrButtonRadio().click();
     }
     checkUserEntered(userName){
-        this.elements.userInformation().should('have.value', userName);    
+        this.elements.userInformation().should(AssertionType, userName);    
     }
     typePassword(passsword){
         this.elements.passwordInput().type(passsword);
@@ -46,7 +46,7 @@ class RegisterUser {
         this.elements.newsLetterRadioButton().click();
     }
     clickSpecialOffersRadioButton(){
-        this.elements.specialOffersRadioButton().click();
+        this.elements.specialOffersRadioButton.click();
     } 
     typeFirstName(text){
         this.elements.firstNameInput().type(text);

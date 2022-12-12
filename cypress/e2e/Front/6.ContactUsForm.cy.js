@@ -4,7 +4,7 @@ describe('Register User', () => {
 it('Test the contact form', ()=>{
     cy.visit('/')
     contactUs.clickContactUsLink();
-    contactUs.checkTitle('Get In Touch');
+    contactUs.checkTitle('have.value','Get In Touch');
     contactUs.typeformName(inputTypes.nameSignUp);
     contactUs.typeEmailField(inputTypes.emailSignUp);
     contactUs.typeSubjectField(inputTypes.test);
