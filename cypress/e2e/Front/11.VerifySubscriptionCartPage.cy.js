@@ -1,23 +1,18 @@
 
 //  11: Verify Subscription in Cart page
-import {header, subscriptionSection, inputTypes} from '../../support/POM/Consts'
+import {subscriptionSection, inputTypes} from '../../support/POM/Consts'
+import {subscribeInCart} from '../../support/POM'
 
 describe('Register User', () => {
       it('Cart Testing', ()=>{
         cy.visit('/') //Navigate to url 'http://automationexercise.com'
-          cy.get(header.linkCart) // . Click 'Cart' button
-              .click();
+        subscribeInCart.clickLinkCart();
           cy.scrollTo('bottom', {ensureScrollable: false}); // . Scroll down to footer
-          cy.CheckElement(subscriptionSection.h2Subscription)  // . Verify text 'SUBSCRIPTION'
-              .should('have.text', 'Subscription')
-          cy.get(subscriptionSection.inputSubscriptionEmail) // . Enter email address in input and click arrow button
-              .type(inputTypes.emailSignUp); // . Enter email address in input and click arrow button       
-          cy.get(subscriptionSection.buttonSubscribe)
-              .click();
+          subscribeInCart.checkH2Subscription('Subscription');
+          subscribeInCart.typeSubscriptionEmail(inputTypes.emailSignUp);
+          subscribeInCart.clickSubscribeButton();
           cy.CheckElement(subscriptionSection.alertMessageofSuccess);  // 8. Verify success message 'You have been successfully subscribed!' is visible
-          cy.get(subscriptionSection.alertMessageofSuccess)   // 7. Verify success message 'You have been successfully subscribed!' is visible
-              .should('have.text', 'You have been successfully subscribed!')
+          subscribeInCart.checkSuccessAlertMsg('You have been successfully subscribed!');
       })
-
 })
     

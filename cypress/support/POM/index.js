@@ -7,8 +7,8 @@ import {ContactUs} from '../POM/ContactUs/ContactUs'
 import {TestCases} from '../POM/TestCases/TestCases'
 import {VerifyProductsExist} from '../POM/Products/VerifiyProductsExist'
 import {SearchProducts} from '../POM/Products/SearchProduct'
-import {Subscribe} from '../POM/Subscription/SubscriptionInHomePage'
-
+import {SubscribeInHome} from '../POM/Subscription/SubscriptionInHomePage'
+import {SubscribeInCart} from '../POM/Subscription/SubscriptionInCartPage'
 //DO NOT ADD THE "DEFAULT" value to any of new class
 
 export const addProducts = new AddProducts();
@@ -23,4 +23,5 @@ export const contactUs = new ContactUs();
 export const testCases = new TestCases();
 export const verifyProductsExist = new VerifyProductsExist();
 export const searchProducts = new SearchProducts();
-export const subscribe = new Subscribe();
+export const subscribeInHome = new SubscribeInHome();
+export const subscribeInCart = new SubscribeInCart();

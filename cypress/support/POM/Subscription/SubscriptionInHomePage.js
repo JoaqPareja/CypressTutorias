@@ -1,6 +1,6 @@
 import {subscriptionSection}  from '../Consts';
 
-class Subscribe{
+class SubscribeInHome{
 
     elements={
         checkSubscription: ()=> cy.CheckElement(subscriptionSection.h2Subscription),  // . Verify text 'SUBSCRIPTION'
@@ -23,5 +23,5 @@ class Subscribe{
     }
 }
 module.exports={
-    Subscribe
+    SubscribeInHome
 }
