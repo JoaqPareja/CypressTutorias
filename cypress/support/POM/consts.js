@@ -1,7 +1,6 @@
 //Structure [typeOfElement] [nameOfTheElement] (if aplicable [nameOfTheChildElement]) 
 // First letter of the text must be in camelcase
 
-
 export const inputTypes = {
     nameSignUp: 'JoaqTest2',
     nameSingUp2: 'JoaqTest02',
@@ -14,6 +13,7 @@ export const inputTypes = {
     incorrectEmail:'IncorrectEmail@gmail.com',
     incorrectPassword: 'IncorrectPassowrd'
 }
+
 export const header =
 {
     linkHome: '.shop-menu >.navbar-nav > li:nth-child(1) > a',
@@ -85,6 +85,9 @@ export const loginUser =
 
 export const productsPage = 
     {
+    allBtnProducts: '.features_items > .col-sm-4 > .product-image-wrapper > .single-products > .productinfo > .btn',
+    allH2PriceProducts: '.features_items > .col-sm-4 > .product-image-wrapper > .single-products > .productinfo > h2',
+    allPTitleProducts: '.features_items > .col-sm-4 > .product-image-wrapper > .single-products > .productinfo > p',
     inputSearchProducts: '#search_product',
     buttonSearchProducts: '#submit_search',
     listOfItems: '.features_items',
@@ -156,6 +159,8 @@ export const productsPageRecommendedItem ={
 }//#recommended-item-carousel > div > div.item.active > div:nth-child(1) > div > div > div > p
 // 
 export const cart = {
+    allh4TitleProducts: 'tbody > tr > .cart_description > h4',
+    allPPriceTitleProducts:'tbody > tr > .cart_price > p',
     sectionCartItems: '.cart_items',
     tdFirstProduct: 'tbody > tr:first-child > td:last-child ',
     tdSecondProduct: 'tbody > tr:nth-child(2)> td:last-child' ,
