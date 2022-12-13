@@ -9,7 +9,7 @@ module.exports = defineConfig({
     viewportHeight: 1050,
     "supportFile": "cypress/support/commands.js",
     baseUrl: 'http://automationexercise.com',
-    experimentalSessionAndOrigin: true,
+    // experimentalSessionAndOrigin: true,
    
    env:{
 

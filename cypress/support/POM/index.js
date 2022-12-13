@@ -11,9 +11,10 @@ import {SubscribeInHome} from './Subscription/SubscriptionInHomePage';
 import {SubscribeInCart} from './Subscription/SubscriptionInCartPage';
 import {StoreAllProduct, AddAllProducts} from './Products/AllProducts'
 import {VerifyAllProducts} from './Cart/VerifyAllProduct'
-
+import {CreateLogin} from '../POM/Login/Login'
 //DO NOT ADD THE "DEFAULT" value to any of new class
 
+export const createLogin = new CreateLogin();
 export const addProducts = new AddProducts();
 export const storeProductReWriteJson = new StoreProductReWriteJson();
 export const storeProductPushJson = new StoreProductPushJson();
