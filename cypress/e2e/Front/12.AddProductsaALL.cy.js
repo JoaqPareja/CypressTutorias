@@ -20,10 +20,17 @@ describe('Add products and verified each on the Cart',{failOnStatusCode: false},
 })
 
 it('Verify products in cart', ()=>{
-  cy.visit('/view_cart')
-  verifyAllProducts.checkTitles();
-  verifyAllProducts.checkPrices();
-      
+    cy.visit('/view_cart')
+    verifyAllProducts.storeCartTitles();
+      verifyAllProducts.elements.readJson().then(($arr)=>{
+      verifyAllProducts.elements.arrStoreIformation = $arr[1].titles
+      expect(verifyAllProducts.elements.textosInCart()).to.deep.eq(verifyAllProducts.elements.arrStoreIformation);
+  })
+  verifyAllProducts.storeCartPrices();
+    verifyAllProducts.elements.readJson().then(($arr)=>{
+      verifyAllProducts.elements.arrStoreIformation = $arr[0].prices
+      expect(verifyAllProducts.elements.pricesInCart()).to.deep.eq(verifyAllProducts.elements.arrStoreIformation);
+    })
     })
  
 })
