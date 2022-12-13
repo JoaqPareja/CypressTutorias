@@ -6,13 +6,8 @@ const filename = '/EnviromentVariables.json';
 let textosToStore = [];
 let prices = [];//Create an empty array to then be able to add new items
 let titles = [];
-let textosInCart =[];
-let textCart;
 let price;
 let title;
-let priceCart;
-let pricesInCart = [];
-let arrStoreIformation;
 let cantidad;
 
 
