@@ -1,16 +1,17 @@
 
-import { StoreRecommendedReWriteJson, StoreProductReWriteJson, StoreProductPushJson} from './Products/ProductsStoreInformation'
-import {AddProducts} from './Products/ProductsAddItems'
-import {VerifyProductsGeneral, DeleteProducts, VerifyProductsRecommended} from '../POM/Cart/Cart'
+import {StoreRecommendedReWriteJson, StoreProductReWriteJson, StoreProductPushJson} from './Products/StoreInformation'
+import {AddProducts} from './Products/AddItems'
+import {VerifyProductsGeneral, DeleteProducts, VerifyProductsRecommended} from './Cart/Cart'; 
 import {RegisterUser} from './RegisterUsers/RegisterUser'
-import {ContactUs} from '../POM/ContactUs/ContactUs'
-import {TestCases} from '../POM/TestCases/TestCases'
-import {VerifyProductsExist} from '../POM/Products/VerifiyProductsExist'
-import {SearchProducts} from '../POM/Products/SearchProduct'
-import {SubscribeInHome} from '../POM/Subscription/SubscriptionInHomePage'
-import {SubscribeInCart} from '../POM/Subscription/SubscriptionInCartPage'
-import {StoreAllProduct, AddAllProducts} from '../POM/Products/StoreAllProductsInformation'
-import {VerifyAllProducts} from '../POM/Cart/VerifyAllProduct'
+import {ContactUs} from './ContactUs/ContactUs';
+import {TestCases} from './TestCases/TestCases';
+import {VerifyProductsExist} from './Products/VerifiyProductsExist';
+import {SearchProducts} from './Products/SearchProduct';
+import {SubscribeInHome} from './Subscription/SubscriptionInHomePage';
+import {SubscribeInCart} from './Subscription/SubscriptionInCartPage';
+import {StoreAllProduct, AddAllProducts} from './Products/AllProducts'
+import {VerifyAllProducts} from './Cart/VerifyAllProduct'
+
 //DO NOT ADD THE "DEFAULT" value to any of new class
 
 export const addProducts = new AddProducts();
