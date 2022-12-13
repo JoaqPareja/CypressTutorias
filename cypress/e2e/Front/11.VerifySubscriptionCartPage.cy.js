@@ -8,11 +8,11 @@ describe('Register User', () => {
         cy.visit('/') //Navigate to url 'http://automationexercise.com'
         subscribeInCart.clickLinkCart();
           cy.scrollTo('bottom', {ensureScrollable: false}); // . Scroll down to footer
-          subscribeInCart.checkH2Subscription('Subscription');
+          subscribeInCart.elements.checkH2Subscription().should('have.text', 'Subscription');
           subscribeInCart.typeSubscriptionEmail(inputTypes.emailSignUp);
           subscribeInCart.clickSubscribeButton();
           cy.CheckElement(subscriptionSection.alertMessageofSuccess);  // 8. Verify success message 'You have been successfully subscribed!' is visible
-          subscribeInCart.checkSuccessAlertMsg('You have been successfully subscribed!');
+          subscribeInCart.elements.successAlertMsg().should('have.text', 'You have been successfully subscribed!');
       })
 })
     

@@ -16,9 +16,6 @@ class ContactUs {
     clickContactUsLink(){
         this.elements.contactUsLink().click();
     }
-    checkTitle(AssertionType, text){
-        this.elements.getInTouchTitle().should('have.text', text)
-    }
     typeformName(text){
         this.elements.formNameInput().type(text) 
     }
@@ -33,9 +30,6 @@ class ContactUs {
     }
     clickSubmitButton(){
         this.elements.submitButton().click();
-    }
-    checkMessage(text){
-        this.elements.succesMsgFormChanges().should('have.text', text)
     }
     clickLinkHome(){
         this.elements.linkHome().click();

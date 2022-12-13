@@ -4,13 +4,13 @@ describe('Register User', () => {
 it('Test the contact form', ()=>{
     cy.visit('/')
     contactUs.clickContactUsLink();
-    contactUs.checkTitle('have.value','Get In Touch');
+    contactUs.elements.getInTouchTitle().should('have.text', 'Get In Touch');
     contactUs.typeformName(inputTypes.nameSignUp);
     contactUs.typeEmailField(inputTypes.emailSignUp);
     contactUs.typeSubjectField(inputTypes.test);
     contactUs.clickChooseFileButton(inputTypes.test);
     contactUs.clickSubmitButton();
-    contactUs.checkMessage("Success! Your details have been submitted successfully.");
+    contactUs.elements.succesMsgFormChanges().should('have.text', "Success! Your details have been submitted successfully.")
     contactUs.clickLinkHome();
       //. Click 'Home' button and verify that landed to home page successfully
     cy.url().should('include', '/')   

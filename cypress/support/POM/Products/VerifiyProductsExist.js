@@ -12,18 +12,9 @@ class VerifyProductsExist{
 
     clickProductsLink(){
         this.elements.productsLink().click();
-    }
-    checkProductsPageTitle(text){
-        this.elements.h2ProductsTitlePage().should('have.text', text)
-    }            
+    }           
     clickViewFirstProduct(){
         this.elements.firstProductButton().click();
-    }
-    checkPriceInformartion(text){
-        this.elements.priceInformartion().contains(text)
-    }
-    checkStockAvaivialbiliyP(text){
-        this.elements.stockAvaivialbiliyParagraph().should('have.text',text)
     }
 }
 module.exports={

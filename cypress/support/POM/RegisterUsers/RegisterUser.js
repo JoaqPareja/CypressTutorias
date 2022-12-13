@@ -4,7 +4,7 @@ class RegisterUser {
 
     elements = {
       mrButtonRadio: () => cy.get(enterAccountInformation.radioButtonMr), 
-      userInformation: () => cy.get(enterAccountInformation.inputName),
+      userName: () => cy.get(enterAccountInformation.inputName),
       passwordInput: ()=> cy.get(enterAccountInformation.inputPassword),
       newsLetterRadioButton: ()=> cy.get(enterAccountInformation.radioButtonNewsLetter),  
       specialOffersRadioButton: ()=> cy.get(enterAccountInformation.radioButtonReceiveSpecialOffers),
@@ -27,9 +27,9 @@ class RegisterUser {
     clickRadioButton(){
         this.elements.mrButtonRadio().click();
     }
-    checkUserEntered(userName){
-        this.elements.userInformation().should(AssertionType, userName);    
-    }
+    // checkUserEntered(userName){
+    //     this.elements.userName().should('have.text', userName);
+    // }
     typePassword(passsword){
         this.elements.passwordInput().type(passsword);
     }
@@ -46,7 +46,7 @@ class RegisterUser {
         this.elements.newsLetterRadioButton().click();
     }
     clickSpecialOffersRadioButton(){
-        this.elements.specialOffersRadioButton.click();
+        this.elements.specialOffersRadioButton().click();
     } 
     typeFirstName(text){
         this.elements.firstNameInput().type(text);

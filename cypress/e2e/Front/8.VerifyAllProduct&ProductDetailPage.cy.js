@@ -8,12 +8,12 @@ import {verifyProductsExist} from '../../support/POM'
             .should('include', '/products')
                 .should('not.include', '/products/');  
         cy.CheckElement(productsPage.listOfItems);// . The products list is visible
-        verifyProductsExist.checkProductsPageTitle('All Products');
-        verifyProductsExist.clickViewFirstProduct()
+        verifyProductsExist.elements.h2ProductsTitlePage().should('have.text','All Products')
+        verifyProductsExist.clickViewFirstProduct();
         cy.CheckElement(productsPage.imgViewProduct);  // . User is landed to product detail page
         cy.CheckElement(productsPage.h2ProductInformation);  // . Verify that detail detail is visible: product name, category, price, availability, condition, brand
-        verifyProductsExist.checkPriceInformartion('Rs') // Checking that the price contain the right coin    
+        verifyProductsExist.elements.priceInformartion().contains('Rs')// Checking that the price contain the right coin    
         cy.CheckElement(productsPage.buttonProductInformationAddToCart);
-        verifyProductsExist.checkStockAvaivialbiliyP('Availability: In Stock')
+        verifyProductsExist.elements.stockAvaivialbiliyParagraph().should('have.text','Availability: In Stock')
   }) 
     })

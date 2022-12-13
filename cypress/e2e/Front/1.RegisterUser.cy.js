@@ -35,7 +35,7 @@ describe('Register User',() => {
             })
   it('Register Account information',  ()=>{
         registerUser.clickRadioButton();
-        registerUser.checkUserEntered("have.value",userName); 
+        registerUser.elements.userName().should('have.value', userName);
         registerUser.typePassword(inputTypes.passwordSignUp);
         registerUser.selectDay('1');
         registerUser.selectMonth('1');
